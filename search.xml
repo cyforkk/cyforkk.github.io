@@ -79,6 +79,256 @@
 ]]></content>
   </entry>
   <entry>
+    <title>Git基本使用（Windows版）</title>
+    <url>/2025/05/10/Git%E5%9F%BA%E6%9C%AC%E4%BD%BF%E7%94%A8/</url>
+    <content><![CDATA[<h1 id="Git基本使用（Windows版）"><a href="#Git基本使用（Windows版）" class="headerlink" title="Git基本使用（Windows版）"></a>Git基本使用（Windows版）</h1><p>参考<a href="https://www.liaoxuefeng.com/wiki/896043488029600">Git教程 - 廖雪峰的官方网站</a></p>
+<hr>
+<h3 id="安装git"><a href="#安装git" class="headerlink" title="安装git"></a>安装git</h3><p><a href="https://git-scm.com/downloads/win">git</a></p>
+<h5 id="测试是否安装成功"><a href="#测试是否安装成功" class="headerlink" title="测试是否安装成功"></a>测试是否安装成功</h5><ul>
+<li>方式一</li>
+</ul>
+<p>win + r 打开控制台输入</p>
+<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">git --version</span><br></pre></td></tr></table></figure>
+
+<ul>
+<li>方式二</li>
+</ul>
+<p>右击&#x3D;&#x3D;》显示更多选项&#x3D;&#x3D;》git bash here</p>
+<p>或快捷键（shift + f10）</p>
+<hr>
+<h3 id="配置Git"><a href="#配置Git" class="headerlink" title="配置Git"></a>配置Git</h3><figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">$ git config --global user.name &quot;Your Name&quot;</span><br><span class="line">$ git config --global user.email &quot;email@example.com&quot;</span><br></pre></td></tr></table></figure>
+
+<p>注意<code>git config</code>命令的<code>--global</code>参数，用了这个参数，表示你这台机器上所有的Git仓库都会使用这个配置，当然也可以对某个仓库指定不同的用户名和Email地址。</p>
+<hr>
+<h3 id="创建版本库"><a href="#创建版本库" class="headerlink" title="创建版本库"></a>创建版本库</h3><h5 id="新建文件夹"><a href="#新建文件夹" class="headerlink" title="新建文件夹"></a>新建文件夹</h5><figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">$ mkdir learngit</span><br><span class="line">$ cd learngit</span><br><span class="line">$ pwd</span><br><span class="line">/Users/michael/learngit</span><br></pre></td></tr></table></figure>
+
+<p><strong>注意：如果你使用Windows系统，为了避免遇到各种莫名其妙的问题，请确保目录名（包括父目录）不包含中文。</strong></p>
+<blockquote>
+<p>$ mkdir learngit 创建一个空目录 为learngit</p>
+<p>$ cd learngit 进入目录 </p>
+<p>$ pwd 显示当前目录的路径</p>
+<p>$ cd  返回上一级目录 </p>
+<p>cd d:cyfor\\ggg</p>
+<p>$ ls 列出当前文件夹的所有文件或文件夹(不包括隐藏的文件)</p>
+<p>$ ls -ah 列出当前文件夹的所有文件或文件夹(包括隐藏的文件)</p>
+</blockquote>
+<h5 id="变为Git仓库（将当前目录变成git可以管理的仓库）"><a href="#变为Git仓库（将当前目录变成git可以管理的仓库）" class="headerlink" title="变为Git仓库（将当前目录变成git可以管理的仓库）"></a>变为Git仓库（将当前目录变成git可以管理的仓库）</h5><figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">$ git init</span><br></pre></td></tr></table></figure>
+
+<p><strong>当前目录会多一个<code>.git</code>的目录</strong></p>
+<blockquote>
+<p>$ git init          	git仓库初始化，把这个目录变成Git可以管理的仓库</p>
+</blockquote>
+<h5 id="小结"><a href="#小结" class="headerlink" title="小结"></a>小结</h5><p>初始化一个Git仓库，使用git init命令。</p>
+<p>添加文件到Git仓库，分两步：</p>
+<ol>
+<li>使用命令git add <file>，注意，可反复多次使用，添加多个文件；</li>
+<li>如果有多个文件夹可以用 git add . 命令</li>
+<li>使用命令git commit -m <message>，完成。</li>
+</ol>
+<hr>
+<h3 id="把文件添加到版本库"><a href="#把文件添加到版本库" class="headerlink" title="把文件添加到版本库"></a>把文件添加到版本库</h3><figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">$ git add 文件名/目录名（文件夹名）</span><br><span class="line">$ git commit -m &quot;本次提交的说明&quot;</span><br></pre></td></tr></table></figure>
+
+<blockquote>
+<p>$ git add readme.txt</p>
+<p> 把文件添加到仓库</p>
+<p>$ git commit -m “wrote a readme file”</p>
+<p> 把文件提交到仓库 -m后面输入的是本次提交的说明</p>
+<p>$ git add . 	</p>
+<p>当前目录所有元素都加入（文件和文件夹）</p>
+</blockquote>
+<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">$ git add file1.txt</span><br><span class="line"></span><br><span class="line">$ git add file2.txt file3.txt</span><br><span class="line"></span><br><span class="line">$ git commit -m &quot;add 3 files.&quot;</span><br></pre></td></tr></table></figure>
+
+<p>commit可以一次提交很多文件，所以你可以多次add不同的文件</p>
+<h5 id="查看仓库当前的状态"><a href="#查看仓库当前的状态" class="headerlink" title="查看仓库当前的状态"></a>查看仓库当前的状态</h5><figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">$ git status</span><br></pre></td></tr></table></figure>
+
+<h5 id="查看具体修改的内容"><a href="#查看具体修改的内容" class="headerlink" title="查看具体修改的内容"></a>查看具体修改的内容</h5><figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">$ git diff</span><br></pre></td></tr></table></figure>
+
+<hr>
+<h3 id="时光穿梭"><a href="#时光穿梭" class="headerlink" title="时光穿梭"></a>时光穿梭</h3><h5 id="显示所有日志提交"><a href="#显示所有日志提交" class="headerlink" title="显示所有日志提交"></a>显示所有日志提交</h5><figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">$ git log 显示从最近到最远的提交日志</span><br><span class="line"></span><br><span class="line">$ git log --pretty=oneline 简朴显示</span><br></pre></td></tr></table></figure>
+
+<h5 id="版本回退"><a href="#版本回退" class="headerlink" title="版本回退"></a>版本回退</h5><p>首先，Git必须知道当前版本是哪个版本，在Git中，用<code>HEAD</code>表示当前版本，也就是最新的提交<code>1094adb...</code>（注意我的提交ID和你的肯定不一样），上一个版本就是<code>HEAD^</code>，上上一个版本就是<code>HEAD^^</code>，当然往上100个版本写100个<code>^</code>比较容易数不过来，所以写成<code>HEAD~100</code>。</p>
+<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">$ git reset --hard HEAD^</span><br></pre></td></tr></table></figure>
+
+<p><code>--hard</code>参数有啥意义？<code>--hard</code>会回退到上个版本的已提交状态，而<code>--soft</code>会回退到上个版本的未提交状态，<code>--mixed</code>会回退到上个版本已添加但未提交的状态。现在，先放心使用<code>--hard</code>。</p>
+<h5 id="版本恢复"><a href="#版本恢复" class="headerlink" title="版本恢复"></a>版本恢复</h5><p><strong>方式一：知道版本号恢复</strong></p>
+<p>办法其实还是有的，只要上面的命令行窗口还没有被关掉，你就可以顺着往上找啊找啊，找到那个<code>append GPL</code>的<code>commit id</code>是<code>1094adb...</code>，于是就可以指定回到未来的某个版本：</p>
+<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">$ git reset --hard 1094a</span><br></pre></td></tr></table></figure>
+
+<p>版本号没必要写全，前几位就可以了，Git会自动去找。当然也不能只写前一两位，因为Git可能会找到多个版本号，就无法确定是哪一个了。</p>
+<p><strong>方式二：寻找版本号恢复</strong></p>
+<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">$ git reflog</span><br></pre></td></tr></table></figure>
+
+<h5 id="小结-1"><a href="#小结-1" class="headerlink" title="小结"></a>小结</h5><ul>
+<li><code>HEAD</code>指向的版本就是当前版本，因此，Git允许我们在版本的历史之间穿梭，使用命令<code>git reset --hard commit_id</code>。</li>
+<li>穿梭前，用<code>git log</code>可以查看提交历史，以便确定要回退到哪个版本。</li>
+<li>要重返未来，用<code>git reflog</code>查看命令历史，以便确定要回到未来的哪个版本。</li>
+</ul>
+<hr>
+<h3 id="工作区和暂存区"><a href="#工作区和暂存区" class="headerlink" title="工作区和暂存区"></a>工作区和暂存区</h3><p>电脑中可以看到的<code>目录（文件夹）</code> &#x3D;&#x3D; 工作区</p>
+<p>版本库（工作区有一个隐藏目录<code>.git</code>，这个不算工作区，而是Git的版本库）</p>
+<p>版本库有stage和master（分支）、head（头指针）组成</p>
+<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">$ git status 是对工作区的情况</span><br><span class="line">$ git add xxx 是将工作区的内容提交到stage中</span><br><span class="line">$ git commit -m &quot;xxx&quot; 是将stage的内容提交到master分支中</span><br></pre></td></tr></table></figure>
+
+<h5 id="总结"><a href="#总结" class="headerlink" title="总结"></a>总结</h5><ul>
+<li>每次修改完文件，就add 放入stage中，再commit到分支，因为commit只会提交stage中的文件</li>
+</ul>
+<hr>
+<h3 id="撤销修改"><a href="#撤销修改" class="headerlink" title="撤销修改"></a>撤销修改</h3><p><strong>情况一（未添加到stage中）：直接撤销</strong></p>
+<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">$ git checkout -- readme.txt</span><br></pre></td></tr></table></figure>
+
+<p><strong>情况二（放入到stage中）：撤销到工作区再直接撤销</strong></p>
+<p>用命令<code>git reset HEAD &lt;file&gt;</code>可以把暂存区的修改撤销掉（unstage），重新放回工作区</p>
+<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">$ git reset HEAD readme.txt</span><br></pre></td></tr></table></figure>
+
+<h5 id="情况三（commit到分支中）：直接回退版本（前提是没有将本地版本库推送到远程）"><a href="#情况三（commit到分支中）：直接回退版本（前提是没有将本地版本库推送到远程）" class="headerlink" title="情况三（commit到分支中）：直接回退版本（前提是没有将本地版本库推送到远程）"></a>情况三（commit到分支中）：直接回退版本（前提是没有将本地版本库推送到远程）</h5><h5 id="小结-2"><a href="#小结-2" class="headerlink" title="小结"></a>小结</h5><p>场景1：当你改乱了工作区某个文件的内容，想直接丢弃工作区的修改时，用命令<code>git checkout -- file</code>。</p>
+<p>场景2：当你不但改乱了工作区某个文件的内容，还添加到了暂存区时，想丢弃修改，分两步，第一步用命令<code>git reset HEAD &lt;file&gt;</code>，就回到了场景1，第二步按场景1操作。</p>
+<p>场景3：已经提交了不合适的修改到版本库时，想要撤销本次提交，参考[版本回退](##### 版本恢复)一节，不过前提是没有推送到远程库。</p>
+<hr>
+<h3 id="删除文件"><a href="#删除文件" class="headerlink" title="删除文件"></a>删除文件</h3><p><strong>流程：</strong></p>
+<ol>
+<li><strong>先删除工作区的文件（命令或手动）</strong></li>
+<li><strong>使用git rm <file><code>和</code>git add<file></strong></li>
+</ol>
+<p><strong>删除工作区的文件</strong></p>
+<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">$ rm test.txt</span><br></pre></td></tr></table></figure>
+
+<p><strong>删除版本库中的文件</strong></p>
+<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">$ git rm test.txt</span><br><span class="line">$ git commit -m &quot;remove test.txt&quot;</span><br></pre></td></tr></table></figure>
+
+<p><strong>删错文件，从版本库中恢复</strong></p>
+<p><code>git checkout</code>其实是用版本库里的版本替换工作区的版本，无论工作区是修改还是删除，都可以“一键还原”。</p>
+<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">$ git checkout -- test.txt</span><br></pre></td></tr></table></figure>
+
+<p> <strong>注意</strong></p>
+<p><strong>从来没有被添加到版本库就被删除的文件，是无法恢复的！</strong></p>
+<p><strong>小结</strong></p>
+<p>命令<code>git rm</code>用于删除一个文件。如果一个文件已经被提交到版本库，那么你永远不用担心误删，但是要小心，你只能恢复文件到最新版本，你会丢失<strong>最近一次提交后你修改的内容</strong>。</p>
+<hr>
+<h3 id="远程仓库"><a href="#远程仓库" class="headerlink" title="远程仓库"></a>远程仓库</h3><h5 id="添加远程仓库"><a href="#添加远程仓库" class="headerlink" title="添加远程仓库"></a>添加远程仓库</h5><p><strong>第1步</strong>：创建SSH Key。在用户主目录下，看看有没有.ssh目录，如果有，再看看这个目录下有没有<code>id_rsa</code>和<code>id_rsa.pub</code>这两个文件，如果已经有了，可直接跳到下一步。如果没有，打开Shell（Windows下打开Git Bash），创建SSH Key：</p>
+<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">$ ssh-keygen -t rsa -C &quot;youremail@example.com&quot;</span><br></pre></td></tr></table></figure>
+
+<p>你需要把邮件地址换成你自己的邮件地址，然后一路回车，使用默认值即可，由于这个Key也不是用于军事目的，所以也无需设置密码。</p>
+<p>如果一切顺利的话，可以在用户主目录里找到<code>.ssh</code>目录，里面有<code>id_rsa</code>和<code>id_rsa.pub</code>两个文件，这两个就是SSH Key的秘钥对，<code>id_rsa</code>是私钥，不能泄露出去，<code>id_rsa.pub</code>是公钥，可以放心地告诉任何人。</p>
+<p><strong>第2步</strong>：登陆GitHub，点击右上角的头像，settings，SSH与GPG公钥</p>
+<p>然后，点“Add SSH Key”，填上任意Title，在Key文本框里粘贴<code>id_rsa.pub</code>文件的内容</p>
+<p><strong>第3步</strong>：在主页右上角找到“Create a new repo”按钮，创建一个新的仓库</p>
+<p><strong>第4步</strong>：连接对应的仓库</p>
+<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">$ git remote add origin git@github.com:michaelliao/learngit.git</span><br></pre></td></tr></table></figure>
+
+<p>添加后，远程库的名字就是<code>origin</code>，这是Git默认的叫法，也可以改成别的，但是<code>origin</code>这个名字一看就知道是远程库。</p>
+<p><strong>第5步</strong>：把本地库的所有内容推送到远程库上</p>
+<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">$ git push -u origin master</span><br></pre></td></tr></table></figure>
+
+<p>把本地库的内容推送到远程，用<code>git push</code>命令，实际上是把当前分支<code>master</code>推送到远程。</p>
+<p>由于远程库是空的，我们第一次推送<code>master</code>分支时，加上了<code>-u</code>参数，Git不但会把本地的<code>master</code>分支内容推送的远程新的<code>master</code>分支，还会把本地的<code>master</code>分支和远程的<code>master</code>分支关联起来，在以后的推送或者拉取时就可以简化命令。</p>
+<p>从现在起，只要本地作了提交，就可以通过命令：</p>
+<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">$ git push origin master</span><br></pre></td></tr></table></figure>
+
+<h5 id="SSH警告"><a href="#SSH警告" class="headerlink" title="SSH警告"></a>SSH警告</h5><p>当你第一次使用Git的<code>clone</code>或者<code>push</code>命令连接GitHub时，会得到一个警告：</p>
+<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">The authenticity of host &#x27;github.com (xx.xx.xx.xx)&#x27; can&#x27;t be established.</span><br><span class="line">RSA key fingerprint is xx.xx.xx.xx.xx.</span><br><span class="line">Are you sure you want to continue connecting (yes/no)?</span><br></pre></td></tr></table></figure>
+
+<p>这是因为Git使用SSH连接，而SSH连接在第一次验证GitHub服务器的Key时，需要你确认GitHub的Key的指纹信息是否真的来自GitHub的服务器，输入<code>yes</code>回车即可。</p>
+<p>Git会输出一个警告，告诉你已经把GitHub的Key添加到本机的一个信任列表里了：</p>
+<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">Warning: Permanently added &#x27;github.com&#x27; (RSA) to the list of known hosts.</span><br></pre></td></tr></table></figure>
+
+<p>这个警告只会出现一次，后面的操作就不会有任何警告了。</p>
+<p>如果你实在担心有人冒充GitHub服务器，输入<code>yes</code>前可以对照<a href="https://help.github.com/articles/what-are-github-s-ssh-key-fingerprints/">GitHub的RSA Key的指纹信息</a>是否与SSH连接给出的一致。</p>
+<h5 id="查看远程库信息"><a href="#查看远程库信息" class="headerlink" title="查看远程库信息"></a>查看远程库信息</h5><p>如果添加的时候地址写错了，或者就是想删除远程库，可以用<code>git remote rm &lt;name&gt;</code>命令。使用前，建议先用<code>git remote -v</code>查看远程库信息：</p>
+<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">$ git remote -v</span><br></pre></td></tr></table></figure>
+
+<h5 id="删除远程库"><a href="#删除远程库" class="headerlink" title="删除远程库"></a>删除远程库</h5><p>根据名字删除，比如删除<code>origin</code>：</p>
+<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">$ git remote rm origin</span><br></pre></td></tr></table></figure>
+
+<p>此处的“删除”其实是解除了本地和远程的绑定关系，并不是物理上删除了远程库。远程库本身并没有任何改动。要真正删除远程库，需要登录到GitHub，在后台页面找到删除按钮再删除。</p>
+<h5 id="小结-3"><a href="#小结-3" class="headerlink" title="小结"></a>小结</h5><p>要关联一个远程库，使用命令<code>git remote add origin git@server-name:path/repo-name.git</code>；</p>
+<p>关联一个远程库时必须给远程库指定一个名字，<code>origin</code>是默认习惯命名；</p>
+<p>关联后，使用命令<code>git push -u origin master</code>第一次推送<code>master</code>分支的所有内容；</p>
+<p>此后，每次本地提交后，只要有必要，就可以使用命令<code>git push origin master</code>推送最新修改；</p>
+<p>分布式版本系统的最大好处之一是在本地工作完全不需要考虑远程库的存在，也就是有没有联网都可以正常工作，而SVN在没有联网的时候是拒绝干活的！当有网络的时候，再把本地提交推送一下就完成了同步，真是太方便了！</p>
+<hr>
+<h3 id="从远程库克隆"><a href="#从远程库克隆" class="headerlink" title="从远程库克隆"></a>从远程库克隆</h3><p>git clone 目标地址.git</p>
+<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">$ git clone git@github.com:michaelliao/gitskills.git</span><br></pre></td></tr></table></figure>
+
+<p>你也许还注意到，GitHub给出的地址不止一个，还可以用<code>https://github.com/michaelliao/gitskills.git</code>这样的地址。实际上，Git支持多种协议，默认的<code>git://</code>使用<code>ssh</code>，但也可以使用<code>https</code>等其他协议。</p>
+<p>使用<code>https</code>除了速度慢以外，还有个最大的麻烦是每次推送都必须输入口令，但是在某些只开放<code>http</code>端口的公司内部就无法使用<code>ssh</code>协议而只能用<code>https</code>。</p>
+<h5 id="小结-4"><a href="#小结-4" class="headerlink" title="小结"></a>小结</h5><p>要克隆一个仓库，首先必须知道仓库的地址，然后使用<code>git clone</code>命令克隆。</p>
+<p>Git支持多种协议，包括<code>https</code>，但<code>ssh</code>协议速度最快。</p>
+<hr>
+<h3 id="分支处理"><a href="#分支处理" class="headerlink" title="分支处理"></a>分支处理</h3><h5 id="创建dev分支，然后切换到dev分支"><a href="#创建dev分支，然后切换到dev分支" class="headerlink" title="创建dev分支，然后切换到dev分支"></a><strong>创建<code>dev</code>分支，然后切换到<code>dev</code>分支</strong></h5><figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">$ git checkout -b dev</span><br><span class="line">Switched to a new branch &#x27;dev&#x27;</span><br></pre></td></tr></table></figure>
+
+<p><code>git checkout</code>命令加上<code>-b</code>参数表示创建并切换，相当于以下两条命令：</p>
+<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">$ git branch dev</span><br><span class="line">$ git checkout dev</span><br><span class="line">Switched to branch &#x27;dev&#x27;</span><br></pre></td></tr></table></figure>
+
+<h5 id="git-branch-命令查看当前分支"><a href="#git-branch-命令查看当前分支" class="headerlink" title="git branch&#96;命令查看当前分支"></a><strong>git branch&#96;命令查看当前分支</strong></h5><figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">$ git branch</span><br><span class="line">* dev</span><br><span class="line">  master</span><br></pre></td></tr></table></figure>
+
+<p><code>git branch</code>命令会列出所有分支，当前分支前面会标一个<code>*</code>号。</p>
+<h5 id="切换分支"><a href="#切换分支" class="headerlink" title="切换分支"></a><strong>切换分支</strong></h5><p><code>git checkout 分支名</code></p>
+<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">$ git checkout master</span><br></pre></td></tr></table></figure>
+
+<p>现在，我们把<code>dev</code>分支的工作成果合并到<code>master</code>分支上：</p>
+<h5 id="合并分支"><a href="#合并分支" class="headerlink" title="合并分支"></a>合并分支</h5><figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">$ git merge dev</span><br><span class="line">Updating d46f35e..b17d20e</span><br><span class="line">Fast-forward</span><br><span class="line"> readme.txt | 1 +</span><br><span class="line"> 1 file changed, 1 insertion(+)</span><br></pre></td></tr></table></figure>
+
+<p><code>git merge</code>命令用于合并指定分支到当前分支。合并后，再查看<code>readme.txt</code>的内容，就可以看到，和<code>dev</code>分支的最新提交是完全一样的。</p>
+<p>注意到上面的<code>Fast-forward</code>信息，Git告诉我们，这次合并是“快进模式”，也就是直接把<code>master</code>指向<code>dev</code>的当前提交，所以合并速度非常快。</p>
+<p>当然，也不是每次合并都能<code>Fast-forward</code>，我们后面会讲其他方式的合并。</p>
+<p>合并完成后，就可以放心地删除<code>dev</code>分支了：</p>
+<h5 id="删除分支"><a href="#删除分支" class="headerlink" title="删除分支"></a>删除分支</h5><figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">$ git branch -d dev</span><br><span class="line">Deleted branch dev (was b17d20e).</span><br></pre></td></tr></table></figure>
+
+<p>删除后，查看<code>branch</code>，就只剩下<code>master</code>分支了：</p>
+<h5 id="查看分支"><a href="#查看分支" class="headerlink" title="查看分支"></a>查看分支</h5><figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">$ git branch</span><br><span class="line">* master</span><br></pre></td></tr></table></figure>
+
+<h5 id="小结-5"><a href="#小结-5" class="headerlink" title="小结"></a>小结</h5><p>Git鼓励大量使用分支：</p>
+<p>查看分支：<code>git branch</code></p>
+<p>创建分支：<code>git branch &lt;name&gt;</code></p>
+<p>切换分支：<code>git checkout &lt;name&gt;</code>或者<code>git switch &lt;name&gt;</code></p>
+<p>创建+切换分支：<code>git checkout -b &lt;name&gt;</code>或者<code>git switch -c &lt;name&gt;</code></p>
+<p>合并某分支到当前分支：<code>git merge &lt;name&gt;</code></p>
+<p>删除分支：<code>git branch -d &lt;name&gt;</code></p>
+<hr>
+<h3 id="冲突"><a href="#冲突" class="headerlink" title="冲突"></a>冲突</h3><p>分支修改的当行，commit后。主分支有修改当行，commit。会有冲突。</p>
+<p>解决方案（修改再提交）</p>
+<p>我们可以直接查看readme.txt的内容：</p>
+<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">Git is a distributed version control system.</span><br><span class="line">Git is free software distributed under the GPL.</span><br><span class="line">Git has a mutable index called stage.</span><br><span class="line">Git tracks changes of files.</span><br><span class="line">&lt;&lt;&lt;&lt;&lt;&lt;&lt; HEAD</span><br><span class="line">Creating a new branch is quick &amp; simple.</span><br><span class="line">=======</span><br><span class="line">Creating a new branch is quick AND simple.</span><br><span class="line">&gt;&gt;&gt;&gt;&gt;&gt;&gt; feature1</span><br></pre></td></tr></table></figure>
+
+<p>Git用<code>&lt;&lt;&lt;&lt;&lt;&lt;&lt;</code>，<code>=======</code>，<code>&gt;&gt;&gt;&gt;&gt;&gt;&gt;</code>标记出不同分支的内容，我们修改如下后保存：</p>
+<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">Git is a distributed version control system.</span><br><span class="line">Git is free software distributed under the GPL.</span><br><span class="line">Git has a mutable index called stage.</span><br><span class="line">Git tracks changes of files.</span><br><span class="line">Creating a new branch is quick and simple.</span><br></pre></td></tr></table></figure>
+
+<h3 id="其他"><a href="#其他" class="headerlink" title="其他"></a>其他</h3><p>用带参数的<code>git log</code>也可以看到分支的合并情况：</p>
+<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">$ git log --graph --pretty=oneline --abbrev-commit</span><br></pre></td></tr></table></figure>
+
+<p><strong>尝试拉取远程更改时允许合并不相关的提交历史：</strong></p>
+<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">git pull origin master --allow-unrelated-histories</span><br></pre></td></tr></table></figure>
+
+
+
+<p>cd(Change directory)    改变文件夹</p>
+<p>mkdir(Make directory)    新建文件夹</p>
+<p>pwd(Print working directory)   显示当前目录</p>
+<p>init(Initialization)    初始化</p>
+<p>status    情况</p>
+<p>commit    提交</p>
+<p>stage	暂存区</p>
+<p>添加某个文件时，该文件必须在当前目录下存在，用ls或者dir命令查看当前目录的文件，看看文件是否存在，或者是否写错了文件名</p>
+<p>$ git remote add origin <a href="mailto:&#103;&#105;&#x74;&#64;&#x67;&#x69;&#x74;&#x68;&#117;&#x62;&#x2e;&#x63;&#111;&#109;">git@github.com</a>:michaelliao&#x2F;learngit.git</p>
+<p>请千万注意，把上面的michaelliao替换成你自己的GitHub账户名</p>
+<p>添加后，远程库的名字就是origin，这是Git默认的叫法，也可以改成别的，但是origin这个名字一看就知道是远程库。</p>
+<p>$ git push -u origin master</p>
+<p>把本地库的内容推送到远程，用git push命令，实际上是把当前分支master推送到远程。</p>
+<p>由于远程库是空的，我们第一次推送master分支时，加上了-u参数，Git不但会把本地的master分支内容推送的远程新的master分支，还会把本地的master分支和远程的master分支关联起来，在以后的推送或者拉取时就可以简化命令。</p>
+<p>只要本地作了提交，就可以通过命令：</p>
+<p>$ git push origin master</p>
+<p>git remote rm <name>命令。使用前，建议先用git remote -v查看远程库信息：</p>
+<p>$ git remote -v</p>
+<p>根据名字删除，比如删除origin：</p>
+<p>$ git remote rm origin</p>
+<p>此处的“删除”其实是解除了本地和远程的绑定关系，并不是物理上删除了远程库。远程库本身并没有任何改动。要真正删除远程库，需要登录到GitHub，在后台页面找到删除按钮再删除。</p>
+<p>要关联一个远程库，使用命令git remote add origin git@server-name:path&#x2F;repo-name.git；</p>
+<p>关联一个远程库时必须给远程库指定一个名字，origin是默认习惯命名；</p>
+<p>关联后，使用命令git push -u origin master第一次推送master分支的所有内容；</p>
+<p>此后，每次本地提交后，只要有必要，就可以使用命令git push origin master推送最新修改；</p>
+]]></content>
+  </entry>
+  <entry>
     <title>Hello World</title>
     <url>/2025/03/18/hello-world/</url>
     <content><![CDATA[<p>Welcome to <a href="https://hexo.io/">Hexo</a>! This is your very first post. Check <a href="https://hexo.io/docs/">documentation</a> for more info. If you get any problems when using Hexo, you can find the answer in <a href="https://hexo.io/docs/troubleshooting.html">troubleshooting</a> or you can ask me on <a href="https://github.com/hexojs/hexo/issues">GitHub</a>.</p>
