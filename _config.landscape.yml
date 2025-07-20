@@ -1,0 +1,1 @@
+# Hexo 会自动合併主题中的 _config.yml 和 _config.butterfly.yml 里的配置，如果存在同名配置，会使用 _config.butterfly.yml 的配置，其优先度较高。
