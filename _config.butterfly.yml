@@ -5,7 +5,10 @@ CDN:
 pjax:
   enable: true
   exclude:
-    - /music/
+      - /music/
+    # - /Gallery/
+    # - /tags/
+    # - /categories/
   selectors:
     - ".layout"
     - "#rightside"
@@ -30,7 +33,7 @@ inject:
     - <script src="https://cdn.jsdelivr.net/npm/aplayer/dist/APlayer.min.js"></script>
     - <script src="https://cdn.jsdelivr.net/npm/meting@2/dist/Meting.min.js"></script>
     - <div class="aplayer no-destroy" 
-         data-id="2087204331" 
+         data-id="13293433925" 
          data-server="netease" 
          data-type="playlist" 
          data-fixed="true" 
@@ -51,7 +54,7 @@ metingjs:
   enable: true
   widget:
     enable: true
-    id: "2087204331"          # 网易云歌单ID
+    id: "13293433925"          # 网易云歌单ID
     server: "netease"         # 音乐平台 "netease" "tencent" "kugou" "xiami" "baidu"
     type: "playlist"          # 播放类型 "song" "album" "playlist" "search"
     auto: "random"           # 自动播放模式 "random" "circulation" "order"
@@ -150,7 +153,7 @@ favicon: /images/icon/hudie1.png
 # 头像设置
 avatar:
   # 头像图片链接,默认在source文件夹下面找（）
-  img: /images/sanye.png #正斜杠方式
+  img: /images/wallpaper-img/sanye.png #正斜杠方式
   # 是否启用头像效果,头像自动旋转
   effect: false
 
@@ -158,7 +161,7 @@ avatar:
 disable_top_img: false
 
 # 如果页面未设置横幅，则显示默认的横幅图片
-default_top_img: /images/cs.png
+default_top_img: /images/wallpaper-img/cs.png
 
 # 主页的横幅图片
 index_img: 
@@ -175,12 +178,12 @@ tag_img:
 # 格式:
 #  - 标签名: 图片链接
 tag_per_img:
-  # Git: /images/sanye.png 
+  # Git: /images/wallpaper-img/sanye.png
 
 
 # 注意: 是分类页（单个分类），不是分类页面（所有分类）
 category_img:
-  # 篮球: /images/sanye.png
+  # 篮球: /images/wallpaper-img/sanye.png
 
 # 分类页的横幅图片，可以为每个分类设置横幅图片
 # 格式:
@@ -193,7 +196,7 @@ footer_img: true
 # 网站背景
 # 可以设置为颜色或图片
 # 图片格式: url(http://xxxxxx.com/xxx.jpg)
-background: /images/cs.png
+background: /images/wallpaper-img/cs.png
 
 # 封面设置
 cover:
@@ -207,8 +210,8 @@ cover:
   # 当未设置封面时，显示默认封面,当配置多张图片时,会随机选择一张作为 cover.
   default_cover:
     # - https://i.loli.net/2020/05/01/gkihqEjXxJ5UZ1C.jpg
-    # - /images/sanye.png
-    # - /images/yello.png
+    # - /images/wallpaper-img/sanye.png
+    # - /images/wallpaper-img/yello.png
 # 替换损坏的图片
 error_img:
   # 友链页面的错误图片
@@ -283,16 +286,15 @@ subtitle:
   # 3 - jinrishici.com
   source: 1
   # 如果关闭打字机效果，副标题将仅显示 sub 的第一行内容
-  sub:
+  sub: 
      - 欲速则不达
      - 今日事&#44;今日毕
-     - Never put off till tomorrow what you can do today
      - 业精于勤荒于嬉，行成于思毁于随。 ——韩愈
      - 欲修其身者，先正其心；欲正其心者，先诚其意。 ——韩愈
      - 天行健，君子以自强不息。——《周易》
      - 勿以恶小而为之，勿以善小而不为。——刘备
      - 见贤思齐焉，见不贤而内自省也。——《论语》
-     - 己所不欲，勿施于人。——《论语》
+     - 已所不欲，勿施于人。——《论语》
      - 满招损，谦受益。——《尚书》
      - 学而不思则罔，思而不学则殆。——《论语》
      - 不积跬步，无以至千里，不积小流，无以成江海。——《荀子·劝学》
@@ -360,10 +362,10 @@ reward:
   # 打赏案例文本
   text:
   QR_code:
-    - img: /images/wechat.jpg
+    - img: /images/reward-img/wechat.jpg
       link:
       text: 微信
-    - img: /images/alipay.jpg
+    - img: /images/reward-img/alipay.jpg
       link:
       text: 支付宝
 
