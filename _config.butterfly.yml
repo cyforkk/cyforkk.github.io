@@ -17,11 +17,11 @@ menu:
   时间轴: /archives/ || fas fa-archive
   标签: /tags/ || fas fa-tags
   分类: /categories/ || fas fa-folder-open
-  音乐: /music/ || fas fa-music
-  清单||fa fa-heartbeat:
-    照片: /Gallery/ || fas fa-images
-    友链: /link/ || fas fa-link
-    关于: /about/ || fas fa-heart
+  # 音乐: /music/ || fas fa-music
+  # 清单||fa fa-heartbeat:
+  照片: /Gallery/ || fas fa-images
+    # 友链: /link/ || fas fa-link
+    # 关于: /about/ || fas fa-heart
 
 # --------------------------------------
 # 代码块设置
@@ -48,23 +48,23 @@ code_blocks:
   fullpage: false
 
 # APlayer
-aplayerInject:
-  enable: true
-  per_page: false
+# aplayerInject:
+#   enable: true
+#   per_page: false
 
 # MetingJS
-metingjs:
-  enable: true
-  widget:
-    enable: true
-    id: "7365426647"    # 网易云歌单 ID
-    server: "netease"   # 音乐平台 "netease" "tencent" "kugou" "xiami" "baidu"
-    type: "playlist"    # 播放类型 "song" "album" "playlist" "search"
-    auto: "circulation" # 自动播放模式 "random" "circulation" "order"
-    fixed: true        # 开启固定模式
-    mini: true         # 开启迷你模式
-    autoplay: false    # 自动播放
-    theme: "#4CAF50"   # 主题颜色
+# metingjs:
+#   enable: true
+#   widget:
+#     enable: true
+#     id: "7365426647"    # 网易云歌单 ID
+#     server: "netease"   # 音乐平台 "netease" "tencent" "kugou" "xiami" "baidu"
+#     type: "playlist"    # 播放类型 "song" "album" "playlist" "search"
+#     auto: "circulation" # 自动播放模式 "random" "circulation" "order"
+#     fixed: true        # 开启固定模式
+#     mini: true         # 开启迷你模式
+#     autoplay: false    # 自动播放
+#     theme: "#4CAF50"   # 主题颜色
 
 # 社交媒体链接
 # 格式:
@@ -92,13 +92,13 @@ avatar:
 disable_top_img: false
 
 # 如果页面未设置横幅，则显示默认的横幅图片
-default_top_img: 
+default_top_img: /images/cs.png
 
 # 主页的横幅图片
-index_img: /images/sanye.png
+index_img: 
 
 # 归档页的横幅图片
-archive_img: '#009dff'
+archive_img: 
 #  "#B197FC"
 #'linear-gradient(20deg, #0062be, #925696, #cc426e, #fb0347)'
 
@@ -109,12 +109,12 @@ tag_img:
 # 格式:
 #  - 标签名: 图片链接
 tag_per_img:
-  Git: /images/sanye.png 
+  # Git: /images/sanye.png 
 
 
 # 注意: 是分类页（单个分类），不是分类页面（所有分类）
 category_img:
-  篮球: /images/sanye.png
+  # 篮球: /images/sanye.png
 
 # 分类页的横幅图片，可以为每个分类设置横幅图片
 # 格式:
@@ -127,7 +127,7 @@ footer_img: true
 # 网站背景
 # 可以设置为颜色或图片
 # 图片格式: url(http://xxxxxx.com/xxx.jpg)
-background: /images/sanye.png
+background: /images/cs.png
 
 # 封面设置
 cover:
@@ -153,7 +153,7 @@ error_img:
 # 简单的 404 页面
 error_404:
   # 是否启用 404 页面
-  enable: false
+  enable: true
   # 404 页面的副标题
   subtitle: 'Page Not Found'
   # 404 页面的卡片背景图片
@@ -1163,7 +1163,7 @@ clickShowText:
 # https://github.com/francoischalifour/medium-zoom
 # https://fancyapps.com/fancybox/
 # 如果不需要灯箱效果，请留空
-lightbox: 
+lightbox: fancybox
 
 # --------------------------------------
 # 标签外挂设置
