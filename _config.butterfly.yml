@@ -704,7 +704,7 @@ comments:
   # 如果不需要评论功能，保持为空
   # 选择：Disqus/Disqusjs/Livere/Gitalk/Valine/Waline/Utterances/Facebook Comments/Twikoo/Giscus/Remark42/Artalk
   # 两个评论系统的格式：Disqus,Waline
-  use:
+  use: giscus
   # 按钮旁边显示评论系统名称
   text: true
   # 懒加载：评论系统将在评论元素进入浏览器视口时加载
@@ -743,13 +743,13 @@ livere:
 # 官方文档：https://github.com/gitalk/gitalk
 gitalk:
   # GitHub 应用的客户端 ID
-  client_id:
+  client_id: 
   # GitHub 应用的客户端密钥
-  client_secret:
+  client_secret: 
   # 存储评论的仓库名称
-  repo:
+  repo: 
   # 仓库拥有者的用户名
-  owner:
+  owner: 
   # 管理员用户名列表
   admin:
   # 其他可选配置
@@ -796,7 +796,7 @@ utterances:
   light_theme: github-light
   # 深色主题，可选值：photon-dark
   dark_theme: photon-dark
-
+# pTv845JvrfAcqG3U
 # Facebook 评论插件配置
 # 官方文档：https://developers.facebook.com/docs/plugins/comments/
 facebook_comments:
@@ -827,11 +827,11 @@ twikoo:
 # 官方文档：https://giscus.app/
 giscus:
   # 仓库地址
-  repo:
+  repo: cyforkk/cyforkk.github.io
   # 仓库 ID
-  repo_id:
+  repo_id: R_kgDOOKlk4Q
   # 分类 ID
-  category_id:
+  category_id: DIC_kwDOOKlk4c4CtMok
   # 主题配置，light 为浅色主题，dark 为深色主题
   theme:
     light: light
@@ -867,9 +867,9 @@ artalk:
 
 chat:
   # 聊天服务类型，可选值：chatra/tidio/crisp，如果不需要聊天功能则留空
-  use:
+  use: 
   # 推荐使用聊天按钮，会在网站右下角创建一个按钮，并隐藏原始按钮
-  rightside_button: false
+  rightside_button: true
   # 原始聊天按钮在向上滚动时显示，向下滚动时隐藏
   button_hide_show: false
 
@@ -877,7 +877,7 @@ chat:
 # 官方网站：https://chatra.io/
 chatra:
   # Chatra 服务 ID
-  id:
+  id: qNq4kpoho6fJT9Nse
 
 # Tidio 聊天服务配置
 # 官方网站：https://www.tidio.com/
@@ -1013,7 +1013,7 @@ site_verification:
 # 分类和标签页面的用户界面设置
 # 选择：index - 与主页 UI 相同 / default - 与归档 UI 相同
 # 留空或设置为 index
-category_ui:
+category_ui: index
 tag_ui: index
 
 # 拉伸行使每行宽度相等
@@ -1027,13 +1027,13 @@ mask:
 # 加载动画
 preloader:
   # 是否启用加载动画
-  enable: false
+  enable: true
   # 资源
   # 1. 全屏加载
   # 2. 进度条
-  source: 1
+  source: 2
   # pace 主题 (参见 https://codebyzach.github.io/pace/)
-  pace_css_url:
+  pace_css_url: 
 
 # 页面过渡效果
 enter_transitions: true
@@ -1044,13 +1044,13 @@ display_mode: light
 # 美化文章内容的配置
 beautify:
   # 是否启用美化
-  enable: false
+  enable: true
   # 指定美化的范围 (site 或 post)
   field: post
   # 指定标题前缀图标，如 '\f0c1'
-  title-prefix-icon:
+  title-prefix-icon: '\f0c1'
   # 指定标题前缀图标的颜色，如 '#F47466'
-  title-prefix-icon-color:
+  title-prefix-icon-color: '#F47466'
 
 # 全局字体设置
 # 除非您知道它们的工作原理，否则不要修改以下设置
@@ -1130,9 +1130,9 @@ canvas_nest:
 fireworks:
   # 是否启用烟花效果
   enable: false
-  zIndex: 9999
+  zIndex: 100
   # 是否在移动设备上启用
-  mobile: false
+  mobile: true
 
 # 鼠标点击效果: 心形符号
 click_heart:
@@ -1163,7 +1163,7 @@ clickShowText:
 # https://github.com/francoischalifour/medium-zoom
 # https://fancyapps.com/fancybox/
 # 如果不需要灯箱效果，请留空
-lightbox:
+lightbox: 
 
 # --------------------------------------
 # 标签外挂设置
@@ -1205,3 +1205,18 @@ mermaid:
 chartjs:
   enable: false
   # 除非你
+# Snackbar 弹窗
+# https://github.com/polonel/SnackBar
+# position 弹窗位置
+# 可选 top-left / top-center / top-right / bottom-left / bottom-center / bottom-right
+snackbar:
+  enable: true
+  position: top-center
+  bg_light: '#49b1f5' #light mode时弹窗背景
+  bg_dark: '#2d3035' #dark mode时弹窗背景
+
+# https://instant.page/
+# prefetch (预加载)
+instantpage: true
+
+
