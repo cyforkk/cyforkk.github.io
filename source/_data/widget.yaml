@@ -1,0 +1,37 @@
+# top:
+#   - class_name: running-time
+#     id_name: running-time
+#     name: 网站运行时间
+#     icon: fas fa-clock
+#     order:
+#     html: |
+#       <div class="website-running-time">
+#         <p>本站已运行 <span id="running-days">0</span> 天</p>
+#       </div>
+#       <script>
+#         const startDate = new Date("2025-04-05");
+#         function getRunningDays() {
+#           const today = new Date();
+#           const diffTime = today - startDate;
+#           const diffDays = Math.floor(diffTime / (1000 * 60 * 60 * 24));
+#           document.getElementById("running-days").innerText = diffDays;
+#         }
+#         getRunningDays();
+#         setInterval(getRunningDays, 1000 * 60 * 60 * 24);
+#       </script>
+#       <style>
+#         .website-running-time {
+#           font-size: 14px;
+#           color: #666;
+#           text-align: center;
+#           margin: 10px 0;
+#         }
+#       </style>
+bottom:
+  - class_name: user-map
+    id_name: user-map
+    name: 访客地图
+    icon: fas fa-heartbeat
+    order:
+    html: '<script type="text/javascript" id="clstr_globe" src="//clustrmaps.com/globe.js?d=B7h2o0ubQRXcv4SJr5RYonDNjp48DZXTxpMWt2LkZ3U"></script>'
+# 将这个网址运行多久时间的html方法页脚导航栏配置

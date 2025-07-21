@@ -28,7 +28,7 @@ aplayer:
 
 inject:
   head:
-    - <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/aplayer/dist/APlayer.min.css">
+    - <link rel="stylesheet" href="/css/custom.css">
   bottom:
     - <script src="https://cdn.jsdelivr.net/npm/aplayer/dist/APlayer.min.js"></script>
     - <script src="https://cdn.jsdelivr.net/npm/meting@2/dist/Meting.min.js"></script>
@@ -116,24 +116,6 @@ code_blocks:
   # 是否显示全屏显示代码块按钮
   fullpage: true
 
-# APlayer
-# aplayerInject:
-#   enable: true
-#   per_page: false
-
-# MetingJS
-# metingjs:
-#   enable: true
-#   widget:
-#     enable: true
-#     id: "7365426647"    # 网易云歌单 ID
-#     server: "netease"   # 音乐平台 "netease" "tencent" "kugou" "xiami" "baidu"
-#     type: "playlist"    # 播放类型 "song" "album" "playlist" "search"
-#     auto: "circulation" # 自动播放模式 "random" "circulation" "order"
-#     fixed: true        # 开启固定模式
-#     mini: true         # 开启迷你模式
-#     autoplay: false    # 自动播放
-#     theme: "#4CAF50"   # 主题颜色
 
 # 社交媒体链接
 # 格式:
@@ -141,8 +123,7 @@ code_blocks:
 social:
   fa-brands fa-github fa-bounce fa-lg: https://github.com/cyforkk || Github || "#009dff"
   fa-solid fa-envelope fa-shake fa-lg: mailto:cyforkk@gmail.com || Email || "#B197FC"
-
-
+  fa-regular fa-image fa-bounce fa-lg : https://cyforkk.top/Gallery/ || Gallery || "#ff00ea"
 # --------------------------------------
 # 图片设置
 # --------------------------------------
@@ -449,7 +430,7 @@ footer:
   #       - title: Butterfly
   #         url: https://butterfly.js.org/
   # - content:
-  #   - title: 贊助
+  #   - title: 贡助
   #     item:
   #       - title: 支付宝
   #         url: https://jsd.012700.xyz/gh/jerryc127/CDN/Photo/alipay.jpg

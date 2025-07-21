@@ -4,7 +4,6 @@ date: 2025-07-20 23:19:03
 type: "wallpaper"
 ---
 {% gallery %}
-![](https://cyforkk.top/images/sanye.png)
 ![](https://cyforkk.top/images/wallpaper-img/b1.png)
 ![](https://cyforkk.top/images/wallpaper-img/b2.png)
 ![](https://cyforkk.top/images/wallpaper-img/cool.png)
@@ -14,6 +13,7 @@ type: "wallpaper"
 ![](https://cyforkk.top/images/wallpaper-img/fj2.png)
 ![](https://cyforkk.top/images/wallpaper-img/fj3.png)
 ![](https://cyforkk.top/images/wallpaper-img/fj4.png)
+![](https://cyforkk.top/images/wallpaper-img/sanye.png)
 ![](https://cyforkk.top/images/wallpaper-img/sanye2.png)
 ![](https://cyforkk.top/images/wallpaper-img/sanye3.png)
 ![](https://cyforkk.top/images/wallpaper-img/sanye4.png)
