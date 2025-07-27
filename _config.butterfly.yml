@@ -26,9 +26,9 @@ aplayer:
   meting: true
   meting_cdn: https://cdn.jsdelivr.net/npm/meting@2/dist/Meting.min.js
 
-inject:
-  head:
-    - <link rel="stylesheet" href="/css/custom.css">
+inject: #注入配置项，用于向页面中注入额外的 HTML 代码
+  head: #注入到 <head> 标签内
+    - <link rel="stylesheet" href="/css/custom.css"> 
   bottom:
     - <script src="/js/sakura.js"></script>
     - <script src="https://cdn.jsdelivr.net/npm/aplayer/dist/APlayer.min.js"></script>
@@ -88,7 +88,7 @@ menu:
   标签: /tags/ || fas fa-tags
   分类: /categories/ || fas fa-folder-open
   # 音乐: /music/ || fas fa-music
-  清单: /todolist/ ||fa fa-heartbeat
+  # 清单: /todolist/ ||fa fa-heartbeat
   照片: /Gallery/ || fas fa-images
     # 友链: /link/ || fas fa-link
     # 关于: /about/ || fas fa-heart
@@ -113,7 +113,7 @@ code_blocks:
   # 是否显示语言标签
   language: true
   # true: 收缩代码块 | false: 展开代码块 | none: 展开代码块并隐藏按钮
-  shrink: false
+  shrink: true
   # 是否显示全屏显示代码块按钮
   fullpage: true
 
