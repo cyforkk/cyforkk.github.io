@@ -88,6 +88,7 @@ menu:
   标签: /tags/ || fas fa-tags
   分类: /categories/ || fas fa-folder-open
   # 音乐: /music/ || fas fa-music
+  # 清单: https://cyforkk163.github.io/ ||fa fa-heartbeat
   # 清单: /todolist/ ||fa fa-heartbeat
   照片: /Gallery/ || fas fa-images
     # 友链: /link/ || fas fa-link
@@ -99,11 +100,11 @@ menu:
 
 code_blocks:
   # 代码块主题: darker / pale night / light / ocean / false
-  theme: ocean
+  theme: darker
   # 是否使用 Mac 风格
-  macStyle: true
+  macStyle: false
   # 代码块高度限制（单位: px）
-  height_limit: 
+  height_limit: 300
   # 是否自动换行
   word_wrap: false
 
@@ -113,7 +114,7 @@ code_blocks:
   # 是否显示语言标签
   language: true
   # true: 收缩代码块 | false: 展开代码块 | none: 展开代码块并隐藏按钮
-  shrink: true
+  shrink:  false
   # 是否显示全屏显示代码块按钮
   fullpage: true
 
@@ -1105,7 +1106,7 @@ beautify:
 # 全局字体设置
 # 除非您知道它们的工作原理，否则不要修改以下设置
 font:
-  global-font-size:
+  global-font-size: 
   code-font-size:
   font-family:
   code-font-family:
