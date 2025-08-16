@@ -1,8 +1,8 @@
 ---
 title: 在 Hexo 博客中插入图片的完整指南
 date: 2025-07-28 20:54:26
-tags: 
-categories: [Hexo+Butterfly]
+tags: [Hexo+Butterfly]  
+categories: [Hexo博客]
 ---
 # 在 Hexo 博客中插入图片的完整指南
 
