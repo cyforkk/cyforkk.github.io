@@ -121,4 +121,6 @@ theme: butterfly
 # Deployment
 ## Docs: https://hexo.io/docs/one-command-deployment
 deploy:
-  type: ''
+  type: git
+  repo: git@github.com:cyforkk/cyforkk.github.io.git  # 你的仓库SSH地址
+  branch: gh-pages  # 部署分支（GitHub Pages 通常用 main 或 master，需与仓库默认分支一致）
