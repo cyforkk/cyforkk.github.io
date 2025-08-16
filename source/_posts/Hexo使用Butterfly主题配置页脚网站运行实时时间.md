@@ -2,8 +2,8 @@
 
 title: Hexo使用Butterfly主题配置页脚网站运行实时时间
 date: 2025-07-26 11:46:03
-tags: 
-categories: [Hexo+Butterfly]
+tags: [Hexo+Butterfly]  
+categories: [Hexo博客]
 
 ---
 

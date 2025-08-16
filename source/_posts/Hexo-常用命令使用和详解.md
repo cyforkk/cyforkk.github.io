@@ -1,8 +1,8 @@
 ---
 title: Hexo 常用命令使用和详解
 date: 2025-08-11 16:21:42
-tags:
-categories: [Hexo+Butterfly]
+tags: [Hexo+Butterfly]  
+categories: [Hexo博客]
 ---
 # Hexo 常用命令使用和详解
 

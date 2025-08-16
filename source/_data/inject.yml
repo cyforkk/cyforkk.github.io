@@ -3,20 +3,4 @@ head:
   - <script src="https://cdn.jsdelivr.net/npm/aplayer/dist/APlayer.min.js"></script>
   - <script src="https://cdn.jsdelivr.net/npm/meting@2/dist/Meting.min.js"></script>
 
-bottom:
-  - <meting-js
-      server="netease"
-      type="playlist"
-      id="7452421335"
-      fixed="true"
-      autoplay="false"
-      theme="#409EFF"
-      loop="all"
-      order="random"
-      preload="auto"
-      volume="0.7"
-      mutex="true"
-      list-folded="true"
-      list-max-height="340px"
-      lrc-type="1">
-    </meting-js>
+# bottom:

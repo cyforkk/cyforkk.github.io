@@ -19,18 +19,13 @@ pjax:
     - ".js-pjax"
     - "script[data-pjax]"
 
-aplayer:
-  enable: true
-  cdn: https://cdn.jsdelivr.net/npm/aplayer@latest/dist/APlayer.min.js
-  style_cdn: https://cdn.jsdelivr.net/npm/aplayer@latest/dist/APlayer.min.css
-  meting: true
-  meting_cdn: https://cdn.jsdelivr.net/npm/meting@2/dist/Meting.min.js
 
 inject: #注入配置项，用于向页面中注入额外的 HTML 代码
   head: #注入到 <head> 标签内
+    - <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/aplayer/dist/APlayer.min.css">
     - <link rel="stylesheet" href="/css/custom.css"> 
   bottom:
-    - <script src="/js/sakura.js"></script>
+    # - <script src="/js/sakura.js"></script>
     - <script src="https://cdn.jsdelivr.net/npm/aplayer/dist/APlayer.min.js"></script>
     - <script src="https://cdn.jsdelivr.net/npm/meting@2/dist/Meting.min.js"></script>
     - <div class="aplayer no-destroy" 
@@ -45,28 +40,11 @@ inject: #注入配置项，用于向页面中注入额外的 HTML 代码
          data-autoplay="false" 
          data-theme="#409EFF">
       </div>
-    - <script src="/js/music.js"></script>
 
 aplayerInject:
   enable: true
   per_page: true
 
-metingjs:
-  enable: true
-  widget:
-    enable: true
-    id: "13293433925"          # 网易云歌单ID
-    server: "netease"         # 音乐平台 "netease" "tencent" "kugou" "xiami" "baidu"
-    type: "playlist"          # 播放类型 "song" "album" "playlist" "search"
-    auto: "random"           # 自动播放模式 "random" "circulation" "order"
-    fixed: true              # 开启固定模式
-    mini: true               # 开启迷你模式
-    autoplay: true          # 自动播放
-    loop: "all"             # 循环播放 "all" "one" "none"
-    order: "random"         # 播放顺序 "list" "random"
-    preload: "auto"         # 预加载 "none" "metadata" "auto"
-    volume: 0.7             # 默认音量
-    mutex: true             # 互斥模式，阻止多个播放器同时播放
 
 # --------------------------------------
 # 导航设置
@@ -93,7 +71,6 @@ menu:
   照片: /Gallery/ || fas fa-images
     # 友链: /link/ || fas fa-link
     # 关于: /about/ || fas fa-heart
-
 # --------------------------------------
 # 代码块设置
 # --------------------------------------
