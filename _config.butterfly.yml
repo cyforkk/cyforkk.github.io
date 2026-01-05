@@ -29,7 +29,7 @@ inject: #注入配置项，用于向页面中注入额外的 HTML 代码
     - <script src="https://cdn.jsdelivr.net/npm/aplayer/dist/APlayer.min.js"></script>
     - <script src="https://cdn.jsdelivr.net/npm/meting@2/dist/Meting.min.js"></script>
     - <div class="aplayer no-destroy" 
-         data-id="13293433925" 
+         data-id="14411025199" 
          data-server="netease" 
          data-type="playlist" 
          data-fixed="true" 
@@ -40,7 +40,6 @@ inject: #注入配置项，用于向页面中注入额外的 HTML 代码
          data-autoplay="false" 
          data-theme="#409EFF">
       </div>
-
 aplayerInject:
   enable: true
   per_page: true
