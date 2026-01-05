@@ -1,0 +1,65 @@
+- const { nav, owner, copyright, custom_text } = theme.footer
+
+if nav
+  .footer-flex
+    for block in nav
+      .footer-flex-items(style=`${ block.width ? 'flex-grow:' + block.width : '' }`)
+        for blockItem in block.content
+          .footer-flex-item
+            .footer-flex-title= blockItem.title
+            .footer-flex-content
+              for subitem in blockItem.item
+                if subitem.html
+                  div!= subitem.html
+                else if subitem.url
+                  a(href=url_for(subitem.url), target='_blank' title=subitem.title)= subitem.title
+                else if subitem.title
+                  div!= subitem.title
+.footer-running-time
+  span 本站已运行：<span id="running-time">0 天 0 小时 0 分钟 0 秒</span>
+
+script.
+  function updateRunningTime() {
+    const startDate = new Date("2025-07-20T00:00:00"); // 修改为你自己的建站时间
+    const now = new Date();
+    let diff = Math.floor((now - startDate) / 1000); // 时间差（秒）
+
+    const days = Math.floor(diff / 86400);
+    diff -= days * 86400;
+    const hours = Math.floor(diff / 3600) % 24;
+    diff -= hours * 3600;
+    const minutes = Math.floor(diff / 60) % 60;
+    const seconds = diff % 60;
+
+    document.getElementById("running-time").innerText =
+      `${days} 天 ${hours} 小时 ${minutes} 分钟 ${seconds} 秒`;
+  }
+
+  // 页面加载后立即执行一次，之后每秒更新一次
+  document.addEventListener("DOMContentLoaded", function () {
+    updateRunningTime();
+    setInterval(updateRunningTime, 1000);
+  });
+
+.footer-other
+  .footer-copyright
+    if owner.enable
+      - const currentYear = new Date().getFullYear()
+      - const sinceYear = owner.since
+      span.copyright
+        if sinceYear && sinceYear != currentYear
+          != `&copy;${sinceYear} - ${currentYear} By ${config.author}`
+        else
+          != `&copy;${currentYear} By ${config.author}`
+    if copyright.enable
+      - const v = copyright.version ? getVersion() : false
+      span.framework-info
+        if owner.enable && nav
+          span.footer-separator |
+        span= _p('footer.framework') + ' '
+        a(href='https://hexo.io')= `Hexo${ v ? ' ' + v.hexo : '' }`
+        span.footer-separator |
+        span= _p('footer.theme') + ' '
+        a(href='https://github.com/jerryc127/hexo-theme-butterfly')= `Butterfly${ v ? ' ' + v.theme : '' }`
+  if theme.footer.custom_text
+    .footer_custom_text!= theme.footer.custom_text

@@ -6,3 +6,6 @@ node_modules/
 public/
 .deploy*/
 _multiconfig.yml
+
+# 保留主题文件夹，排除 node_modules 中的主题
+!themes/
