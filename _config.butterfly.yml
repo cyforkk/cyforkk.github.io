@@ -23,13 +23,15 @@ pjax:
 inject: #注入配置项，用于向页面中注入额外的 HTML 代码
   head: #注入到 <head> 标签内
     - <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/aplayer/dist/APlayer.min.css">
-    - <link rel="stylesheet" href="/css/custom.css"> 
+    - <link rel="stylesheet" href="/css/custom.css">
     - <link rel="stylesheet" href="/css/todolist.css"> # 待办清单页
+    - <link rel="stylesheet" href="/css/talking.css"> # 说说页面
     - <script src="https://npm.elemecdn.com/echarts@4.9.0/dist/echarts.min.js"></script>
   bottom:
     # - <script src="/js/sakura.js"></script>
     # - <script src="/js/cursor-effects.js"></script>
     - <script src="/js/enhancements.js"></script>
+    - <script src="/js/talking.js"></script>
     - <script src="https://cdn.jsdelivr.net/npm/aplayer/dist/APlayer.min.js"></script>
     - <script src="https://cdn.jsdelivr.net/npm/meting@2/dist/Meting.min.js"></script>
     - <div class="aplayer no-destroy" 
@@ -71,6 +73,7 @@ menu:
   计划: /plan/ || fas fa-calendar-alt
   目标: /todolist/ || fas fa-check-square
   统计: /charts/ || fas fa-chart-line
+  说说: /talking/ || fas fa-comments
   # 音乐: /music/ || fas fa-music
   # 清单: https://cyforkk163.github.io/ ||fa fa-heartbeat
   # 清单: /todolist/ ||fa fa-heartbeat
@@ -381,48 +384,48 @@ noticeOutdate:
 footer:
   # 页脚导航栏配置
   nav:
-  # - width:
-  #   content:
-  #     - title: 文档
-  #       item:
-  #         - title: 🚀 快速开始
-  #           url: /posts/21cfbf15/
-  #         - title: 📑 主题页面
-  #           url: /posts/dc584b87/
-  #         - title: 📌 主题配置
-  #           url: /posts/4aa8abbe/
-  #         - title: ⚔️ 标签外挂
-  #           url: /posts/ceeb73f/
-  #         - title: ❓ 主题问答
-  #           url: /posts/98d20436/
-  #         - title: ⚡️ 进阶教程
-  #           url: /posts/4073eda/
-  # - content:
-  #   - title: 其他
-  #     item:
-  #       - title: 图库
-  #         url: /Gallery/
-  #       - title: 留言板
-  #         url: /messageboard/
-  #       - title: 说说
-  #         url: /talking/
-  #       - title: 示例
-  #         url: /link/
-  #       - title: 友链
-  #         url: /links/
-  # - content:
-  #   - title: 框架
-  #     item:
-  #       - title: Hexo
-  #         url: https://hexo.io/zh-cn/
-  #       - title: Butterfly
-  #         url: https://butterfly.js.org/
-  # - content:
-  #   - title: 贡助
-  #     item:
-  #       - title: 支付宝
-  #         url: https://jsd.012700.xyz/gh/jerryc127/CDN/Photo/alipay.jpg
-  #         html: "<img src='https://jsd.012700.xyz/gh/jerryc127/CDN/Photo/alipay.jpg' alt='JerryC' width='100px' height='100px'>"
+    - content:
+      - title: 博客导航
+        item:
+          - title: 首页
+            url: /
+          - title: 归档
+            url: /archives/
+          - title: 标签
+            url: /tags/
+          - title: 分类
+            url: /categories/
+    - content:
+      - title: 功能页面
+        item:
+          - title: 计划
+            url: /plan/
+          - title: 目标
+            url: /todolist/
+          - title: 统计
+            url: /charts/
+          - title: 说说
+            url: /talking/
+          - title: 照片
+            url: /Gallery/
+    - content:
+      - title: 技术框架
+        item:
+          - title: Hexo
+            url: https://hexo.io/zh-cn/
+          - title: Butterfly
+            url: https://butterfly.js.org/
+          - title: GitHub
+            url: https://github.com/cyforkk
+    - content:
+      - title: 友情链接
+        item:
+          - title: Hexo 官方文档
+            url: https://hexo.io/zh-cn/docs/
+          - title: Butterfly 主题文档
+            url: https://butterfly.js.org/posts/21cfbf15/
+          - title: Markdown 指南
+            url: https://markdown.com.cn/
 
   owner:
     # 是否启用所有者显示
@@ -1209,7 +1212,7 @@ lightbox: fancybox
 # 系列
 series:
   # 是否启用系列
-  enable: false
+  enable: true
   # 按标题或日期排序
   orderBy: 'title'
   # 排序方式。1, asc 为升序; -1, desc 为降序

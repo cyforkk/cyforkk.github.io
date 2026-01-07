@@ -124,3 +124,63 @@ deploy:
   type: git
   repo: git@github.com:cyforkk/cyforkk.github.io.git  # 你的仓库SSH地址
   branch: gh-pages  # 部署分支（GitHub Pages 通常用 main 或 master，需与仓库默认分支一致）
+
+# ==================== 代码压缩优化配置 ====================
+# hexo-all-minifier 插件配置
+# 文档: https://github.com/chenzhutian/hexo-all-minifier
+
+# HTML 压缩
+html_minifier:
+  enable: true
+  ignore_error: false
+  silent: false
+  exclude:
+
+# CSS 压缩
+css_minifier:
+  enable: true
+  silent: false
+  exclude:
+    - '*.min.css'
+
+# JS 压缩
+js_minifier:
+  enable: true
+  mangle: true
+  silent: false
+  output:
+  compress:
+  exclude:
+    - '*.min.js'
+
+# 图片压缩
+image_minifier:
+  enable: true
+  interlaced: false
+  multipass: false
+  optimizationLevel: 2
+  pngquant: false
+  progressive: false
+  silent: false
+
+# ==================== 站点地图配置 ====================
+# Google 站点地图
+# 文档: https://github.com/hexojs/hexo-generator-sitemap
+sitemap:
+  path: sitemap.xml
+  template:
+  rel: false
+  tags: true
+  categories: true
+
+# 百度站点地图
+# 文档: https://github.com/coneycode/hexo-generator-baidu-sitemap
+baidusitemap:
+  path: baidusitemap.xml
+
+# ==================== PWA 配置 ====================
+# Progressive Web App 支持
+# 文档: https://github.com/JLHwung/hexo-offline
+# 配置文件：hexo-offline.config.cjs
+
+
