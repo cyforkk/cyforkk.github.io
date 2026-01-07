@@ -27,8 +27,8 @@ block content
         include includes/page/404.pug
       when 'shuoshuo'
         include includes/page/shuoshuo.pug
-      //- when 'todolist'
-      //-   include includes/page/todolist.pug
+      when 'todolist'
+        include includes/page/todolist.pug
       default
         include includes/page/default-page.pug
         +commentLoad

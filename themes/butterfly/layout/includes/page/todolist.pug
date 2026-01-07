@@ -1,5 +1,6 @@
 #todolist-box
-    .page-top-card(style='background-image: url(/img/todo.webp);')
+    - var todoBgImage = page.top_background || '/img/todo.webp'
+    .page-top-card(style='background-image: url(' + todoBgImage + ');')
         .content-item-tips 想做清单
         span.content-item-title ToDoList
         .content-bottom

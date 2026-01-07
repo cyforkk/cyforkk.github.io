@@ -5,4 +5,5 @@ block content
   #archive
     .article-sort-title= `${_p('page.articles')} - ${getArchiveLength()}`
     +articleSort(page.posts)
+    #posts-chart(data-start="2025-07" style="height: 300px; padding: 10px;")
     include includes/pagination.pug

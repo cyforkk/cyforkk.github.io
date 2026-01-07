@@ -7,6 +7,7 @@ block content
   else
     include ./includes/mixins/article-sort.pug
     #category
+      #categories-chart(data-parent="true" style="height: 300px; padding: 10px;")
       .article-sort-title= _p('page.category') + ' - ' + page.category
       +articleSort(page.posts)
       include includes/pagination.pug

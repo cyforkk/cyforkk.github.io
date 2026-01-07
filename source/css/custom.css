@@ -1,3 +1,47 @@
+/* 导航栏居中样式 */
+#nav {
+  display: flex !important;
+  justify-content: center !important;
+  align-items: center !important;
+  position: relative !important;
+}
+
+#blog-info {
+  position: absolute !important;
+  left: 20px !important;
+  margin-right: 20px !important;
+}
+
+#menus {
+  display: flex !important;
+  justify-content: center !important;
+  align-items: center !important;
+  flex: 1 !important;
+}
+
+#search-button {
+  position: absolute !important;
+  right: 50px !important;
+  transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1) !important;
+  transform-origin: center !important;
+}
+
+#search-button:hover {
+  transform: scale(1.25) !important;
+  z-index: 100 !important;
+}
+
+/* 导航栏菜单项悬停放大效果 */
+#menus .menus_item {
+  transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1) !important;
+  transform-origin: center !important;
+}
+
+#menus .menus_item:hover {
+  transform: scale(1.25) !important;
+  z-index: 100 !important;
+}
+
 .footer-running-time {
   font-size: 18px;
   font-weight: bold;

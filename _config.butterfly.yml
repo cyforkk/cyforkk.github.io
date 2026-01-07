@@ -24,6 +24,7 @@ inject: #注入配置项，用于向页面中注入额外的 HTML 代码
   head: #注入到 <head> 标签内
     - <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/aplayer/dist/APlayer.min.css">
     - <link rel="stylesheet" href="/css/custom.css"> 
+    - <link rel="stylesheet" href="/css/todolist.css"> # 待办清单页
     - <script src="https://npm.elemecdn.com/echarts@4.9.0/dist/echarts.min.js"></script>
   bottom:
     # - <script src="/js/sakura.js"></script>
@@ -65,6 +66,9 @@ menu:
   时间轴: /archives/ || fas fa-archive
   标签: /tags/ || fas fa-tags
   分类: /categories/ || fas fa-folder-open
+  计划: /plan/ || fas fa-calendar-alt
+  目标: /todolist/ || fas fa-check-square
+  统计: /charts/ || fas fa-chart-line
   # 音乐: /music/ || fas fa-music
   # 清单: https://cyforkk163.github.io/ ||fa fa-heartbeat
   # 清单: /todolist/ ||fa fa-heartbeat
@@ -170,8 +174,11 @@ cover:
   # 当未设置封面时，显示默认封面,当配置多张图片时,会随机选择一张作为 cover.
   default_cover:
     # - https://i.loli.net/2020/05/01/gkihqEjXxJ5UZ1C.jpg
-    # - /images/wallpaper-img/sanye.png
-    # - /images/wallpaper-img/yello.png
+    - /images/wallpaper-img/fj1.png
+    - /images/wallpaper-img/fj2.png
+    - /images/wallpaper-img/fj3.png
+    - /images/wallpaper-img/fj4.png
+
 # 替换损坏的图片
 error_img:
   # 友链页面的错误图片
@@ -442,7 +449,7 @@ aside:
   # 移动设备上是否启用侧边栏
   mobile: true
   # 侧边栏位置：left / right
-  position: right
+  position: left
   display:
     # 归档页面是否显示侧边栏
     archive: true

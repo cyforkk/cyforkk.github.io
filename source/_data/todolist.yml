@@ -1,0 +1,31 @@
+# seat控制清单在左栏还是右栏显示，completed控制是否已完成
+- class_name: 复习计划
+  seat: left
+  todo_list:
+    - content: java
+      completed: false
+    - content: mysql
+      completed: false
+    - content: redis
+      completed: false
+    - content: mq
+      completed: false
+    - content: 微服务的组件
+      completed: false    
+
+- class_name: 想看的书
+  seat: left
+  todo_list:
+    - content: 用经济学思考
+      completed: false
+    
+
+- class_name: 想学的技术
+  seat: right
+  todo_list:
+    - content: go
+      completed: false
+    - content: 爬虫
+      completed: false
+    - content: js逆向
+      completed: false
