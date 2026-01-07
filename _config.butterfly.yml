@@ -28,6 +28,8 @@ inject: #注入配置项，用于向页面中注入额外的 HTML 代码
     - <script src="https://npm.elemecdn.com/echarts@4.9.0/dist/echarts.min.js"></script>
   bottom:
     # - <script src="/js/sakura.js"></script>
+    # - <script src="/js/cursor-effects.js"></script>
+    - <script src="/js/enhancements.js"></script>
     - <script src="https://cdn.jsdelivr.net/npm/aplayer/dist/APlayer.min.js"></script>
     - <script src="https://cdn.jsdelivr.net/npm/meting@2/dist/Meting.min.js"></script>
     - <div class="aplayer no-destroy" 
@@ -1151,13 +1153,13 @@ canvas_nest:
   # 是否启用 canvas_nest
   enable: false
   # 线条颜色，默认: '0,0,0'; RGB 值: (R,G,B).(注意: 使用 ',' 分隔.)
-  color: '0,0,255'
+  color: '0,149,255'
   # 线条的不透明度 (0~1)
-  opacity: 0.7
+  opacity: 0.5
   # 背景的 z-index 属性
   zIndex: -1
   # 线条数量
-  count: 99
+  count: 66
   # 是否在移动设备上启用
   mobile: false
 
