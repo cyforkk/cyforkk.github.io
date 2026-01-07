@@ -1,0 +1,717 @@
+<!DOCTYPE html><html lang="zh-CN" data-theme="light"><head><meta charset="UTF-8"><meta http-equiv="X-UA-Compatible" content="IE=edge"><meta name="viewport" content="width=device-width, initial-scale=1.0,viewport-fit=cover"><title>博客统计 | cyforkk</title><meta name="author" content="cyforkk,cyforkk@gmail.com"><meta name="copyright" content="cyforkk"><meta name="format-detection" content="telephone=no"><meta name="theme-color" content="#ffffff"><meta property="og:type" content="website">
+<meta property="og:title" content="博客统计">
+<meta property="og:url" content="https://cyforkk.top/charts/index.html">
+<meta property="og:site_name" content="cyforkk">
+<meta property="og:locale" content="zh_CN">
+<meta property="og:image" content="https://cyforkk.top/images/wallpaper-img/sanye.png">
+<meta property="article:published_time" content="2026-01-05T14:36:05.000Z">
+<meta property="article:modified_time" content="2026-01-07T07:24:51.046Z">
+<meta property="article:author" content="cyforkk">
+<meta property="article:tag" content="Hexo, 博客, 技术分享, cyforkk, 记录学习与生活">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:image" content="https://cyforkk.top/images/wallpaper-img/sanye.png"><script type="application/ld+json"></script><link rel="shortcut icon" href="/images/icon/hudie1.png"><link rel="canonical" href="https://cyforkk.top/charts/index.html"><link rel="preconnect" href="//cdn.jsdelivr.net"><link rel="preconnect" href="//busuanzi.ibruce.info"><link rel="stylesheet" href="/css/index.css"><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free/css/all.min.css"><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/node-snackbar/dist/snackbar.min.css" media="print" onload="this.media='all'"><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fancyapps/ui/dist/fancybox/fancybox.min.css" media="print" onload="this.media='all'"><script>
+    (() => {
+      
+    const saveToLocal = {
+      set: (key, value, ttl) => {
+        if (!ttl) return
+        const expiry = Date.now() + ttl * 86400000
+        localStorage.setItem(key, JSON.stringify({ value, expiry }))
+      },
+      get: key => {
+        const itemStr = localStorage.getItem(key)
+        if (!itemStr) return undefined
+        const { value, expiry } = JSON.parse(itemStr)
+        if (Date.now() > expiry) {
+          localStorage.removeItem(key)
+          return undefined
+        }
+        return value
+      }
+    }
+
+    window.btf = {
+      saveToLocal,
+      getScript: (url, attr = {}) => new Promise((resolve, reject) => {
+        const script = document.createElement('script')
+        script.src = url
+        script.async = true
+        Object.entries(attr).forEach(([key, val]) => script.setAttribute(key, val))
+        script.onload = script.onreadystatechange = () => {
+          if (!script.readyState || /loaded|complete/.test(script.readyState)) resolve()
+        }
+        script.onerror = reject
+        document.head.appendChild(script)
+      }),
+      getCSS: (url, id) => new Promise((resolve, reject) => {
+        const link = document.createElement('link')
+        link.rel = 'stylesheet'
+        link.href = url
+        if (id) link.id = id
+        link.onload = link.onreadystatechange = () => {
+          if (!link.readyState || /loaded|complete/.test(link.readyState)) resolve()
+        }
+        link.onerror = reject
+        document.head.appendChild(link)
+      }),
+      addGlobalFn: (key, fn, name = false, parent = window) => {
+        if (!true && key.startsWith('pjax')) return
+        const globalFn = parent.globalFn || {}
+        globalFn[key] = globalFn[key] || {}
+        globalFn[key][name || Object.keys(globalFn[key]).length] = fn
+        parent.globalFn = globalFn
+      }
+    }
+  
+      
+      const activateDarkMode = () => {
+        document.documentElement.setAttribute('data-theme', 'dark')
+        if (document.querySelector('meta[name="theme-color"]') !== null) {
+          document.querySelector('meta[name="theme-color"]').setAttribute('content', '#0d0d0d')
+        }
+      }
+      const activateLightMode = () => {
+        document.documentElement.setAttribute('data-theme', 'light')
+        if (document.querySelector('meta[name="theme-color"]') !== null) {
+          document.querySelector('meta[name="theme-color"]').setAttribute('content', '#ffffff')
+        }
+      }
+
+      btf.activateDarkMode = activateDarkMode
+      btf.activateLightMode = activateLightMode
+
+      const theme = saveToLocal.get('theme')
+    
+          theme === 'dark' ? activateDarkMode() : theme === 'light' ? activateLightMode() : null
+        
+      
+      const asideStatus = saveToLocal.get('aside-status')
+      if (asideStatus !== undefined) {
+        document.documentElement.classList.toggle('hide-aside', asideStatus === 'hide')
+      }
+    
+      
+    const detectApple = () => {
+      if (/iPad|iPhone|iPod|Macintosh/.test(navigator.userAgent)) {
+        document.documentElement.classList.add('apple')
+      }
+    }
+    detectApple()
+  
+    })()
+  </script><script>const GLOBAL_CONFIG = {
+  root: '/',
+  algolia: undefined,
+  localSearch: {"path":"/search.json","preload":false,"top_n_per_article":1,"unescape":false,"languages":{"hits_empty":"未找到符合您查询的内容：${query}","hits_stats":"共找到 ${hits} 篇文章"}},
+  translate: undefined,
+  highlight: {"plugin":"highlight.js","highlightCopy":true,"highlightLang":true,"highlightHeightLimit":300,"highlightFullpage":true,"highlightMacStyle":false},
+  copy: {
+    success: '复制成功',
+    error: '复制失败',
+    noSupport: '浏览器不支持'
+  },
+  relativeDate: {
+    homepage: false,
+    post: false
+  },
+  runtime: '',
+  dateSuffix: {
+    just: '刚刚',
+    min: '分钟前',
+    hour: '小时前',
+    day: '天前',
+    month: '个月前'
+  },
+  copyright: undefined,
+  lightbox: 'fancybox',
+  Snackbar: {"chs_to_cht":"已切换为繁体中文","cht_to_chs":"已切换为简体中文","day_to_night":"已切换为深色模式","night_to_day":"已切换为浅色模式","bgLight":"#49b1f5","bgDark":"#2d3035","position":"top-center"},
+  infinitegrid: {
+    js: 'https://cdn.jsdelivr.net/npm/@egjs/infinitegrid/dist/infinitegrid.min.js',
+    buttonText: '加载更多'
+  },
+  isPhotoFigcaption: true,
+  islazyloadPlugin: false,
+  isAnchor: false,
+  percent: {
+    toc: true,
+    rightside: true,
+  },
+  autoDarkmode: false
+}</script><script id="config-diff">var GLOBAL_CONFIG_SITE = {
+  title: '博客统计',
+  isHighlightShrink: false,
+  isToc: false,
+  pageType: 'page'
+}</script><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/aplayer/dist/APlayer.min.css"><link rel="stylesheet" href="/css/custom.css"><link rel="stylesheet" href="/css/todolist.css"><script src="https://npm.elemecdn.com/echarts@4.9.0/dist/echarts.min.js"></script><meta name="generator" content="Hexo 7.3.0"></head><body><script>window.paceOptions = {
+  restartOnPushState: false
+}
+
+btf.addGlobalFn('pjaxSend', () => {
+  Pace.restart()
+}, 'pace_restart')
+
+</script><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/pace-js/themes/blue/pace-theme-minimal.min.css"><script src="https://cdn.jsdelivr.net/npm/pace-js/pace.min.js"></script><div id="web_bg" style="background-image: url(/images/wallpaper-img/cs.png);"></div><div id="sidebar"><div id="menu-mask"></div><div id="sidebar-menus"><div class="avatar-img text-center"><img src="/images/wallpaper-img/sanye.png" onerror="this.onerror=null;this.src='/img/friend_404.gif'" alt="avatar"></div><div class="site-data text-center"><a href="/archives/"><div class="headline">文章</div><div class="length-num">29</div></a><a href="/tags/"><div class="headline">标签</div><div class="length-num">11</div></a><a href="/categories/"><div class="headline">分类</div><div class="length-num">7</div></a></div><div class="menus_items"><div class="menus_item"><a class="site-page" href="/"><i class="fa-fw fas fa-home"></i><span> 首页</span></a></div><div class="menus_item"><a class="site-page" href="/archives/"><i class="fa-fw fas fa-archive"></i><span> 时间轴</span></a></div><div class="menus_item"><a class="site-page" href="/tags/"><i class="fa-fw fas fa-tags"></i><span> 标签</span></a></div><div class="menus_item"><a class="site-page" href="/categories/"><i class="fa-fw fas fa-folder-open"></i><span> 分类</span></a></div><div class="menus_item"><a class="site-page" href="/plan/"><i class="fa-fw fas fa-calendar-alt"></i><span> 计划</span></a></div><div class="menus_item"><a class="site-page" href="/todolist/"><i class="fa-fw fas fa-check-square"></i><span> 目标</span></a></div><div class="menus_item"><a class="site-page" href="/charts/"><i class="fa-fw fas fa-chart-line"></i><span> 统计</span></a></div><div class="menus_item"><a class="site-page" href="/Gallery/"><i class="fa-fw fas fa-images"></i><span> 照片</span></a></div></div></div></div><div class="page" id="body-wrap"><header class="not-home-page" id="page-header" style="background-image: url(/images/wallpaper-img/cs.png);"><nav id="nav"><span id="blog-info"><a class="nav-site-title" href="/"><span class="site-name">cyforkk</span></a></span><div id="menus"><div id="search-button"><span class="site-page social-icon search"><i class="fas fa-search fa-fw"></i><span> 搜索</span></span></div><div class="menus_items"><div class="menus_item"><a class="site-page" href="/"><i class="fa-fw fas fa-home"></i><span> 首页</span></a></div><div class="menus_item"><a class="site-page" href="/archives/"><i class="fa-fw fas fa-archive"></i><span> 时间轴</span></a></div><div class="menus_item"><a class="site-page" href="/tags/"><i class="fa-fw fas fa-tags"></i><span> 标签</span></a></div><div class="menus_item"><a class="site-page" href="/categories/"><i class="fa-fw fas fa-folder-open"></i><span> 分类</span></a></div><div class="menus_item"><a class="site-page" href="/plan/"><i class="fa-fw fas fa-calendar-alt"></i><span> 计划</span></a></div><div class="menus_item"><a class="site-page" href="/todolist/"><i class="fa-fw fas fa-check-square"></i><span> 目标</span></a></div><div class="menus_item"><a class="site-page" href="/charts/"><i class="fa-fw fas fa-chart-line"></i><span> 统计</span></a></div><div class="menus_item"><a class="site-page" href="/Gallery/"><i class="fa-fw fas fa-images"></i><span> 照片</span></a></div></div><div id="toggle-menu"><span class="site-page"><i class="fas fa-bars fa-fw"></i></span></div></div></nav><div id="page-site-info"><h1 id="site-title">博客统计</h1></div></header><main class="layout" id="content-inner"><div id="page"><div class="container" id="article-container"><!-- 文章发布时间统计图 -->
+<div id="posts-chart" data-start="2025-01" style="border-radius: 8px; height: 300px; padding: 10px;"></div>
+  <script id="postsChart">
+    var color = document.documentElement.getAttribute('data-theme') === 'light' ? '#4c4948' : 'rgba(255,255,255,0.7)'
+    var postsChart = echarts.init(document.getElementById('posts-chart'), 'light');
+    var postsOption = {
+      title: {
+        text: '文章发布统计图',
+        x: 'center',
+        textStyle: {
+          color: color
+        }
+      },
+      tooltip: {
+        trigger: 'axis'
+      },
+      dataZoom: [{
+        type: 'slider',
+        show: true,
+        xAxisIndex: [0],
+        start: 171.4,
+        end: 100,
+        height: 30,
+        bottom: 0,
+        borderColor: 'transparent',
+        backgroundColor: 'transparent',
+        fillerColor: 'rgba(1, 191, 236, 0.2)',
+        handleStyle: {
+          color: 'rgba(1, 191, 236, 0.9)',
+          borderColor: 'rgba(1, 191, 236, 1)',
+          borderRadius: 15,
+          shadowBlur: 6,
+          shadowColor: 'rgba(1, 191, 236, 0.3)',
+          shadowOffsetX: 0,
+          shadowOffsetY: 2,
+          width: 24,
+          height: 24
+        },
+        textStyle: {
+          color: color,
+          fontSize: 11,
+          fontWeight: '500'
+        },
+        borderWidth: 0,
+        showDetail: false,
+        showDataShadow: false,
+        emphasis: {
+          handleStyle: {
+            color: 'rgba(1, 191, 236, 1)',
+            shadowBlur: 10,
+            shadowColor: 'rgba(1, 191, 236, 0.4)'
+          },
+          backgroundColor: 'rgba(1, 191, 236, 0.08)'
+        },
+        moveHandleStyle: {
+          color: 'rgba(1, 191, 236, 0.7)',
+          borderColor: 'rgba(1, 191, 236, 0.9)',
+          borderRadius: 12
+        }
+      }, {
+        type: 'inside',
+        xAxisIndex: [0],
+        zoomOnMouseWheel: true,
+        moveOnMouseWheel: true,
+        throttle: 80
+      }],
+      graphic: [{
+        type: 'text',
+        left: 'center',
+        top: '75%',
+        style: {
+          text: '💡 拖动滚动条查看更多数据',
+          fill: color,
+          fontSize: 11,
+          fontWeight: '500',
+          opacity: 0.8,
+          textBorderColor: 'rgba(255, 255, 255, 0.3)',
+          textBorderWidth: 1
+        },
+        silent: true,
+        z: 10
+      }],
+      xAxis: {
+        name: '日期',
+        type: 'category',
+        boundaryGap: false,
+        nameTextStyle: {
+          color: color
+        },
+        axisTick: {
+          show: false
+        },
+        axisLabel: {
+          show: true,
+          color: color,
+          interval: 0,
+          rotate: 45
+        },
+        axisLine: {
+          show: true,
+          lineStyle: {
+            color: color
+          }
+        },
+        data: ["2025-07","2025-08","2025-09","2025-10","2025-11","2025-12","2026-01"]
+      },
+      yAxis: {
+        name: '文章篇数',
+        type: 'value',
+        nameTextStyle: {
+          color: color
+        },
+        splitLine: {
+          show: false
+        },
+        axisTick: {
+          show: false
+        },
+        axisLabel: {
+          show: true,
+          color: color
+        },
+        axisLine: {
+          show: true,
+          lineStyle: {
+            color: color
+          }
+        }
+      },
+      series: [{
+        name: '文章篇数',
+        type: 'line',
+        smooth: true,
+        lineStyle: {
+            width: 0
+        },
+        showSymbol: false,
+        itemStyle: {
+          opacity: 1,
+          color: new echarts.graphic.LinearGradient(0, 0, 0, 1, [{
+            offset: 0,
+            color: 'rgba(128, 255, 165)'
+          },
+          {
+            offset: 1,
+            color: 'rgba(1, 191, 236)'
+          }])
+        },
+        areaStyle: {
+          opacity: 1,
+          color: new echarts.graphic.LinearGradient(0, 0, 0, 1, [{
+            offset: 0,
+            color: 'rgba(128, 255, 165)'
+          }, {
+            offset: 1,
+            color: 'rgba(1, 191, 236)'
+          }])
+        },
+        data: [7,21,0,0,0,0,1],
+        markLine: {
+          data: [{
+            name: '平均值',
+            type: 'average',
+            label: {
+              color: color
+            }
+          }]
+        }
+      }]
+    };
+    postsChart.setOption(postsOption);
+    window.addEventListener('resize', () => { 
+      postsChart.resize();
+    });
+    postsChart.on('click', 'series', (event) => {
+      if (event.componentType === 'series') window.location.href = '/archives/' + event.name.replace('-', '/');
+    });
+  </script>
+<!-- 文章标签统计图 -->
+<div id="tags-chart" data-length="10" style="border-radius: 8px; height: 300px; padding: 10px;"></div>
+  <script id="tagsChart">
+    var color = document.documentElement.getAttribute('data-theme') === 'light' ? '#4c4948' : 'rgba(255,255,255,0.7)'
+    var tagsChart = echarts.init(document.getElementById('tags-chart'), 'light');
+    var tagsOption = {
+      title: {
+        text: 'Top 10 标签统计图',
+        x: 'center',
+        textStyle: {
+          color: color
+        }
+      },
+      tooltip: {},
+      xAxis: {
+        name: '标签',
+        type: 'category',
+        nameTextStyle: {
+          color: color
+        },
+        axisTick: {
+          show: false
+        },
+        axisLabel: {
+          show: true,
+          color: color,
+          interval: 0
+        },
+        axisLine: {
+          show: true,
+          lineStyle: {
+            color: color
+          }
+        },
+        data: ["MySQL","Hexo+Butterfly","JAVA","集合","Git","Windows","命令行","端口管理","投篮","Markdown"]
+      },
+      yAxis: {
+        name: '文章篇数',
+        type: 'value',
+        splitLine: {
+          show: false
+        },
+        nameTextStyle: {
+          color: color
+        },
+        axisTick: {
+          show: false
+        },
+        axisLabel: {
+          show: true,
+          color: color
+        },
+        axisLine: {
+          show: true,
+          lineStyle: {
+            color: color
+          }
+        }
+      },
+      series: [{
+        name: '文章篇数',
+        type: 'bar',
+        data: [{"name":"MySQL","value":14,"path":"tags/MySQL/"},{"name":"Hexo+Butterfly","value":6,"path":"tags/Hexo-Butterfly/"},{"name":"JAVA","value":2,"path":"tags/JAVA/"},{"name":"集合","value":2,"path":"tags/集合/"},{"name":"Git","value":1,"path":"tags/Git/"},{"name":"Windows","value":1,"path":"tags/Windows/"},{"name":"命令行","value":1,"path":"tags/命令行/"},{"name":"端口管理","value":1,"path":"tags/端口管理/"},{"name":"投篮","value":1,"path":"tags/投篮/"},{"name":"Markdown","value":1,"path":"tags/Markdown/"},{"name":"教程","value":1,"path":"tags/教程/"}],
+        itemStyle: {
+          borderRadius: [5, 5, 0, 0],
+          color: new echarts.graphic.LinearGradient(0, 0, 0, 1, [{
+            offset: 0,
+            color: 'rgba(128, 255, 165)'
+          },
+          {
+            offset: 1,
+            color: 'rgba(1, 191, 236)'
+          }])
+        },
+        emphasis: {
+          itemStyle: {
+            color: new echarts.graphic.LinearGradient(0, 0, 0, 1, [{
+              offset: 0,
+              color: 'rgba(128, 255, 195)'
+            },
+            {
+              offset: 1,
+              color: 'rgba(1, 211, 255)'
+            }])
+          }
+        },
+        markLine: {
+          data: [{
+            name: '平均值',
+            type: 'average',
+            label: {
+              color: color
+            }
+          }]
+        }
+      }]
+    };
+    tagsChart.setOption(tagsOption);
+    window.addEventListener('resize', () => { 
+      tagsChart.resize();
+    });
+    tagsChart.on('click', 'series', (event) => {
+      if(event.data.path) window.location.href = '/' + event.data.path;
+    });
+  </script>
+<!-- 文章分类统计图 -->
+<div id="categories-chart" data-parent="true" style="border-radius: 8px; height: 300px; padding: 10px;"></div>
+  <script id="categoriesChart">
+    var color = document.documentElement.getAttribute('data-theme') === 'light' ? '#4c4948' : 'rgba(255,255,255,0.7)'
+    var categoriesChart = echarts.init(document.getElementById('categories-chart'), 'light');
+    var categoryParentFlag = false
+    var categoriesOption = {
+      title: {
+        text: '文章分类统计图',
+        x: 'center',
+        textStyle: {
+          color: color
+        }
+      },
+      legend: {
+        top: 'bottom',
+        data: ["数据库","Hexo博客","计算机","编程语言","VMWare","篮球","其他"],
+        textStyle: {
+          color: color
+        }
+      },
+      tooltip: {
+        trigger: 'item'
+      },
+      series: []
+    };
+    categoriesOption.series.push(
+      categoryParentFlag ? 
+      {
+        nodeClick :false,
+        name: '文章篇数',
+        type: 'sunburst',
+        radius: ['15%', '90%'],
+        center: ['50%', '55%'],
+        sort: 'desc',
+        data: [{"name":"数据库","value":14,"path":"categories/数据库/","id":"cmk3r1uu0001dbsmca9hz8441","parentId":"0"},{"name":"Hexo博客","value":6,"path":"categories/Hexo博客/","id":"cmk3r1utl000gbsmcgbk320ii","parentId":"0"},{"name":"计算机","value":2,"path":"categories/计算机/","id":"cmk3r1utj000bbsmcb1pmbcmq","parentId":"0"},{"name":"编程语言","value":2,"path":"categories/编程语言/","id":"cmk3r1utw0011bsmcf1y0bvu8","parentId":"0"},{"name":"VMWare","value":1,"path":"categories/VMWare/","id":"cmk3r1utd0004bsmc5nhq60u1","parentId":"0"},{"name":"篮球","value":1,"path":"categories/篮球/","id":"cmk3r1uub002lbsmcazyx7r4w","parentId":"0"},{"name":"其他","value":1,"path":"categories/其他/","id":"cmk3r1uue002zbsmccyswd1e0","parentId":"0"}],
+        itemStyle: {
+          borderColor: '#fff',
+          borderWidth: 2,
+          emphasis: {
+            focus: 'ancestor',
+            shadowBlur: 10,
+            shadowOffsetX: 0,
+            shadowColor: 'rgba(255, 255, 255, 0.5)'
+          }
+        }
+      }
+      :
+      {
+        name: '文章篇数',
+        type: 'pie',
+        radius: [30, 80],
+        roseType: 'area',
+        label: {
+          color: color,
+          formatter: '{b} : {c} ({d}%)'
+        },
+        data: [{"name":"数据库","value":14,"path":"categories/数据库/","id":"cmk3r1uu0001dbsmca9hz8441","parentId":"0"},{"name":"Hexo博客","value":6,"path":"categories/Hexo博客/","id":"cmk3r1utl000gbsmcgbk320ii","parentId":"0"},{"name":"计算机","value":2,"path":"categories/计算机/","id":"cmk3r1utj000bbsmcb1pmbcmq","parentId":"0"},{"name":"编程语言","value":2,"path":"categories/编程语言/","id":"cmk3r1utw0011bsmcf1y0bvu8","parentId":"0"},{"name":"VMWare","value":1,"path":"categories/VMWare/","id":"cmk3r1utd0004bsmc5nhq60u1","parentId":"0"},{"name":"篮球","value":1,"path":"categories/篮球/","id":"cmk3r1uub002lbsmcazyx7r4w","parentId":"0"},{"name":"其他","value":1,"path":"categories/其他/","id":"cmk3r1uue002zbsmccyswd1e0","parentId":"0"}],
+        itemStyle: {
+          emphasis: {
+            shadowBlur: 10,
+            shadowOffsetX: 0,
+            shadowColor: 'rgba(255, 255, 255, 0.5)'
+          }
+        }
+      }
+    )
+    categoriesChart.setOption(categoriesOption);
+    window.addEventListener('resize', () => { 
+      categoriesChart.resize();
+    });
+    categoriesChart.on('click', 'series', (event) => {
+      if(event.data.path) window.location.href = '/' + event.data.path;
+    });
+  </script>
+</div><hr class="custom-hr"><div id="post-comment"><div class="comment-head"><div class="comment-headline"><i class="fas fa-comments fa-fw"></i><span> 评论</span></div></div><div class="comment-wrap"><div><div id="giscus-wrap"></div></div></div></div></div><div class="aside-content" id="aside-content"><div class="card-widget card-info text-center"><div class="avatar-img"><img src="/images/wallpaper-img/sanye.png" onerror="this.onerror=null;this.src='/img/friend_404.gif'" alt="avatar"></div><div class="author-info-name">cyforkk</div><div class="author-info-description">找寻自我</div><div class="site-data"><a href="/archives/"><div class="headline">文章</div><div class="length-num">29</div></a><a href="/tags/"><div class="headline">标签</div><div class="length-num">11</div></a><a href="/categories/"><div class="headline">分类</div><div class="length-num">7</div></a></div><a id="card-info-btn" target="_blank" rel="noopener" href="https://github.com/cyforkk"><i class="fab fa-github"></i><span>Follow Me</span></a><div class="card-info-social-icons"><a class="social-icon" href="https://github.com/cyforkk" target="_blank" title="Github"><i class="fa-brands fa-github fa-bounce fa-lg" style="color: #009dff;"></i></a><a class="social-icon" href="mailto:cyforkk@gmail.com" target="_blank" title="Email"><i class="fa-solid fa-envelope fa-shake fa-lg" style="color: #B197FC;"></i></a><a class="social-icon" href="https://cyforkk.top/Gallery/" target="_blank" title="Gallery"><i class="fa-regular fa-image fa-bounce fa-lg" style="color: #ff00ea;"></i></a></div></div><div class="card-widget card-announcement"><div class="item-headline"><i class="fas fa-bullhorn fa-shake"></i><span>公告</span></div><div class="announcement_content">很高兴和你相见，这是我的个人博客，记录学习与生活。</div></div><div class="sticky_layout"><div class="card-widget card-recent-post"><div class="item-headline"><i class="fas fa-history"></i><span>最新文章</span></div><div class="aside-list"><div class="aside-list-item"><a class="thumbnail" href="/2026/01/07/Windows%20%E7%AB%AF%E5%8F%A3%E5%8D%A0%E7%94%A8%E8%A7%A3%E5%86%B3%E6%8C%87%E5%8D%97%EF%BC%9A%E5%A6%82%E4%BD%95%E6%89%BE%E5%88%B0%E5%B9%B6%E6%9D%80%E6%AD%BB%E5%8D%A0%E7%94%A8%E7%AB%AF%E5%8F%A3%E7%9A%84%E8%BF%9B%E7%A8%8B/" title="Windows 端口占用解决指南：如何找到并杀死占用端口的进程"><img src="/images/wallpaper-img/fj2.png" onerror="this.onerror=null;this.src='/img/404.jpg'" alt="Windows 端口占用解决指南：如何找到并杀死占用端口的进程"></a><div class="content"><a class="title" href="/2026/01/07/Windows%20%E7%AB%AF%E5%8F%A3%E5%8D%A0%E7%94%A8%E8%A7%A3%E5%86%B3%E6%8C%87%E5%8D%97%EF%BC%9A%E5%A6%82%E4%BD%95%E6%89%BE%E5%88%B0%E5%B9%B6%E6%9D%80%E6%AD%BB%E5%8D%A0%E7%94%A8%E7%AB%AF%E5%8F%A3%E7%9A%84%E8%BF%9B%E7%A8%8B/" title="Windows 端口占用解决指南：如何找到并杀死占用端口的进程">Windows 端口占用解决指南：如何找到并杀死占用端口的进程</a><time datetime="2026-01-07T02:00:00.000Z" title="发表于 2026-01-07 10:00:00">2026-01-07</time></div></div><div class="aside-list-item"><a class="thumbnail" href="/2025/08/21/Day-1-3-Java-SE%E6%A0%B8%E5%BF%83%E6%A6%82%E5%BF%B5%E5%A4%8D%E4%B9%A0%E8%AF%A6%E7%BB%86%E5%8F%AF%E6%89%A7%E8%A1%8C%E6%AD%A5%E9%AA%A4/" title="Day 1-3: Java SE核心概念复习详细可执行步骤"><img src="/images/wallpaper-img/fj3.png" onerror="this.onerror=null;this.src='/img/404.jpg'" alt="Day 1-3: Java SE核心概念复习详细可执行步骤"></a><div class="content"><a class="title" href="/2025/08/21/Day-1-3-Java-SE%E6%A0%B8%E5%BF%83%E6%A6%82%E5%BF%B5%E5%A4%8D%E4%B9%A0%E8%AF%A6%E7%BB%86%E5%8F%AF%E6%89%A7%E8%A1%8C%E6%AD%A5%E9%AA%A4/" title="Day 1-3: Java SE核心概念复习详细可执行步骤">Day 1-3: Java SE核心概念复习详细可执行步骤</a><time datetime="2025-08-21T12:02:45.000Z" title="发表于 2025-08-21 20:02:45">2025-08-21</time></div></div><div class="aside-list-item"><a class="thumbnail" href="/2025/08/19/MySQL-%E5%88%86%E9%A1%B5%E6%9F%A5%E8%AF%A2%EF%BC%9A%E7%94%A8-LIMIT-%E9%AB%98%E6%95%88%E5%A4%84%E7%90%86%E5%A4%A7%E9%87%8F%E6%95%B0%E6%8D%AE/" title="MySQL 分页查询：用 LIMIT 高效处理大量数据"><img src="/images/wallpaper-img/fj1.png" onerror="this.onerror=null;this.src='/img/404.jpg'" alt="MySQL 分页查询：用 LIMIT 高效处理大量数据"></a><div class="content"><a class="title" href="/2025/08/19/MySQL-%E5%88%86%E9%A1%B5%E6%9F%A5%E8%AF%A2%EF%BC%9A%E7%94%A8-LIMIT-%E9%AB%98%E6%95%88%E5%A4%84%E7%90%86%E5%A4%A7%E9%87%8F%E6%95%B0%E6%8D%AE/" title="MySQL 分页查询：用 LIMIT 高效处理大量数据">MySQL 分页查询：用 LIMIT 高效处理大量数据</a><time datetime="2025-08-19T01:00:04.000Z" title="发表于 2025-08-19 09:00:04">2025-08-19</time></div></div><div class="aside-list-item"><a class="thumbnail" href="/2025/08/19/MySQL-%E6%8E%92%E5%BA%8F%E6%93%8D%E4%BD%9C%EF%BC%9A%E7%94%A8-ORDER-BY-%E8%AE%A9%E6%9F%A5%E8%AF%A2%E7%BB%93%E6%9E%9C%E6%9B%B4%E6%9C%89%E5%BA%8F/" title="MySQL 排序操作：用 ORDER BY 让查询结果更有序"><img src="/images/wallpaper-img/fj4.png" onerror="this.onerror=null;this.src='/img/404.jpg'" alt="MySQL 排序操作：用 ORDER BY 让查询结果更有序"></a><div class="content"><a class="title" href="/2025/08/19/MySQL-%E6%8E%92%E5%BA%8F%E6%93%8D%E4%BD%9C%EF%BC%9A%E7%94%A8-ORDER-BY-%E8%AE%A9%E6%9F%A5%E8%AF%A2%E7%BB%93%E6%9E%9C%E6%9B%B4%E6%9C%89%E5%BA%8F/" title="MySQL 排序操作：用 ORDER BY 让查询结果更有序">MySQL 排序操作：用 ORDER BY 让查询结果更有序</a><time datetime="2025-08-19T00:55:45.000Z" title="发表于 2025-08-19 08:55:45">2025-08-19</time></div></div><div class="aside-list-item"><a class="thumbnail" href="/2025/08/19/MySQL-%E5%AE%9E%E6%88%98%EF%BC%9A5-%E9%81%93%E5%9F%BA%E7%A1%80-SELECT-%E8%AF%AD%E5%8F%A5%E7%BB%83%E4%B9%A0%E9%A2%98%E8%A7%A3%E6%9E%90/" title="MySQL 实战：5 道基础 SELECT 语句练习题解析"><img src="/images/wallpaper-img/fj2.png" onerror="this.onerror=null;this.src='/img/404.jpg'" alt="MySQL 实战：5 道基础 SELECT 语句练习题解析"></a><div class="content"><a class="title" href="/2025/08/19/MySQL-%E5%AE%9E%E6%88%98%EF%BC%9A5-%E9%81%93%E5%9F%BA%E7%A1%80-SELECT-%E8%AF%AD%E5%8F%A5%E7%BB%83%E4%B9%A0%E9%A2%98%E8%A7%A3%E6%9E%90/" title="MySQL 实战：5 道基础 SELECT 语句练习题解析">MySQL 实战：5 道基础 SELECT 语句练习题解析</a><time datetime="2025-08-19T00:49:28.000Z" title="发表于 2025-08-19 08:49:28">2025-08-19</time></div></div></div></div><div class="card-widget card-categories"><div class="item-headline">
+            <i class="fas fa-folder-open"></i>
+            <span>分类</span>
+            
+          </div>
+          <ul class="card-category-list" id="aside-cat-list">
+            <li class="card-category-list-item "><a class="card-category-list-link" href="/categories/Hexo%E5%8D%9A%E5%AE%A2/"><span class="card-category-list-name">Hexo博客</span><span class="card-category-list-count">6</span></a></li><li class="card-category-list-item "><a class="card-category-list-link" href="/categories/VMWare/"><span class="card-category-list-name">VMWare</span><span class="card-category-list-count">1</span></a></li><li class="card-category-list-item "><a class="card-category-list-link" href="/categories/%E5%85%B6%E4%BB%96/"><span class="card-category-list-name">其他</span><span class="card-category-list-count">1</span></a></li><li class="card-category-list-item "><a class="card-category-list-link" href="/categories/%E6%95%B0%E6%8D%AE%E5%BA%93/"><span class="card-category-list-name">数据库</span><span class="card-category-list-count">14</span></a></li><li class="card-category-list-item "><a class="card-category-list-link" href="/categories/%E7%AF%AE%E7%90%83/"><span class="card-category-list-name">篮球</span><span class="card-category-list-count">1</span></a></li><li class="card-category-list-item "><a class="card-category-list-link" href="/categories/%E7%BC%96%E7%A8%8B%E8%AF%AD%E8%A8%80/"><span class="card-category-list-name">编程语言</span><span class="card-category-list-count">2</span></a></li><li class="card-category-list-item "><a class="card-category-list-link" href="/categories/%E8%AE%A1%E7%AE%97%E6%9C%BA/"><span class="card-category-list-name">计算机</span><span class="card-category-list-count">2</span></a></li>
+          </ul></div><div class="card-widget card-tags"><div class="item-headline"><i class="fas fa-tags"></i><span>标签</span></div><div class="card-tag-cloud"><a href="/tags/Git/" style="font-size: 1.15em; color: rgb(157, 50, 92);">Git</a><a href="/tags/Hexo-Butterfly/" style="font-size: 1.35em; color: rgb(50, 158, 132);">Hexo+Butterfly</a><a href="/tags/JAVA/" style="font-size: 1.25em; color: rgb(50, 114, 191);">JAVA</a><a href="/tags/Markdown/" style="font-size: 1.15em; color: rgb(90, 50, 87);">Markdown</a><a href="/tags/MySQL/" style="font-size: 1.45em; color: rgb(83, 167, 54);">MySQL</a><a href="/tags/Windows/" style="font-size: 1.15em; color: rgb(83, 131, 50);">Windows</a><a href="/tags/%E5%91%BD%E4%BB%A4%E8%A1%8C/" style="font-size: 1.15em; color: rgb(50, 117, 108);">命令行</a><a href="/tags/%E6%8A%95%E7%AF%AE/" style="font-size: 1.15em; color: rgb(83, 92, 126);">投篮</a><a href="/tags/%E6%95%99%E7%A8%8B/" style="font-size: 1.15em; color: rgb(108, 50, 162);">教程</a><a href="/tags/%E7%AB%AF%E5%8F%A3%E7%AE%A1%E7%90%86/" style="font-size: 1.15em; color: rgb(166, 50, 50);">端口管理</a><a href="/tags/%E9%9B%86%E5%90%88/" style="font-size: 1.25em; color: rgb(50, 104, 117);">集合</a></div></div><div class="card-widget card-archives">
+    <div class="item-headline">
+      <i class="fas fa-archive"></i>
+      <span>归档</span>
+      
+    </div>
+  
+    <ul class="card-archive-list">
+      
+        <li class="card-archive-list-item">
+          <a class="card-archive-list-link" href="/archives/2026/01/">
+            <span class="card-archive-list-date">
+              一月 2026
+            </span>
+            <span class="card-archive-list-count">1</span>
+          </a>
+        </li>
+      
+        <li class="card-archive-list-item">
+          <a class="card-archive-list-link" href="/archives/2025/08/">
+            <span class="card-archive-list-date">
+              八月 2025
+            </span>
+            <span class="card-archive-list-count">21</span>
+          </a>
+        </li>
+      
+        <li class="card-archive-list-item">
+          <a class="card-archive-list-link" href="/archives/2025/07/">
+            <span class="card-archive-list-date">
+              七月 2025
+            </span>
+            <span class="card-archive-list-count">7</span>
+          </a>
+        </li>
+      
+    </ul>
+  </div><div class="card-widget card-webinfo"><div class="item-headline"><i class="fas fa-chart-line"></i><span>网站信息</span></div><div class="webinfo"><div class="webinfo-item"><div class="item-name">文章数目 :</div><div class="item-count">29</div></div><div class="webinfo-item"><div class="item-name">本站总字数 :</div><div class="item-count">37.3k</div></div><div class="webinfo-item"><div class="item-name">本站访客数 :</div><div class="item-count" id="busuanzi_value_site_uv"><i class="fa-solid fa-spinner fa-spin"></i></div></div><div class="webinfo-item"><div class="item-name">本站总浏览量 :</div><div class="item-count" id="busuanzi_value_site_pv"><i class="fa-solid fa-spinner fa-spin"></i></div></div><div class="webinfo-item"><div class="item-name">最后更新时间 :</div><div class="item-count" id="last-push-date" data-lastpushdate="2026-01-07T08:21:32.052Z"><i class="fa-solid fa-spinner fa-spin"></i></div></div></div></div><div class="card-widget user-map" id="user-map"><div class="item-headline"><i class="fas fa-heartbeat"></i><span>访客地图</span></div><div class="item-content"><script type="text/javascript" id="clstr_globe" src="//clustrmaps.com/globe.js?d=B7h2o0ubQRXcv4SJr5RYonDNjp48DZXTxpMWt2LkZ3U"></script></div></div></div></div></main><footer id="footer" style="background-image: url(/images/wallpaper-img/cs.png);"><div class="footer-running-time"><span>本站已运行：<span id="running-time">0 天 0 小时 0 分钟 0 秒</span></span></div><script>function updateRunningTime() {
+  const startDate = new Date("2025-07-20T00:00:00"); // 修改为你自己的建站时间
+  const now = new Date();
+  let diff = Math.floor((now - startDate) / 1000); // 时间差（秒）
+
+  const days = Math.floor(diff / 86400);
+  diff -= days * 86400;
+  const hours = Math.floor(diff / 3600) % 24;
+  diff -= hours * 3600;
+  const minutes = Math.floor(diff / 60) % 60;
+  const seconds = diff % 60;
+
+  document.getElementById("running-time").innerText =
+    `${days} 天 ${hours} 小时 ${minutes} 分钟 ${seconds} 秒`;
+}
+
+// 页面加载后立即执行一次，之后每秒更新一次
+document.addEventListener("DOMContentLoaded", function () {
+  updateRunningTime();
+  setInterval(updateRunningTime, 1000);
+});
+</script><div class="footer-other"><div class="footer-copyright"><span class="copyright">©2025 - 2026 By cyforkk</span><span class="framework-info"><span>框架 </span><a target="_blank" rel="noopener" href="https://hexo.io">Hexo 7.3.0</a><span class="footer-separator">|</span><span>主题 </span><a target="_blank" rel="noopener" href="https://github.com/jerryc127/hexo-theme-butterfly">Butterfly 5.4.2</a></span></div></div></footer></div><div id="rightside"><div id="rightside-config-hide"><button id="darkmode" type="button" title="日间和夜间模式切换"><i class="fas fa-adjust"></i></button><button id="hide-aside-btn" type="button" title="单栏和双栏切换"><i class="fas fa-arrows-alt-h"></i></button></div><div id="rightside-config-show"><button id="rightside-config" type="button" title="设置"><i class="fas fa-cog fa-spin"></i></button><a id="to_comment" href="#post-comment" title="前往评论"><i class="fas fa-comments"></i></a><button id="go-up" type="button" title="回到顶部"><span class="scroll-percent"></span><i class="fas fa-arrow-up"></i></button></div></div><div><script src="/js/utils.js"></script><script src="/js/main.js"></script><script src="https://cdn.jsdelivr.net/npm/@fancyapps/ui/dist/fancybox/fancybox.umd.min.js"></script><script src="https://cdn.jsdelivr.net/npm/instant.page/instantpage.min.js" type="module"></script><script src="https://cdn.jsdelivr.net/npm/node-snackbar/dist/snackbar.min.js"></script><div class="js-pjax"><script>(() => {
+  const isShuoshuo = GLOBAL_CONFIG_SITE.pageType === 'shuoshuo'
+  const option = null
+
+  const getGiscusTheme = theme => theme === 'dark' ? 'dark' : 'light'
+
+  const createScriptElement = config => {
+    const ele = document.createElement('script')
+    Object.entries(config).forEach(([key, value]) => {
+      ele.setAttribute(key, value)
+    })
+    return ele
+  }
+
+  const loadGiscus = (el = document, key) => {
+    const mappingConfig = isShuoshuo
+      ? { 'data-mapping': 'specific', 'data-term': key }
+      : { 'data-mapping': (option && option['data-mapping']) || 'pathname' }
+
+    const giscusConfig = {
+      src: 'https://giscus.app/client.js',
+      'data-repo': 'cyforkk/cyforkk.github.io',
+      'data-repo-id': 'R_kgDOOKlk4Q',
+      'data-category-id': 'DIC_kwDOOKlk4c4CtMok',
+      'data-theme': getGiscusTheme(document.documentElement.getAttribute('data-theme')),
+      'data-reactions-enabled': '1',
+      crossorigin: 'anonymous',
+      async: true,
+      ...option,
+      ...mappingConfig
+    }
+
+    const scriptElement = createScriptElement(giscusConfig)
+
+    el.querySelector('#giscus-wrap').appendChild(scriptElement)
+
+    if (isShuoshuo) {
+      window.shuoshuoComment.destroyGiscus = () => {
+        if (el.children.length) {
+          el.innerHTML = ''
+          el.classList.add('no-comment')
+        }
+      }
+    }
+  }
+
+  const changeGiscusTheme = theme => {
+    const iframe = document.querySelector('#giscus-wrap iframe')
+    if (iframe) {
+      const message = {
+        giscus: {
+          setConfig: {
+            theme: getGiscusTheme(theme)
+          }
+        }
+      }
+      iframe.contentWindow.postMessage(message, 'https://giscus.app')
+    }
+  }
+
+  btf.addGlobalFn('themeChange', changeGiscusTheme, 'giscus')
+
+  if (isShuoshuo) {
+    'Giscus' === 'Giscus'
+      ? window.shuoshuoComment = { loadComment: loadGiscus }
+      : window.loadOtherComment = loadGiscus
+    return
+  }
+
+  if ('Giscus' === 'Giscus' || !false) {
+    if (false) btf.loadComment(document.getElementById('giscus-wrap'), loadGiscus)
+    else loadGiscus()
+  } else {
+    window.loadOtherComment = loadGiscus
+  }
+})()</script></div><script src="https://cdn.jsdelivr.net/npm/aplayer/dist/APlayer.min.js"></script><script src="https://cdn.jsdelivr.net/npm/meting@2/dist/Meting.min.js"></script><div class="aplayer no-destroy" data-id="14411025199" data-server="netease" data-type="playlist" data-fixed="true" data-mini="true" data-listfolded="false" data-order="random" data-preload="auto" data-autoplay="false" data-theme="#409EFF"> </div><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/aplayer/dist/APlayer.min.css" media="print" onload="this.media='all'"><script src="https://cdn.jsdelivr.net/npm/aplayer/dist/APlayer.min.js"></script><script src="https://cdn.jsdelivr.net/npm/butterfly-extsrc/metingjs/dist/Meting.min.js"></script><script>(() => {
+  const destroyAplayer = () => {
+    if (window.aplayers) {
+      for (let i = 0; i < window.aplayers.length; i++) {
+        if (!window.aplayers[i].options.fixed) {
+          window.aplayers[i].destroy()
+        }
+      }
+    }
+  }
+
+  const runMetingJS = () => {
+    typeof loadMeting === 'function' && document.getElementsByClassName('aplayer').length && loadMeting()
+  }
+
+  btf.addGlobalFn('pjaxSend', destroyAplayer, 'destroyAplayer')
+  btf.addGlobalFn('pjaxComplete', loadMeting, 'runMetingJS')
+})()</script><script src="https://cdn.jsdelivr.net/npm/pjax/pjax.min.js"></script><script>(() => {
+  const pjaxSelectors = ["meta[property=\"og:image\"]","meta[property=\"og:title\"]","meta[property=\"og:url\"]","meta[property=\"og:description\"]","link[rel=\"canonical\"]","head > title","#config-diff","#body-wrap","#rightside-config-hide","#rightside-config-show",".js-pjax"]
+
+  window.pjax = new Pjax({
+    elements: 'a:not([target="_blank"]):not([href="/music/"])',
+    selectors: pjaxSelectors,
+    cacheBust: false,
+    analytics: false,
+    scrollRestoration: false
+  })
+
+  const triggerPjaxFn = (val) => {
+    if (!val) return
+    Object.values(val).forEach(fn => fn())
+  }
+
+  document.addEventListener('pjax:send', () => {
+    // removeEventListener
+    btf.removeGlobalFnEvent('pjaxSendOnce')
+    btf.removeGlobalFnEvent('themeChange')
+
+    // reset readmode
+    const $bodyClassList = document.body.classList
+    if ($bodyClassList.contains('read-mode')) $bodyClassList.remove('read-mode')
+
+    triggerPjaxFn(window.globalFn.pjaxSend)
+  })
+
+  document.addEventListener('pjax:complete', () => {
+    btf.removeGlobalFnEvent('pjaxCompleteOnce')
+    document.querySelectorAll('script[data-pjax]').forEach(item => {
+      const newScript = document.createElement('script')
+      const content = item.text || item.textContent || item.innerHTML || ""
+      Array.from(item.attributes).forEach(attr => newScript.setAttribute(attr.name, attr.value))
+      newScript.appendChild(document.createTextNode(content))
+      item.parentNode.replaceChild(newScript, item)
+    })
+
+    triggerPjaxFn(window.globalFn.pjaxComplete)
+  })
+
+  document.addEventListener('pjax:error', e => {
+    if (e.request.status === 404) {
+      const usePjax = true
+      true
+        ? (usePjax ? pjax.loadUrl('/404.html') : window.location.href = '/404.html')
+        : window.location.href = e.request.responseURL
+    }
+  })
+})()</script><script async="" data-pjax="" src="//busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script><div id="local-search"><div class="search-dialog"><nav class="search-nav"><span class="search-dialog-title">搜索</span><span id="loading-status"></span><button class="search-close-button"><i class="fas fa-times"></i></button></nav><div class="text-center" id="loading-database"><i class="fas fa-spinner fa-pulse"></i><span>  数据加载中</span></div><div class="search-wrap"><div id="local-search-input"><div class="local-search-box"><input class="local-search-box--input" placeholder="搜索" type="text"></div></div><hr><div id="local-search-results"></div><div id="local-search-stats-wrap"></div></div></div><div id="search-mask"></div><script src="/js/search/local-search.js"></script></div></div></body></html>

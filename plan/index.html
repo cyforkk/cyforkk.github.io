@@ -1,0 +1,695 @@
+<!DOCTYPE html><html lang="zh-CN" data-theme="light"><head><meta charset="UTF-8"><meta http-equiv="X-UA-Compatible" content="IE=edge"><meta name="viewport" content="width=device-width, initial-scale=1.0,viewport-fit=cover"><title>每日计划 | cyforkk</title><meta name="author" content="cyforkk,cyforkk@gmail.com"><meta name="copyright" content="cyforkk"><meta name="format-detection" content="telephone=no"><meta name="theme-color" content="#ffffff"><meta name="description" content=".plan-container {   display: flex;   flex-wrap: wrap;   gap: 15px;   margin-bottom: 20px; }  .plan-card {   flex: 1;   min-width: 280px;   background: var(--card-bg);   border-radius: 12px;   padding">
+<meta property="og:type" content="website">
+<meta property="og:title" content="每日计划">
+<meta property="og:url" content="https://cyforkk.top/plan/index.html">
+<meta property="og:site_name" content="cyforkk">
+<meta property="og:description" content=".plan-container {   display: flex;   flex-wrap: wrap;   gap: 15px;   margin-bottom: 20px; }  .plan-card {   flex: 1;   min-width: 280px;   background: var(--card-bg);   border-radius: 12px;   padding">
+<meta property="og:locale" content="zh_CN">
+<meta property="og:image" content="https://cyforkk.top/images/wallpaper-img/sanye.png">
+<meta property="article:published_time" content="2024-01-05T12:00:00.000Z">
+<meta property="article:modified_time" content="2026-01-07T08:21:18.414Z">
+<meta property="article:author" content="cyforkk">
+<meta property="article:tag" content="Hexo, 博客, 技术分享, cyforkk, 记录学习与生活">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:image" content="https://cyforkk.top/images/wallpaper-img/sanye.png"><script type="application/ld+json"></script><link rel="shortcut icon" href="/images/icon/hudie1.png"><link rel="canonical" href="https://cyforkk.top/plan/index.html"><link rel="preconnect" href="//cdn.jsdelivr.net"/><link rel="preconnect" href="//busuanzi.ibruce.info"/><link rel="stylesheet" href="/css/index.css"><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free/css/all.min.css"><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/node-snackbar/dist/snackbar.min.css" media="print" onload="this.media='all'"><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fancyapps/ui/dist/fancybox/fancybox.min.css" media="print" onload="this.media='all'"><script>
+    (() => {
+      
+    const saveToLocal = {
+      set: (key, value, ttl) => {
+        if (!ttl) return
+        const expiry = Date.now() + ttl * 86400000
+        localStorage.setItem(key, JSON.stringify({ value, expiry }))
+      },
+      get: key => {
+        const itemStr = localStorage.getItem(key)
+        if (!itemStr) return undefined
+        const { value, expiry } = JSON.parse(itemStr)
+        if (Date.now() > expiry) {
+          localStorage.removeItem(key)
+          return undefined
+        }
+        return value
+      }
+    }
+
+    window.btf = {
+      saveToLocal,
+      getScript: (url, attr = {}) => new Promise((resolve, reject) => {
+        const script = document.createElement('script')
+        script.src = url
+        script.async = true
+        Object.entries(attr).forEach(([key, val]) => script.setAttribute(key, val))
+        script.onload = script.onreadystatechange = () => {
+          if (!script.readyState || /loaded|complete/.test(script.readyState)) resolve()
+        }
+        script.onerror = reject
+        document.head.appendChild(script)
+      }),
+      getCSS: (url, id) => new Promise((resolve, reject) => {
+        const link = document.createElement('link')
+        link.rel = 'stylesheet'
+        link.href = url
+        if (id) link.id = id
+        link.onload = link.onreadystatechange = () => {
+          if (!link.readyState || /loaded|complete/.test(link.readyState)) resolve()
+        }
+        link.onerror = reject
+        document.head.appendChild(link)
+      }),
+      addGlobalFn: (key, fn, name = false, parent = window) => {
+        if (!true && key.startsWith('pjax')) return
+        const globalFn = parent.globalFn || {}
+        globalFn[key] = globalFn[key] || {}
+        globalFn[key][name || Object.keys(globalFn[key]).length] = fn
+        parent.globalFn = globalFn
+      }
+    }
+  
+      
+      const activateDarkMode = () => {
+        document.documentElement.setAttribute('data-theme', 'dark')
+        if (document.querySelector('meta[name="theme-color"]') !== null) {
+          document.querySelector('meta[name="theme-color"]').setAttribute('content', '#0d0d0d')
+        }
+      }
+      const activateLightMode = () => {
+        document.documentElement.setAttribute('data-theme', 'light')
+        if (document.querySelector('meta[name="theme-color"]') !== null) {
+          document.querySelector('meta[name="theme-color"]').setAttribute('content', '#ffffff')
+        }
+      }
+
+      btf.activateDarkMode = activateDarkMode
+      btf.activateLightMode = activateLightMode
+
+      const theme = saveToLocal.get('theme')
+    
+          theme === 'dark' ? activateDarkMode() : theme === 'light' ? activateLightMode() : null
+        
+      
+      const asideStatus = saveToLocal.get('aside-status')
+      if (asideStatus !== undefined) {
+        document.documentElement.classList.toggle('hide-aside', asideStatus === 'hide')
+      }
+    
+      
+    const detectApple = () => {
+      if (/iPad|iPhone|iPod|Macintosh/.test(navigator.userAgent)) {
+        document.documentElement.classList.add('apple')
+      }
+    }
+    detectApple()
+  
+    })()
+  </script><script>const GLOBAL_CONFIG = {
+  root: '/',
+  algolia: undefined,
+  localSearch: {"path":"/search.json","preload":false,"top_n_per_article":1,"unescape":false,"languages":{"hits_empty":"未找到符合您查询的内容：${query}","hits_stats":"共找到 ${hits} 篇文章"}},
+  translate: undefined,
+  highlight: {"plugin":"highlight.js","highlightCopy":true,"highlightLang":true,"highlightHeightLimit":300,"highlightFullpage":true,"highlightMacStyle":false},
+  copy: {
+    success: '复制成功',
+    error: '复制失败',
+    noSupport: '浏览器不支持'
+  },
+  relativeDate: {
+    homepage: false,
+    post: false
+  },
+  runtime: '',
+  dateSuffix: {
+    just: '刚刚',
+    min: '分钟前',
+    hour: '小时前',
+    day: '天前',
+    month: '个月前'
+  },
+  copyright: undefined,
+  lightbox: 'fancybox',
+  Snackbar: {"chs_to_cht":"已切换为繁体中文","cht_to_chs":"已切换为简体中文","day_to_night":"已切换为深色模式","night_to_day":"已切换为浅色模式","bgLight":"#49b1f5","bgDark":"#2d3035","position":"top-center"},
+  infinitegrid: {
+    js: 'https://cdn.jsdelivr.net/npm/@egjs/infinitegrid/dist/infinitegrid.min.js',
+    buttonText: '加载更多'
+  },
+  isPhotoFigcaption: true,
+  islazyloadPlugin: false,
+  isAnchor: false,
+  percent: {
+    toc: true,
+    rightside: true,
+  },
+  autoDarkmode: false
+}</script><script id="config-diff">var GLOBAL_CONFIG_SITE = {
+  title: '每日计划',
+  isHighlightShrink: false,
+  isToc: false,
+  pageType: 'page'
+}</script><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/aplayer/dist/APlayer.min.css"><link rel="stylesheet" href="/css/custom.css"><link rel="stylesheet" href="/css/todolist.css"><script src="https://npm.elemecdn.com/echarts@4.9.0/dist/echarts.min.js"></script><meta name="generator" content="Hexo 7.3.0"></head><body><script>window.paceOptions = {
+  restartOnPushState: false
+}
+
+btf.addGlobalFn('pjaxSend', () => {
+  Pace.restart()
+}, 'pace_restart')
+
+</script><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/pace-js/themes/blue/pace-theme-minimal.min.css"/><script src="https://cdn.jsdelivr.net/npm/pace-js/pace.min.js"></script><div id="web_bg" style="background-image: url(/images/wallpaper-img/cs.png);"></div><div id="sidebar"><div id="menu-mask"></div><div id="sidebar-menus"><div class="avatar-img text-center"><img src="/images/wallpaper-img/sanye.png" onerror="this.onerror=null;this.src='/img/friend_404.gif'" alt="avatar"/></div><div class="site-data text-center"><a href="/archives/"><div class="headline">文章</div><div class="length-num">29</div></a><a href="/tags/"><div class="headline">标签</div><div class="length-num">11</div></a><a href="/categories/"><div class="headline">分类</div><div class="length-num">7</div></a></div><div class="menus_items"><div class="menus_item"><a class="site-page" href="/"><i class="fa-fw fas fa-home"></i><span> 首页</span></a></div><div class="menus_item"><a class="site-page" href="/archives/"><i class="fa-fw fas fa-archive"></i><span> 时间轴</span></a></div><div class="menus_item"><a class="site-page" href="/tags/"><i class="fa-fw fas fa-tags"></i><span> 标签</span></a></div><div class="menus_item"><a class="site-page" href="/categories/"><i class="fa-fw fas fa-folder-open"></i><span> 分类</span></a></div><div class="menus_item"><a class="site-page" href="/plan/"><i class="fa-fw fas fa-calendar-alt"></i><span> 计划</span></a></div><div class="menus_item"><a class="site-page" href="/todolist/"><i class="fa-fw fas fa-check-square"></i><span> 目标</span></a></div><div class="menus_item"><a class="site-page" href="/charts/"><i class="fa-fw fas fa-chart-line"></i><span> 统计</span></a></div><div class="menus_item"><a class="site-page" href="/Gallery/"><i class="fa-fw fas fa-images"></i><span> 照片</span></a></div></div></div></div><div class="page type-plan" id="body-wrap"><header class="not-home-page" id="page-header" style="background-image: url(/images/wallpaper-img/cs.png);"><nav id="nav"><span id="blog-info"><a class="nav-site-title" href="/"><span class="site-name">cyforkk</span></a></span><div id="menus"><div id="search-button"><span class="site-page social-icon search"><i class="fas fa-search fa-fw"></i><span> 搜索</span></span></div><div class="menus_items"><div class="menus_item"><a class="site-page" href="/"><i class="fa-fw fas fa-home"></i><span> 首页</span></a></div><div class="menus_item"><a class="site-page" href="/archives/"><i class="fa-fw fas fa-archive"></i><span> 时间轴</span></a></div><div class="menus_item"><a class="site-page" href="/tags/"><i class="fa-fw fas fa-tags"></i><span> 标签</span></a></div><div class="menus_item"><a class="site-page" href="/categories/"><i class="fa-fw fas fa-folder-open"></i><span> 分类</span></a></div><div class="menus_item"><a class="site-page" href="/plan/"><i class="fa-fw fas fa-calendar-alt"></i><span> 计划</span></a></div><div class="menus_item"><a class="site-page" href="/todolist/"><i class="fa-fw fas fa-check-square"></i><span> 目标</span></a></div><div class="menus_item"><a class="site-page" href="/charts/"><i class="fa-fw fas fa-chart-line"></i><span> 统计</span></a></div><div class="menus_item"><a class="site-page" href="/Gallery/"><i class="fa-fw fas fa-images"></i><span> 照片</span></a></div></div><div id="toggle-menu"><span class="site-page"><i class="fas fa-bars fa-fw"></i></span></div></div></nav><div id="page-site-info"><h1 id="site-title">每日计划</h1></div></header><main class="layout hide-aside" id="content-inner"><div id="page"><div class="container" id="article-container"><style>
+.plan-container {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 15px;
+  margin-bottom: 20px;
+}
+
+.plan-card {
+  flex: 1;
+  min-width: 280px;
+  background: var(--card-bg);
+  border-radius: 12px;
+  padding: 15px 20px;
+  border: 1px solid var(--card-border);
+  box-shadow: var(--card-shadow);
+  transition: transform 0.3s, box-shadow 0.3s;
+}
+
+.plan-card:hover {
+  transform: translateY(-3px);
+  box-shadow: 0 4px 12px rgba(0,0,0,0.1);
+}
+
+.plan-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 10px;
+  font-weight: bold;
+}
+
+.plan-title i {
+  margin-right: 8px;
+  font-size: 1.1em;
+}
+
+.progress-box {
+  background: rgba(128,128,128, 0.15);
+  height: 8px;
+  border-radius: 4px;
+  overflow: hidden;
+  margin-bottom: 8px;
+}
+
+.progress-bar {
+  height: 100%;
+  border-radius: 4px;
+  transition: width 0.5s ease;
+}
+
+.plan-meta {
+  font-size: 12px;
+  color: var(--font-color);
+  opacity: 0.7;
+  display: flex;
+  justify-content: space-between;
+}
+
+.section-title {
+  font-size: 1.5em;
+  font-weight: bold;
+  margin-top: 40px;
+  margin-bottom: 20px;
+  padding-bottom: 10px;
+  border-bottom: 2px solid var(--theme-color);
+  display: inline-block;
+}
+
+/* Timeline 美化样式 */
+.timeline {
+  background: var(--card-bg);
+  border: 1px solid var(--card-border);
+  border-radius: 20px;
+  padding: 30px;
+  margin: 30px 0;
+  box-shadow: 0 20px 40px rgba(0,0,0,0.08);
+  position: relative;
+  overflow: hidden;
+}
+
+.timeline::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  height: 3px;
+  background: linear-gradient(90deg, #00d4ff, #090979);
+}
+
+.timeline-item-content ul {
+  list-style: none !important;
+  padding-left: 0 !important;
+  margin: 0;
+}
+
+.timeline-item-content li {
+  position: relative;
+  margin: 8px 0;
+  background: var(--card-bg);
+  border: 1px solid var(--card-border);
+  border-radius: 12px;
+  padding: 12px 20px 12px 45px;
+  transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+  box-shadow: 0 2px 8px rgba(0,0,0,0.04);
+}
+
+.timeline-item-content li:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 8px 25px rgba(0,0,0,0.1);
+  border-color: #00d4ff;
+}
+
+.timeline-item-content li::before {
+  content: '✓';
+  position: absolute;
+  left: 18px;
+  top: 50%;
+  transform: translateY(-50%);
+  width: 16px;
+  height: 16px;
+  border-radius: 50%;
+  background: #f0f0f0;
+  border: 2px solid #ddd;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 10px;
+  color: #999;
+  font-weight: bold;
+  transition: all 0.3s ease;
+}
+
+.timeline-item-content li:has(input[type="checkbox"]:checked)::before {
+  background: #e8f5e8;
+  border-color: #4CAF50;
+  color: #4CAF50;
+}
+
+.timeline-item-content li:has(input[type="checkbox"]:not(:checked))::before {
+  content: '';
+  background: #f8f8f8;
+  border-color: #ccc;
+}
+
+.timeline-item-content input[type="checkbox"] {
+  display: none;
+}
+
+.timeline-item-title {
+  background: var(--card-bg);
+  border: 1px solid var(--card-border);
+  border-radius: 15px;
+  padding: 15px 20px;
+  margin-bottom: 20px;
+  box-shadow: 0 4px 15px rgba(0,0,0,0.06);
+  position: relative;
+  cursor: pointer;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.timeline-item-title::before {
+  content: '';
+  position: absolute;
+  left: 0;
+  top: 0;
+  bottom: 0;
+  width: 4px;
+  background: linear-gradient(180deg, #00d4ff, #090979);
+  border-radius: 2px;
+}
+
+.timeline-item-title .item-circle {
+  color: var(--font-color);
+  font-weight: 600;
+  font-size: 1.1em;
+  margin-left: 15px;
+}
+
+.timeline-item-title .toggle-btn {
+  width: 35px;
+  height: 35px;
+  border-radius: 50%;
+  background: linear-gradient(135deg, #00d4ff, #090979);
+  color: white;
+  font-size: 14px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+  box-shadow: 0 4px 15px rgba(0, 212, 255, 0.3);
+  cursor: pointer;
+  border: 2px solid rgba(255, 255, 255, 0.2);
+  backdrop-filter: blur(10px);
+}
+
+.timeline-item-title .toggle-btn:hover {
+  transform: scale(1.1);
+  box-shadow: 0 6px 20px rgba(0, 212, 255, 0.4);
+  background: linear-gradient(135deg, #ff6b6b, #4ecdc4);
+}
+
+.timeline-item-title.collapsed .toggle-btn {
+  transform: rotate(-90deg);
+  background: linear-gradient(135deg, #ff6b6b, #feca57);
+}
+
+.timeline-item-title.collapsed .toggle-btn:hover {
+  transform: rotate(-90deg) scale(1.1);
+}
+
+.timeline-item-content {
+  transition: all 0.3s ease;
+  overflow: hidden;
+}
+
+.timeline-item-content.collapsed {
+  max-height: 0;
+  opacity: 0;
+  margin-bottom: 0;
+}
+
+.timeline.blue {
+  background: var(--card-bg);
+}
+</style>
+
+<script>
+document.addEventListener('DOMContentLoaded', function() {
+  const timelineItems = document.querySelectorAll('.timeline-item-title');
+  
+  timelineItems.forEach(function(title) {
+    // 添加收缩按钮
+    const toggleBtn = document.createElement('span');
+    toggleBtn.className = 'toggle-btn';
+    toggleBtn.innerHTML = '▼';
+    title.appendChild(toggleBtn);
+    
+    // 添加点击事件
+    title.addEventListener('click', function() {
+      const content = this.nextElementSibling;
+      const isCollapsed = content.classList.contains('collapsed');
+      
+      if (isCollapsed) {
+        content.classList.remove('collapsed');
+        this.classList.remove('collapsed');
+      } else {
+        content.classList.add('collapsed');
+        this.classList.add('collapsed');
+      }
+    });
+  });
+  
+  // 分页功能
+  const itemsPerPage = 10;
+  let currentPage = 1;
+  const allItems = document.querySelectorAll('.timeline-item');
+  const totalPages = Math.ceil(allItems.length / itemsPerPage);
+  
+  function showPage(page) {
+    const start = (page - 1) * itemsPerPage;
+    const end = start + itemsPerPage;
+    
+    allItems.forEach((item, index) => {
+      if (index >= start && index < end) {
+        item.style.display = 'block';
+      } else {
+        item.style.display = 'none';
+      }
+    });
+  }
+  
+  function createPagination() {
+    const timeline = document.querySelector('.timeline');
+    const paginationDiv = document.createElement('div');
+    paginationDiv.className = 'pagination';
+    
+    // 上一页按钮
+    const prevBtn = document.createElement('button');
+    prevBtn.className = 'page-btn';
+    prevBtn.innerHTML = '← 上一页';
+    prevBtn.onclick = () => {
+      if (currentPage > 1) {
+        currentPage--;
+        showPage(currentPage);
+        updatePagination();
+      }
+    };
+    paginationDiv.appendChild(prevBtn);
+    
+    // 页码按钮容器
+    const pageNumbers = document.createElement('div');
+    pageNumbers.className = 'page-numbers';
+    paginationDiv.appendChild(pageNumbers);
+    
+    // 下一页按钮
+    const nextBtn = document.createElement('button');
+    nextBtn.className = 'page-btn';
+    nextBtn.innerHTML = '下一页 →';
+    nextBtn.onclick = () => {
+      if (currentPage < totalPages) {
+        currentPage++;
+        showPage(currentPage);
+        updatePagination();
+      }
+    };
+    paginationDiv.appendChild(nextBtn);
+    
+    timeline.parentNode.insertBefore(paginationDiv, timeline.nextSibling);
+    updatePagination();
+  }
+  
+  function updatePagination() {
+    const pageNumbers = document.querySelector('.page-numbers');
+    pageNumbers.innerHTML = '';
+    
+    for (let i = 1; i <= totalPages; i++) {
+      const pageBtn = document.createElement('button');
+      pageBtn.className = 'page-number';
+      pageBtn.textContent = i;
+      if (i === currentPage) pageBtn.classList.add('active');
+      
+      pageBtn.onclick = () => {
+        currentPage = i;
+        showPage(currentPage);
+        updatePagination();
+      };
+      
+      pageNumbers.appendChild(pageBtn);
+    }
+    
+    // 更新按钮状态
+    document.querySelector('.page-btn').disabled = currentPage === 1;
+    document.querySelectorAll('.page-btn')[1].disabled = currentPage === totalPages;
+  }
+  
+  // 初始化分页
+  if (allItems.length > itemsPerPage) {
+    createPagination();
+    showPage(1);
+  }
+});
+</script>
+
+
+
+<hr>
+
+<div class="timeline blue"><div class='timeline-item headline'>
+        <div class='timeline-item-title'>
+          <div class='item-circle'><p>每日计划</p>
+</div>
+        </div>
+      </div><div class='timeline-item'>
+        <div class='timeline-item-title'>
+          <div class='item-circle'><p>2026-01-07</p>
+</div>
+        </div>
+        <div class='timeline-item-content'><ul>
+<li><input checked="" disabled="" type="checkbox"> 完成每日计划页面</li>
+<li><input checked="" disabled="" type="checkbox"> 完成图片统计页面</li>
+<li><input disabled="" type="checkbox"> 优化移动端适配</li>
+</ul>
+</div>
+      </div><div class='timeline-item'>
+        <div class='timeline-item-title'>
+          <div class='item-circle'><p>2024-01-03</p>
+</div>
+        </div>
+        <div class='timeline-item-content'><ul>
+<li><input disabled="" type="checkbox"> <del>偷懒了一天，打了一天游戏</del>… (罪过罪过)</li>
+<li><input disabled="" type="checkbox"> 学习新技术</li>
+<li><input disabled="" type="checkbox"> 运动锻炼</li>
+</ul>
+</div>
+      </div></div></div><hr class="custom-hr"/><div id="post-comment"><div class="comment-head"><div class="comment-headline"><i class="fas fa-comments fa-fw"></i><span> 评论</span></div></div><div class="comment-wrap"><div><div id="giscus-wrap"></div></div></div></div></div></main><footer id="footer" style="background-image: url(/images/wallpaper-img/cs.png);"><div class="footer-running-time"><span>本站已运行：<span id="running-time">0 天 0 小时 0 分钟 0 秒</span></span></div><script>function updateRunningTime() {
+  const startDate = new Date("2025-07-20T00:00:00"); // 修改为你自己的建站时间
+  const now = new Date();
+  let diff = Math.floor((now - startDate) / 1000); // 时间差（秒）
+
+  const days = Math.floor(diff / 86400);
+  diff -= days * 86400;
+  const hours = Math.floor(diff / 3600) % 24;
+  diff -= hours * 3600;
+  const minutes = Math.floor(diff / 60) % 60;
+  const seconds = diff % 60;
+
+  document.getElementById("running-time").innerText =
+    `${days} 天 ${hours} 小时 ${minutes} 分钟 ${seconds} 秒`;
+}
+
+// 页面加载后立即执行一次，之后每秒更新一次
+document.addEventListener("DOMContentLoaded", function () {
+  updateRunningTime();
+  setInterval(updateRunningTime, 1000);
+});
+</script><div class="footer-other"><div class="footer-copyright"><span class="copyright">&copy;2025 - 2026 By cyforkk</span><span class="framework-info"><span>框架 </span><a target="_blank" rel="noopener" href="https://hexo.io">Hexo 7.3.0</a><span class="footer-separator">|</span><span>主题 </span><a target="_blank" rel="noopener" href="https://github.com/jerryc127/hexo-theme-butterfly">Butterfly 5.4.2</a></span></div></div></footer></div><div id="rightside"><div id="rightside-config-hide"><button id="darkmode" type="button" title="日间和夜间模式切换"><i class="fas fa-adjust"></i></button></div><div id="rightside-config-show"><button id="rightside-config" type="button" title="设置"><i class="fas fa-cog fa-spin"></i></button><a id="to_comment" href="#post-comment" title="前往评论"><i class="fas fa-comments"></i></a><button id="go-up" type="button" title="回到顶部"><span class="scroll-percent"></span><i class="fas fa-arrow-up"></i></button></div></div><div><script src="/js/utils.js"></script><script src="/js/main.js"></script><script src="https://cdn.jsdelivr.net/npm/@fancyapps/ui/dist/fancybox/fancybox.umd.min.js"></script><script src="https://cdn.jsdelivr.net/npm/instant.page/instantpage.min.js" type="module"></script><script src="https://cdn.jsdelivr.net/npm/node-snackbar/dist/snackbar.min.js"></script><div class="js-pjax"><script>(() => {
+  const isShuoshuo = GLOBAL_CONFIG_SITE.pageType === 'shuoshuo'
+  const option = null
+
+  const getGiscusTheme = theme => theme === 'dark' ? 'dark' : 'light'
+
+  const createScriptElement = config => {
+    const ele = document.createElement('script')
+    Object.entries(config).forEach(([key, value]) => {
+      ele.setAttribute(key, value)
+    })
+    return ele
+  }
+
+  const loadGiscus = (el = document, key) => {
+    const mappingConfig = isShuoshuo
+      ? { 'data-mapping': 'specific', 'data-term': key }
+      : { 'data-mapping': (option && option['data-mapping']) || 'pathname' }
+
+    const giscusConfig = {
+      src: 'https://giscus.app/client.js',
+      'data-repo': 'cyforkk/cyforkk.github.io',
+      'data-repo-id': 'R_kgDOOKlk4Q',
+      'data-category-id': 'DIC_kwDOOKlk4c4CtMok',
+      'data-theme': getGiscusTheme(document.documentElement.getAttribute('data-theme')),
+      'data-reactions-enabled': '1',
+      crossorigin: 'anonymous',
+      async: true,
+      ...option,
+      ...mappingConfig
+    }
+
+    const scriptElement = createScriptElement(giscusConfig)
+
+    el.querySelector('#giscus-wrap').appendChild(scriptElement)
+
+    if (isShuoshuo) {
+      window.shuoshuoComment.destroyGiscus = () => {
+        if (el.children.length) {
+          el.innerHTML = ''
+          el.classList.add('no-comment')
+        }
+      }
+    }
+  }
+
+  const changeGiscusTheme = theme => {
+    const iframe = document.querySelector('#giscus-wrap iframe')
+    if (iframe) {
+      const message = {
+        giscus: {
+          setConfig: {
+            theme: getGiscusTheme(theme)
+          }
+        }
+      }
+      iframe.contentWindow.postMessage(message, 'https://giscus.app')
+    }
+  }
+
+  btf.addGlobalFn('themeChange', changeGiscusTheme, 'giscus')
+
+  if (isShuoshuo) {
+    'Giscus' === 'Giscus'
+      ? window.shuoshuoComment = { loadComment: loadGiscus }
+      : window.loadOtherComment = loadGiscus
+    return
+  }
+
+  if ('Giscus' === 'Giscus' || !false) {
+    if (false) btf.loadComment(document.getElementById('giscus-wrap'), loadGiscus)
+    else loadGiscus()
+  } else {
+    window.loadOtherComment = loadGiscus
+  }
+})()</script></div><script src="https://cdn.jsdelivr.net/npm/aplayer/dist/APlayer.min.js"></script><script src="https://cdn.jsdelivr.net/npm/meting@2/dist/Meting.min.js"></script><div class="aplayer no-destroy" data-id="14411025199" data-server="netease" data-type="playlist" data-fixed="true" data-mini="true" data-listFolded="false" data-order="random" data-preload="auto" data-autoplay="false" data-theme="#409EFF"> </div><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/aplayer/dist/APlayer.min.css" media="print" onload="this.media='all'"><script src="https://cdn.jsdelivr.net/npm/aplayer/dist/APlayer.min.js"></script><script src="https://cdn.jsdelivr.net/npm/butterfly-extsrc/metingjs/dist/Meting.min.js"></script><script>(() => {
+  const destroyAplayer = () => {
+    if (window.aplayers) {
+      for (let i = 0; i < window.aplayers.length; i++) {
+        if (!window.aplayers[i].options.fixed) {
+          window.aplayers[i].destroy()
+        }
+      }
+    }
+  }
+
+  const runMetingJS = () => {
+    typeof loadMeting === 'function' && document.getElementsByClassName('aplayer').length && loadMeting()
+  }
+
+  btf.addGlobalFn('pjaxSend', destroyAplayer, 'destroyAplayer')
+  btf.addGlobalFn('pjaxComplete', loadMeting, 'runMetingJS')
+})()</script><script src="https://cdn.jsdelivr.net/npm/pjax/pjax.min.js"></script><script>(() => {
+  const pjaxSelectors = ["meta[property=\"og:image\"]","meta[property=\"og:title\"]","meta[property=\"og:url\"]","meta[property=\"og:description\"]","link[rel=\"canonical\"]","head > title","#config-diff","#body-wrap","#rightside-config-hide","#rightside-config-show",".js-pjax"]
+
+  window.pjax = new Pjax({
+    elements: 'a:not([target="_blank"]):not([href="/music/"])',
+    selectors: pjaxSelectors,
+    cacheBust: false,
+    analytics: false,
+    scrollRestoration: false
+  })
+
+  const triggerPjaxFn = (val) => {
+    if (!val) return
+    Object.values(val).forEach(fn => fn())
+  }
+
+  document.addEventListener('pjax:send', () => {
+    // removeEventListener
+    btf.removeGlobalFnEvent('pjaxSendOnce')
+    btf.removeGlobalFnEvent('themeChange')
+
+    // reset readmode
+    const $bodyClassList = document.body.classList
+    if ($bodyClassList.contains('read-mode')) $bodyClassList.remove('read-mode')
+
+    triggerPjaxFn(window.globalFn.pjaxSend)
+  })
+
+  document.addEventListener('pjax:complete', () => {
+    btf.removeGlobalFnEvent('pjaxCompleteOnce')
+    document.querySelectorAll('script[data-pjax]').forEach(item => {
+      const newScript = document.createElement('script')
+      const content = item.text || item.textContent || item.innerHTML || ""
+      Array.from(item.attributes).forEach(attr => newScript.setAttribute(attr.name, attr.value))
+      newScript.appendChild(document.createTextNode(content))
+      item.parentNode.replaceChild(newScript, item)
+    })
+
+    triggerPjaxFn(window.globalFn.pjaxComplete)
+  })
+
+  document.addEventListener('pjax:error', e => {
+    if (e.request.status === 404) {
+      const usePjax = true
+      true
+        ? (usePjax ? pjax.loadUrl('/404.html') : window.location.href = '/404.html')
+        : window.location.href = e.request.responseURL
+    }
+  })
+})()</script><script async data-pjax src="//busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script><div id="local-search"><div class="search-dialog"><nav class="search-nav"><span class="search-dialog-title">搜索</span><span id="loading-status"></span><button class="search-close-button"><i class="fas fa-times"></i></button></nav><div class="text-center" id="loading-database"><i class="fas fa-spinner fa-pulse"></i><span>  数据加载中</span></div><div class="search-wrap"><div id="local-search-input"><div class="local-search-box"><input class="local-search-box--input" placeholder="搜索" type="text"/></div></div><hr/><div id="local-search-results"></div><div id="local-search-stats-wrap"></div></div></div><div id="search-mask"></div><script src="/js/search/local-search.js"></script></div></div></body></html>
