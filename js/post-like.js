@@ -1,4 +1,4 @@
-function initPostLike(){const t=document.getElementById("article-container");if(!t)return;if(document.querySelector(".post-like-container"))return;const e=window.location.pathname;const n=createLikeButton(e);const o=document.querySelector(".post-reward");if(o){o.after(n)}else{t.parentElement.insertBefore(n,t.nextSibling)}loadLikeStatus(e)}function createLikeButton(t){const e=document.createElement("div");e.className="post-like-container";e.innerHTML=`
+function initPostLike(){const t=document.getElementById("article-container");if(!t)return;if(GLOBAL_CONFIG_SITE&&GLOBAL_CONFIG_SITE.pageType!=="post")return;if(document.querySelector(".post-like-container"))return;const e=window.location.pathname;const n=createLikeButton(e);const o=document.querySelector(".post-reward");if(o){o.after(n)}else{t.parentElement.insertBefore(n,t.nextSibling)}loadLikeStatus(e)}function createLikeButton(t){const e=document.createElement("div");e.className="post-like-container";e.innerHTML=`
     <button class="post-like-button" id="post-like-btn" data-url="${t}">
       <i class="fas fa-heart post-like-icon"></i>
       <span class="post-like-count" id="post-like-count">0</span>
