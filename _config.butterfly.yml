@@ -26,12 +26,18 @@ inject: #注入配置项，用于向页面中注入额外的 HTML 代码
     - <link rel="stylesheet" href="/css/custom.css">
     - <link rel="stylesheet" href="/css/todolist.css"> # 待办清单页
     - <link rel="stylesheet" href="/css/talking.css"> # 说说页面
+    - <link rel="stylesheet" href="/css/link.css"> # 友链页面
+    - <link rel="stylesheet" href="/css/about.css"> # 关于页面
+    - <link rel="stylesheet" href="/css/post-like.css"> # 文章点赞
     - <script src="https://npm.elemecdn.com/echarts@4.9.0/dist/echarts.min.js"></script>
   bottom:
     # - <script src="/js/sakura.js"></script>
     # - <script src="/js/cursor-effects.js"></script>
     - <script src="/js/enhancements.js"></script>
     - <script src="/js/talking.js"></script>
+    - <script src="/js/link.js"></script>
+    - <script src="/js/about.js"></script>
+    - <script src="/js/post-like.js"></script>
     - <script src="https://cdn.jsdelivr.net/npm/aplayer/dist/APlayer.min.js"></script>
     - <script src="https://cdn.jsdelivr.net/npm/meting@2/dist/Meting.min.js"></script>
     - <div class="aplayer no-destroy" 
@@ -78,8 +84,8 @@ menu:
   # 清单: https://cyforkk163.github.io/ ||fa fa-heartbeat
   # 清单: /todolist/ ||fa fa-heartbeat
   照片: /Gallery/ || fas fa-images
-    # 友链: /link/ || fas fa-link
-    # 关于: /about/ || fas fa-heart
+  友链: /link/ || fas fa-link
+  关于: /about/ || fas fa-heart
 # --------------------------------------
 # 代码块设置
 # --------------------------------------
@@ -1258,5 +1264,19 @@ snackbar:
 # https://instant.page/
 # prefetch (预加载)
 instantpage: true
+
+# Lazyload (图片懒加载)
+# https://github.com/verlok/vanilla-lazyload
+lazyload:
+  # 是否启用 Lazyload
+  enable: true
+  # 使用浏览器的原生 lazyload 而不是 vanilla-lazyload
+  native: false
+  # 指定使用 Lazyload 的范围 (site 或 post)
+  field: site
+  # 占位图片
+  placeholder:
+  # 是否启用模糊效果
+  blur: false
 
 
