@@ -38,32 +38,16 @@ function renderLinks(linkList) {
     return;
   }
 
+  // 给容器添加 link-grid 类
+  container.classList.add('link-grid');
+
   if (!linkList || linkList.length === 0) {
     container.innerHTML = '<div class="link-empty">暂无友链</div>';
     return;
   }
 
-  // 添加友链说明
-  let html = `
-    <div class="link-notice">
-      <h3>🔗 友链说明</h3>
-      <p>欢迎交换友链！请在评论区留言，格式如下：</p>
-      <p>
-        <code>名称</code>：你的网站名称<br>
-        <code>链接</code>：你的网站地址<br>
-        <code>头像</code>：你的头像链接<br>
-        <code>描述</code>：一句话介绍
-      </p>
-      <p>💡 本站信息：</p>
-      <p>
-        <code>名称</code>：cyforkk<br>
-        <code>链接</code>：https://cyforkk.top/<br>
-        <code>头像</code>：https://cyforkk.top/images/wallpaper-img/sanye.png<br>
-        <code>描述</code>：找寻自我
-      </p>
-    </div>
-    <div class="link-grid">
-  `;
+  // 直接渲染友链卡片
+  let html = '<div id="网站">';
 
   // 渲染友链卡片
   linkList.forEach((item, index) => {

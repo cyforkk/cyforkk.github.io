@@ -24,11 +24,11 @@ menu:
 
 code_blocks:
   # 代码块主题: darker / pale night / light / ocean / false
-  theme: light
+  theme: darker
   # 是否使用 Mac 风格
-  macStyle: false
+  macStyle: true
   # 代码块高度限制（单位: px）
-  height_limit: false
+  height_limit: 300
   # 是否自动换行
   word_wrap: false
 
@@ -40,7 +40,7 @@ code_blocks:
   # true: 收缩代码块 | false: 展开代码块 | none: 展开代码块并隐藏按钮
   shrink: false
   # 是否显示全屏显示代码块按钮
-  fullpage: false
+  fullpage: true
 
 # 社交媒体链接
 # 格式:
@@ -1222,8 +1222,10 @@ css_prefix: true
 inject:
   head:
     # - <link rel="stylesheet" href="/xxx.css">
+    - <link rel="stylesheet" href="/css/reading-progress.css">
   bottom:
     # - <script src="xxxx"></script>
+    - <script src="/js/reading-progress.js"></script>
 
 # CDN 设置
 # 除非你知道它们的工作原理，否则不要修改以下设置

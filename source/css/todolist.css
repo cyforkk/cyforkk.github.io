@@ -1,85 +1,289 @@
+/* 每日计划页面容器 */
 #todolist-box{
-    margin: 0 10px;
+    margin: 0 auto;
+    max-width: 1400px;
+    padding: 20px;
 }
+
 #todolist-main{
     display: flex;
     flex-direction: row;
     flex-wrap: wrap;
     justify-content: center;
-    margin: 16px 0 10px;
+    margin: 20px 0;
+    gap: 20px;
 }
+
 #todolist-main li{
-    list-style:none;
+    list-style: none;
     font-size: 17px;
+    line-height: 1.8;
+    transition: all 0.3s ease;
 }
+
 #todolist-main ul{
     margin: 0;
     padding: 0;
 }
+
 #todolist-left{
-    width: 50%;
-    padding: 0 8px 0 0;
+    width: calc(50% - 10px);
+    padding: 0;
 }
+
 #todolist-right{
-    width: 50%;
-    padding: 0 0 0 8px;
+    width: calc(50% - 10px);
+    padding: 0;
 }
+
+/* 待办事项卡片美化 */
 .todolist-item{
     position: relative;
-    background: #fae4df;
-    border-radius: 12px;
-    padding: 10px 1rem 1.2rem;
-    border: 2px dashed #f7a796;
-    margin-bottom: 1rem;
+    background: linear-gradient(135deg, #fef5f3 0%, #fae4df 100%);
+    border-radius: 16px;
+    padding: 20px 24px;
+    border: 2px solid transparent;
+    margin-bottom: 20px;
+    box-shadow: 0 4px 12px rgba(247, 167, 150, 0.15);
+    transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+    overflow: hidden;
+    animation: fadeInUp 0.6s ease-out;
 }
-[data-theme=dark]
-.todolist-item{
-    background: #242424;
-    border: 2px dashed #51908b;
+
+/* 渐变顶部装饰条 */
+.todolist-item::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    height: 4px;
+    background: linear-gradient(90deg, #f7a796 0%, #f093fb 50%, #ffa8a8 100%);
+    transform: scaleX(0);
+    transform-origin: left;
+    transition: transform 0.4s cubic-bezier(0.4, 0, 0.2, 1);
 }
+
+/* 悬停发光效果 */
+.todolist-item::after {
+    content: '';
+    position: absolute;
+    top: -2px;
+    left: -2px;
+    right: -2px;
+    bottom: -2px;
+    background: linear-gradient(135deg, #f7a796, #f093fb, #ffa8a8);
+    border-radius: 16px;
+    opacity: 0;
+    z-index: -1;
+    filter: blur(15px);
+    transition: opacity 0.4s ease;
+}
+
+.todolist-item:hover::before {
+    transform: scaleX(1);
+}
+
+.todolist-item:hover::after {
+    opacity: 0.4;
+}
+
+.todolist-item:hover {
+    transform: translateY(-5px) scale(1.01);
+    box-shadow: 0 12px 28px rgba(247, 167, 150, 0.3);
+    border-color: rgba(247, 167, 150, 0.3);
+}
+
+/* 暗黑模式适配 */
+[data-theme=dark] .todolist-item{
+    background: linear-gradient(135deg, #2d3748 0%, #1a202c 100%);
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.3);
+    border-color: rgba(81, 144, 139, 0.2);
+}
+
+[data-theme=dark] .todolist-item::before {
+    background: linear-gradient(90deg, #51908b 0%, #4facfe 50%, #00f2fe 100%);
+}
+
+[data-theme=dark] .todolist-item::after {
+    background: linear-gradient(135deg, #51908b, #4facfe, #00f2fe);
+}
+
+[data-theme=dark] .todolist-item:hover {
+    box-shadow: 0 12px 28px rgba(81, 144, 139, 0.4);
+    border-color: rgba(81, 144, 139, 0.4);
+}
+/* 待办事项列表项 */
 li.todolist-li i{
     margin-left: 10px;
+    transition: all 0.3s ease;
 }
+
+li.todolist-li:hover i{
+    transform: scale(1.2);
+}
+
 h3.todolist-title{
-    margin: 0!important;
-    border-bottom: var(--todo-border);
+    margin: 0 0 15px 0 !important;
+    padding-bottom: 12px;
+    border-bottom: 2px solid rgba(247, 167, 150, 0.3);
+    font-size: 1.3em;
+    font-weight: 600;
+    color: #f7a796;
+    position: relative;
+    padding-left: 12px;
 }
+
+h3.todolist-title::before {
+    content: '';
+    position: absolute;
+    left: 0;
+    top: 50%;
+    transform: translateY(-50%);
+    width: 4px;
+    height: 70%;
+    background: linear-gradient(180deg, #f7a796 0%, #f093fb 100%);
+    border-radius: 2px;
+}
+
+[data-theme=dark] h3.todolist-title{
+    color: #51908b;
+    border-bottom-color: rgba(81, 144, 139, 0.3);
+}
+
+[data-theme=dark] h3.todolist-title::before {
+    background: linear-gradient(180deg, #51908b 0%, #4facfe 100%);
+}
+
 li.todolist-li{
-    border-bottom: var(--todo-border);
+    border-bottom: 1px solid rgba(247, 167, 150, 0.2);
     font-weight: normal;
+    padding: 10px 0;
+    transition: all 0.3s ease;
 }
+
+li.todolist-li:last-child{
+    border-bottom: none;
+}
+
+li.todolist-li:hover{
+    padding-left: 8px;
+    color: #f7a796;
+}
+
+[data-theme=dark] li.todolist-li{
+    border-bottom-color: rgba(81, 144, 139, 0.2);
+}
+
+[data-theme=dark] li.todolist-li:hover{
+    color: #51908b;
+}
+
 .todolist-li span{
     margin-left: 5px;
 }
+/* 响应式设计 */
 @media screen and (max-width:700px){
     #todolist-left,#todolist-right{
         width: 100%;
         padding: 0;
     }
-  }
+
+    #todolist-main{
+        gap: 15px;
+    }
+
+    .todolist-item{
+        padding: 16px 20px;
+        margin-bottom: 15px;
+    }
+
+    h3.todolist-title{
+        font-size: 1.2em;
+    }
+
+    .page-top-card{
+        height: 16rem !important;
+        padding: 10px 1.5rem !important;
+    }
+
+    .page-top-card span.content-item-title{
+        font-size: 1.8em !important;
+    }
+}
+
+/* 页面顶部卡片美化 */
 .page-top-card{
-  background-size: cover;
-  background-position: center;
-  height: 20.5rem;
-  padding: 10px 2.7rem;
-  border-radius: 20px;
-  color: white;
-  position: relative;
+    background-size: cover;
+    background-position: center;
+    height: 20.5rem;
+    padding: 10px 2.7rem;
+    border-radius: 20px;
+    color: white;
+    position: relative;
+    box-shadow: 0 8px 24px rgba(0, 0, 0, 0.15);
+    overflow: hidden;
+    transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
 }
+
+.page-top-card::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background: linear-gradient(135deg, rgba(247, 167, 150, 0.3) 0%, rgba(240, 147, 251, 0.3) 100%);
+    opacity: 0;
+    transition: opacity 0.4s ease;
+}
+
+.page-top-card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 12px 32px rgba(0, 0, 0, 0.25);
+}
+
+.page-top-card:hover::before {
+    opacity: 1;
+}
+
 .page-top-card span.content-item-title{
-  font-size: 2.3em;
-  font-weight: bold;
-  line-height: 1.2;
-  font-family: STZhongsong,'Microsoft YaHei';
+    font-size: 2.3em;
+    font-weight: bold;
+    line-height: 1.2;
+    font-family: STZhongsong,'Microsoft YaHei';
+    position: relative;
+    z-index: 1;
+    text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.3);
 }
-.page-top-card .content-bottom{
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-  position: absolute;
-  width: calc(100% - 5.4rem);
-  bottom: 1rem;
+
+.page-top-card .contentom{
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    position: absolute;
+    width: calc(100% - 5.4rem);
+    bottom: 1rem;
+    z-index: 1;
 }
+
 [data-theme='dark'] .page-top-card{
-  opacity: .92;
+    opacity: .92;
+    box-shadow: 0 8px 24px rgba(0, 0, 0, 0.4);
+}
+
+[data-theme='dark'] .page-top-card::before {
+    background: linear-gradient(135deg, rgba(81, 144, 139, 0.3) 0%, rgba(79, 172, 254, 0.3) 100%);
+}
+
+/* 渐入动画 */
+@keyframes fadeInUp {
+    from {
+        opacity: 0;
+        transform: translateY(30px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
 }

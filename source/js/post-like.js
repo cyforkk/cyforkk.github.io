@@ -6,6 +6,9 @@ function initPostLike() {
   const articleContainer = document.getElementById('article-container');
   if (!articleContainer) return;
 
+  // 额外检查：确保是 post 类型页面
+  if (GLOBAL_CONFIG_SITE && GLOBAL_CONFIG_SITE.pageType !== 'post') return;
+
   // 检查是否已经添加了点赞按钮
   if (document.querySelector('.post-like-container')) return;
 

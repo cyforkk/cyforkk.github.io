@@ -1,0 +1,38 @@
+[
+  {
+    "name": "Hexo",
+    "link": "https://hexo.io/zh-cn/",
+    "avatar": "https://hexo.io/icon/favicon-196x196.png",
+    "descr": "快速、简洁且高效的博客框架"
+  },
+  {
+    "name": "Hexo 官方文档",
+    "link": "https://hexo.io/zh-cn/docs/",
+    "avatar": "https://hexo.io/icon/favicon-196x196.png",
+    "descr": "Hexo 官方中文文档"
+  },
+  {
+    "name": "Butterfly 主题",
+    "link": "https://butterfly.js.org/",
+    "avatar": "https://butterfly.js.org/img/avatar.png",
+    "descr": "一款简洁优雅的 Hexo 主题"
+  },
+  {
+    "name": "GitHub",
+    "link": "https://github.com/",
+    "avatar": "https://github.githubassets.com/favicons/favicon.png",
+    "descr": "全球最大的代码托管平台"
+  },
+  {
+    "name": "Markdown 指南",
+    "link": "https://markdown.com.cn/",
+    "avatar": "https://markdown.com.cn/hero.png",
+    "descr": "Markdown 中文文档"
+  },
+  {
+    "name": "Font Awesome",
+    "link": "https://fontawesome.com/",
+    "avatar": "https://fontawesome.com/favicon.ico",
+    "descr": "图标字体库"
+  }
+]

@@ -79,10 +79,11 @@ prismjs:
 # path: Root path for your blogs index page. (default = '')
 # per_page: Posts displayed per page. (0 = disable pagination)
 # order_by: Posts order. (Order by date descending by default)
+# 文章置顶功能：在文章 front-matter 中添加 top: true 或 top: 数字（数字越大越靠前）
 index_generator:
   path: ''
   per_page: 10
-  order_by: -date
+  order_by: -top -date
 
 # Category & Tag
 default_category: uncategorized
@@ -184,3 +185,12 @@ baidusitemap:
 # 配置文件：hexo-offline.config.cjs
 
 
+
+# ==================== 相关文章推荐配置 ====================
+# hexo-related-popular-posts 插件配置
+related_posts:
+  enable: true
+  filter_threshold: 0.3  # 相关度阈值，0-1之间，越大越严格
+  related_count: 6  # 显示的相关文章数量
+  ppl_count: 6  # 显示的热门文章数量
+  date_format: 'YYYY-MM-DD'  # 日期格式

@@ -27,7 +27,7 @@
   top: 0;
   left: 0;
   right: 0;
-  height: 120px;
+  height: 180px;
   background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
   z-index: 0;
 }
@@ -37,6 +37,7 @@
   position: relative;
   z-index: 1;
   margin-bottom: 20px;
+  padding-top: 30px;
 }
 
 .about-avatar img {
@@ -46,6 +47,7 @@
   border: 5px solid #fff;
   box-shadow: 0 4px 12px rgba(0, 0, 0, 0.2);
   transition: transform 0.3s ease;
+  object-fit: cover;
 }
 
 .about-avatar img:hover {
@@ -297,7 +299,11 @@
   }
 
   .about-card::before {
-    height: 100px;
+    height: 150px;
+  }
+
+  .about-avatar {
+    padding-top: 20px;
   }
 
   .about-avatar img {
