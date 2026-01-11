@@ -236,134 +236,17 @@ aside: false
 }
 </style>
 
-<script>
-document.addEventListener('DOMContentLoaded', function() {
-  const timelineItems = document.querySelectorAll('.timeline-item-title');
-  
-  timelineItems.forEach(function(title) {
-    // 添加收缩按钮
-    const toggleBtn = document.createElement('span');
-    toggleBtn.className = 'toggle-btn';
-    toggleBtn.innerHTML = '▼';
-    title.appendChild(toggleBtn);
-    
-    // 添加点击事件
-    title.addEventListener('click', function() {
-      const content = this.nextElementSibling;
-      const isCollapsed = content.classList.contains('collapsed');
-      
-      if (isCollapsed) {
-        content.classList.remove('collapsed');
-        this.classList.remove('collapsed');
-      } else {
-        content.classList.add('collapsed');
-        this.classList.add('collapsed');
-      }
-    });
-  });
-  
-  // 分页功能
-  const itemsPerPage = 10;
-  let currentPage = 1;
-  const allItems = document.querySelectorAll('.timeline-item');
-  const totalPages = Math.ceil(allItems.length / itemsPerPage);
-  
-  function showPage(page) {
-    const start = (page - 1) * itemsPerPage;
-    const end = start + itemsPerPage;
-    
-    allItems.forEach((item, index) => {
-      if (index >= start && index < end) {
-        item.style.display = 'block';
-      } else {
-        item.style.display = 'none';
-      }
-    });
-  }
-  
-  function createPagination() {
-    const timeline = document.querySelector('.timeline');
-    const paginationDiv = document.createElement('div');
-    paginationDiv.className = 'pagination';
-    
-    // 上一页按钮
-    const prevBtn = document.createElement('button');
-    prevBtn.className = 'page-btn';
-    prevBtn.innerHTML = '← 上一页';
-    prevBtn.onclick = () => {
-      if (currentPage > 1) {
-        currentPage--;
-        showPage(currentPage);
-        updatePagination();
-      }
-    };
-    paginationDiv.appendChild(prevBtn);
-    
-    // 页码按钮容器
-    const pageNumbers = document.createElement('div');
-    pageNumbers.className = 'page-numbers';
-    paginationDiv.appendChild(pageNumbers);
-    
-    // 下一页按钮
-    const nextBtn = document.createElement('button');
-    nextBtn.className = 'page-btn';
-    nextBtn.innerHTML = '下一页 →';
-    nextBtn.onclick = () => {
-      if (currentPage < totalPages) {
-        currentPage++;
-        showPage(currentPage);
-        updatePagination();
-      }
-    };
-    paginationDiv.appendChild(nextBtn);
-    
-    timeline.parentNode.insertBefore(paginationDiv, timeline.nextSibling);
-    updatePagination();
-  }
-  
-  function updatePagination() {
-    const pageNumbers = document.querySelector('.page-numbers');
-    pageNumbers.innerHTML = '';
-    
-    for (let i = 1; i <= totalPages; i++) {
-      const pageBtn = document.createElement('button');
-      pageBtn.className = 'page-number';
-      pageBtn.textContent = i;
-      if (i === currentPage) pageBtn.classList.add('active');
-      
-      pageBtn.onclick = () => {
-        currentPage = i;
-        showPage(currentPage);
-        updatePagination();
-      };
-      
-      pageNumbers.appendChild(pageBtn);
-    }
-    
-    // 更新按钮状态
-    document.querySelector('.page-btn').disabled = currentPage === 1;
-    document.querySelectorAll('.page-btn')[1].disabled = currentPage === totalPages;
-  }
-  
-  // 初始化分页
-  if (allItems.length > itemsPerPage) {
-    createPagination();
-    showPage(1);
-  }
-});
-</script>
+<!-- 内联脚本已移除，所有功能由 /js/plan.js 提供 -->
 
 
 
 <hr>
 
-{% timeline 每日计划,blue %}
+<div class="timeline blue">
+  <!-- 计划数据将从 plans.yml 动态加载 -->
+  <p style="text-align:center;color:#999;padding:20px;">
+    <i class="fas fa-spinner fa-spin"></i> 加载中...
+  </p>
+</div>
 
-<!-- timeline 2026-01-07 -->
-- [x] 完成每日计划页面
-- [x] 完成图片统计页面
-<!-- endtimeline -->
-
-
-
-{% endtimeline %}
+<script src="/js/plan.js"></script>

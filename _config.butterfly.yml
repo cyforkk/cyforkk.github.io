@@ -22,13 +22,13 @@ pjax:
 
 inject: #注入配置项，用于向页面中注入额外的 HTML 代码
   head: #注入到 <head> 标签内
-    - <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/aplayer/dist/APlayer.min.css">
+    # - <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/aplayer/dist/APlayer.min.css"> # 音乐播放器（已禁用）
     - <link rel="stylesheet" href="/css/custom.css">
     - <link rel="stylesheet" href="/css/todolist.css"> # 待办清单页
     - <link rel="stylesheet" href="/css/talking.css"> # 说说页面
     - <link rel="stylesheet" href="/css/link.css"> # 友链页面
     - <link rel="stylesheet" href="/css/about.css"> # 关于页面
-    - <link rel="stylesheet" href="/css/post-like.css"> # 文章点赞
+    # - <link rel="stylesheet" href="/css/post-like.css"> # 文章点赞（已禁用）
     - <script src="https://npm.elemecdn.com/echarts@4.9.0/dist/echarts.min.js"></script>
   bottom:
     # - <script src="/js/sakura.js"></script>
@@ -37,24 +37,24 @@ inject: #注入配置项，用于向页面中注入额外的 HTML 代码
     - <script src="/js/talking.js"></script>
     - <script src="/js/link.js"></script>
     - <script src="/js/about.js"></script>
-    - <script src="/js/post-like.js"></script>
-    - <script src="https://cdn.jsdelivr.net/npm/aplayer/dist/APlayer.min.js"></script>
-    - <script src="https://cdn.jsdelivr.net/npm/meting@2/dist/Meting.min.js"></script>
-    - <div class="aplayer no-destroy" 
-         data-id="14411025199" 
-         data-server="netease" 
-         data-type="playlist" 
-         data-fixed="true" 
-         data-mini="true" 
-         data-listFolded="false" 
-         data-order="random" 
-         data-preload="auto" 
-         data-autoplay="false" 
-         data-theme="#409EFF">
-      </div>
+    # - <script src="/js/post-like.js"></script> # 文章点赞（已禁用）
+    # - <script src="https://cdn.jsdelivr.net/npm/aplayer/dist/APlayer.min.js"></script> # 音乐播放器（已禁用）
+    # - <script src="https://cdn.jsdelivr.net/npm/meting@2/dist/Meting.min.js"></script> # 音乐播放器（已禁用）
+    # - <div class="aplayer no-destroy" # 音乐播放器（已禁用）
+    #      data-id="14411025199"
+    #      data-server="netease"
+    #      data-type="playlist"
+    #      data-fixed="true"
+    #      data-mini="true"
+    #      data-listFolded="false"
+    #      data-order="random"
+    #      data-preload="auto"
+    #      data-autoplay="false"
+    #      data-theme="#409EFF">
+    #   </div>
 aplayerInject:
-  enable: true
-  per_page: true
+  enable: false
+  per_page: false
 
 
 # --------------------------------------
@@ -84,8 +84,8 @@ menu:
   # 清单: https://cyforkk163.github.io/ ||fa fa-heartbeat
   # 清单: /todolist/ ||fa fa-heartbeat
   照片: /Gallery/ || fas fa-images
-  友链: /link/ || fas fa-link
-  关于: /about/ || fas fa-heart
+  # 友链: /link/ || fas fa-link
+  # 关于: /about/ || fas fa-heart
 # --------------------------------------
 # 代码块设置
 # --------------------------------------
@@ -171,10 +171,10 @@ footer_img: true
 # 网站背景
 # 可以设置为颜色或图片
 # 图片格式: url(http://xxxxxx.com/xxx.jpg)
-background: /images/wallpaper-img/cs.png
+background: 
 
 # 封面设置
-cover:
+cover: 
   # 是否禁用封面
   index_enable: true
   aside_enable: true
@@ -264,8 +264,9 @@ subtitle:
   # 3 - jinrishici.com
   source: 1
   # 如果关闭打字机效果，副标题将仅显示 sub 的第一行内容
-  sub: 
-     - 欲速则不达
+  sub:
+     - 不积跬步，无以至千里；不积小流，无以成江海。 
+     - 欲速则不达，慢就是快。
      - 今日事&#44;今日毕
      - 业精于勤荒于嬉，行成于思毁于随。 ——韩愈
      - 欲修其身者，先正其心；欲正其心者，先诚其意。 ——韩愈
@@ -389,49 +390,49 @@ noticeOutdate:
 # --------------------------------------
 footer:
   # 页脚导航栏配置
-  nav:
-    - content:
-      - title: 博客导航
-        item:
-          - title: 首页
-            url: /
-          - title: 归档
-            url: /archives/
-          - title: 标签
-            url: /tags/
-          - title: 分类
-            url: /categories/
-    - content:
-      - title: 功能页面
-        item:
-          - title: 计划
-            url: /plan/
-          - title: 目标
-            url: /todolist/
-          - title: 统计
-            url: /charts/
-          - title: 说说
-            url: /talking/
-          - title: 照片
-            url: /Gallery/
-    - content:
-      - title: 技术框架
-        item:
-          - title: Hexo
-            url: https://hexo.io/zh-cn/
-          - title: Butterfly
-            url: https://butterfly.js.org/
-          - title: GitHub
-            url: https://github.com/cyforkk
-    - content:
-      - title: 友情链接
-        item:
-          - title: Hexo 官方文档
-            url: https://hexo.io/zh-cn/docs/
-          - title: Butterfly 主题文档
-            url: https://butterfly.js.org/posts/21cfbf15/
-          - title: Markdown 指南
-            url: https://markdown.com.cn/
+  # nav:
+  #   - content:
+  #     - title: 博客导航
+  #       item:
+  #         - title: 首页
+  #           url: /
+  #         - title: 归档
+  #           url: /archives/
+  #         - title: 标签
+  #           url: /tags/
+  #         - title: 分类
+  #           url: /categories/
+  #   - content:
+  #     - title: 功能页面
+  #       item:
+  #         - title: 计划
+  #           url: /plan/
+  #         - title: 目标
+  #           url: /todolist/
+  #         - title: 统计
+  #           url: /charts/
+  #         - title: 说说
+  #           url: /talking/
+  #         - title: 照片
+  #           url: /Gallery/
+  #   - content:
+  #     - title: 技术框架
+  #       item:
+  #         - title: Hexo
+  #           url: https://hexo.io/zh-cn/
+  #         - title: Butterfly
+  #           url: https://butterfly.js.org/
+  #         - title: GitHub
+  #           url: https://github.com/cyforkk
+  #   - content:
+  #     - title: 友情链接
+  #       item:
+  #         - title: Hexo 官方文档
+  #           url: https://hexo.io/zh-cn/docs/
+  #         - title: Butterfly 主题文档
+  #           url: https://butterfly.js.org/posts/21cfbf15/
+  #         - title: Markdown 指南
+  #           url: https://markdown.com.cn/
 
   owner:
     # 是否启用所有者显示
@@ -491,7 +492,7 @@ aside:
     # 是否显示最近文章卡片
     enable: true
     # 显示文章数量，0 表示显示所有
-    limit: 5
+    limit: 8
     # 排序方式：date / updated
     sort: date
     sort_order:
@@ -655,11 +656,11 @@ wordcount:
 # 不蒜子 PV / UV 统计
 busuanzi:
   # 网站 UV 统计
-  site_uv: true
+  site_uv: false
   # 网站 PV 统计
-  site_pv: true
+  site_pv: false
   # 页面 PV 统计
-  page_pv: true
+  page_pv: false
 
 # --------------------------------------
 # 数学公式设置
@@ -941,13 +942,13 @@ crisp:
 # 分析服务配置
 # --------------------------------------
 
-# 百度统计配置
+# 百度统计配置（已禁用）
 # 官方网站：https://tongji.baidu.com/web/welcome/login
-baidu_analytics:
+# baidu_analytics:
 
-# 谷歌分析配置
+# 谷歌分析配置（已禁用）
 # 官方网站：https://analytics.google.com/analytics/web/
-google_analytics:
+# google_analytics:
 
 # Cloudflare 分析配置
 # 官方网站：https://www.cloudflare.com/zh-tw/web-analytics/
@@ -1269,7 +1270,7 @@ instantpage: true
 # https://github.com/verlok/vanilla-lazyload
 lazyload:
   # 是否启用 Lazyload
-  enable: true
+  enable: false
   # 使用浏览器的原生 lazyload 而不是 vanilla-lazyload
   native: false
   # 指定使用 Lazyload 的范围 (site 或 post)

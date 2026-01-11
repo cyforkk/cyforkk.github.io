@@ -132,21 +132,21 @@ deploy:
 
 # HTML 压缩
 html_minifier:
-  enable: true
+  enable: false
   ignore_error: false
   silent: false
   exclude:
 
 # CSS 压缩
 css_minifier:
-  enable: true
+  enable: false
   silent: false
   exclude:
     - '*.min.css'
 
 # JS 压缩
 js_minifier:
-  enable: true
+  enable: false
   mangle: true
   silent: false
   output:
@@ -156,7 +156,7 @@ js_minifier:
 
 # 图片压缩
 image_minifier:
-  enable: true
+  enable: false
   interlaced: false
   multipass: false
   optimizationLevel: 2

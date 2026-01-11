@@ -11,12 +11,7 @@
   "icons": [
     {
       "src": "/images/icon/hudie1.png",
-      "sizes": "192x192",
-      "type": "image/png"
-    },
-    {
-      "src": "/images/icon/hudie1.png",
-      "sizes": "512x512",
+      "sizes": "200x200",
       "type": "image/png"
     }
   ]
