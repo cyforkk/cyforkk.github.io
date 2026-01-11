@@ -1,14 +1,92 @@
-function initLink(){const n=document.getElementById("link-container");if(n){loadLinks()}}if(document.readyState==="loading"){document.addEventListener("DOMContentLoaded",initLink)}else{initLink()}document.addEventListener("pjax:complete",initLink);function loadLinks(){fetch("/links.json").then(n=>n.json()).then(n=>{renderLinks(n)}).catch(n=>{console.error("加载友链数据失败:",n);showLinkError()})}function renderLinks(n){const e=document.getElementById("link-container");if(!e){console.error("找不到友链容器");return}e.classList.add("link-grid");if(!n||n.length===0){e.innerHTML='<div class="link-empty">暂无友链</div>';return}let a='<div id="网站">';n.forEach((n,e)=>{const i=escapeHtml(n.name);const t=escapeHtml(n.link);const r=escapeHtml(n.avatar);const s=escapeHtml(n.descr);a+=`
-      <a href="${t}" class="link-card" target="_blank" rel="noopener" style="animation-delay: ${e*.1}s">
-        <img src="${r}" alt="${i}" class="link-avatar" onerror="this.src='/img/friend_404.gif'">
+// 友链页面功能
+function initLink() {
+  const container = document.getElementById('link-container');
+  if (container) {
+    loadLinks();
+  }
+}
+
+// 初始化
+if (document.readyState === 'loading') {
+  document.addEventListener('DOMContentLoaded', initLink);
+} else {
+  initLink();
+}
+
+// PJAX 兼容
+document.addEventListener('pjax:complete', initLink);
+
+// 加载友链数据
+function loadLinks() {
+  fetch('/links.json')
+    .then(response => response.json())
+    .then(data => {
+      renderLinks(data);
+    })
+    .catch(error => {
+      console.error('加载友链数据失败:', error);
+      showLinkError();
+    });
+}
+
+// 渲染友链列表
+function renderLinks(linkList) {
+  const container = document.getElementById('link-container');
+
+  if (!container) {
+    console.error('找不到友链容器');
+    return;
+  }
+
+  // 给容器添加 link-grid 类
+  container.classList.add('link-grid');
+
+  if (!linkList || linkList.length === 0) {
+    container.innerHTML = '<div class="link-empty">暂无友链</div>';
+    return;
+  }
+
+  // 直接渲染友链卡片
+  let html = '<div id="网站">';
+
+  // 渲染友链卡片
+  linkList.forEach((item, index) => {
+    const name = escapeHtml(item.name);
+    const link = escapeHtml(item.link);
+    const avatar = escapeHtml(item.avatar);
+    const descr = escapeHtml(item.descr);
+
+    html += `
+      <a href="${link}" class="link-card" target="_blank" rel="noopener" style="animation-delay: ${index * 0.1}s">
+        <img src="${avatar}" alt="${name}" class="link-avatar" onerror="this.src='/img/friend_404.gif'">
         <div class="link-info">
-          <div class="link-name">${i}</div>
-          <div class="link-descr">${s}</div>
+          <div class="link-name">${name}</div>
+          <div class="link-descr">${descr}</div>
         </div>
       </a>
-    `});a+="</div>";e.innerHTML=a}function escapeHtml(n){const e=document.createElement("div");e.textContent=n;return e.innerHTML}function showLinkError(){const n=document.getElementById("link-container");if(n){n.innerHTML=`
+    `;
+  });
+
+  html += '</div>';
+  container.innerHTML = html;
+}
+
+// HTML 转义
+function escapeHtml(text) {
+  const div = document.createElement('div');
+  div.textContent = text;
+  return div.innerHTML;
+}
+
+// 显示错误信息
+function showLinkError() {
+  const container = document.getElementById('link-container');
+  if (container) {
+    container.innerHTML = `
       <div class="link-error">
         <i class="fas fa-exclamation-triangle"></i>
         <p>加载友链失败，请稍后再试</p>
       </div>
-    `}}
+    `;
+  }
+}

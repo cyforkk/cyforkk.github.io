@@ -1,1 +1,99 @@
-#talking-container{max-width:800px;margin:0 auto;padding:20px}.talking-item{background:var(--card-bg);border-radius:12px;padding:20px;margin-bottom:20px;box-shadow:0 2px 8px rgba(0,0,0,.1);transition:all .3s ease;animation:fadeInUp .6s ease-out}.talking-item:hover{transform:translateY(-5px);box-shadow:0 4px 16px rgba(0,0,0,.15)}.talking-content{font-size:16px;line-height:1.8;color:var(--font-color);margin-bottom:15px;word-wrap:break-word}.talking-meta{display:flex;justify-content:space-between;align-items:center;font-size:14px;color:var(--font-color);opacity:.7}.talking-date{display:flex;align-items:center}.talking-date i{margin-right:5px}.talking-from{display:flex;align-items:center}.talking-from i{margin-right:5px}@keyframes fadeInUp{from{opacity:0;transform:translateY(30px)}to{opacity:1;transform:translateY(0)}}@media screen and (max-width:768px){#talking-container{padding:10px}.talking-item{padding:15px}.talking-content{font-size:14px}.talking-meta{flex-direction:column;align-items:flex-start;gap:8px}}[data-theme=dark] .talking-item{background:var(--card-bg);box-shadow:0 2px 8px rgba(0,0,0,.3)}[data-theme=dark] .talking-item:hover{box-shadow:0 4px 16px rgba(0,0,0,.4)}
+/* 说说页面样式 */
+#talking-container {
+  max-width: 800px;
+  margin: 0 auto;
+  padding: 20px;
+}
+
+.talking-item {
+  background: var(--card-bg);
+  border-radius: 12px;
+  padding: 20px;
+  margin-bottom: 20px;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+  transition: all 0.3s ease;
+  animation: fadeInUp 0.6s ease-out;
+}
+
+.talking-item:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 4px 16px rgba(0, 0, 0, 0.15);
+}
+
+.talking-content {
+  font-size: 16px;
+  line-height: 1.8;
+  color: var(--font-color);
+  margin-bottom: 15px;
+  word-wrap: break-word;
+}
+
+.talking-meta {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  font-size: 14px;
+  color: var(--font-color);
+  opacity: 0.7;
+}
+
+.talking-date {
+  display: flex;
+  align-items: center;
+}
+
+.talking-date i {
+  margin-right: 5px;
+}
+
+.talking-from {
+  display: flex;
+  align-items: center;
+}
+
+.talking-from i {
+  margin-right: 5px;
+}
+
+/* 加载动画 */
+@keyframes fadeInUp {
+  from {
+    opacity: 0;
+    transform: translateY(30px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+/* 响应式设计 */
+@media screen and (max-width: 768px) {
+  #talking-container {
+    padding: 10px;
+  }
+
+  .talking-item {
+    padding: 15px;
+  }
+
+  .talking-content {
+    font-size: 14px;
+  }
+
+  .talking-meta {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 8px;
+  }
+}
+
+/* 暗黑模式适配 */
+[data-theme="dark"] .talking-item {
+  background: var(--card-bg);
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.3);
+}
+
+[data-theme="dark"] .talking-item:hover {
+  box-shadow: 0 4px 16px rgba(0, 0, 0, 0.4);
+}

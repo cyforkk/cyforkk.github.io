@@ -1,1 +1,178 @@
-.post-like-container{display:flex;justify-content:center;align-items:center;margin:30px 0;padding:20px;background:var(--card-bg);border-radius:12px;box-shadow:0 2px 8px rgba(0,0,0,.1);animation:fadeInUp .6s ease-out}.post-like-button{display:flex;align-items:center;gap:12px;padding:12px 24px;background:linear-gradient(135deg,#667eea 0,#764ba2 100%);color:#fff;border:none;border-radius:50px;font-size:16px;font-weight:500;cursor:pointer;transition:all .3s ease;box-shadow:0 4px 12px rgba(102,126,234,.3);user-select:none}.post-like-button:hover{transform:translateY(-3px);box-shadow:0 6px 16px rgba(102,126,234,.4)}.post-like-button:active{transform:ateY(-1px)}.post-like-icon{font-size:20px;transition:all .3s ease}.post-like-button.liked{background:linear-gradient(135deg,#f093fb 0,#f5576c 100%);box-shadow:0 4px 12px rgba(245,87,108,.3)}.post-like-button.liked:hover{box-shadow:0 6px 16px rgba(245,87,108,.4)}.post-like-button.liked .post-like-icon{animation:heartBeat .6s ease}.post-like-count{font-size:16px;font-weight:700}.post-like-text{font-size:14px}@keyframes heartBeat{0%,100%{transform:scale(1)}10%,30%{transform:scale(.9)}20%,40%,60%,80%{transform:scale(1.3)}50%,70%{transform:scale(1.1)}}@keyframes likeClick{0%{transform:scale(1)}50%{transform:scale(1.2)}100%{transform:scale(1)}}.post-like-button.clicking{animation:likeClick .3s ease}@keyframes fadeInUp{from{opacity:0;transform:translateY(30px)}to{opacity:1;transform:translateY(0)}}@media (max-width:768px){.post-like-container{padding:15px;margin:20px 0}.post-like-button{padding:10px 20px;font-size:14px}.post-like-icon{font-size:18px}.post-like-count{font-size:14px}.post-like-text{font-size:12px}}[data-theme=dark] .post-like-container{background:#1f1f1f;box-shadow:0 2px 8px rgba(0,0,0,.3)}.post-like-button:disabled{opacity:.6;cursor:not-allowed}.post-like-button:disabled:hover{transform:none;box-shadow:0 4px 12px rgba(102,126,234,.3)}.post-like-button.loading{pointer-events:none;opacity:.8}.post-like-button.loading .post-like-icon{animation:spin 1s linear infinite}@keyframes spin{from{transform:rotate(0)}to{transform:rotate(360deg)}}
+/* 文章点赞功能样式 */
+
+/* 点赞容器 */
+.post-like-container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin: 30px 0;
+  padding: 20px;
+  background: var(--card-bg);
+  border-radius: 12px;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+  animation: fadeInUp 0.6s ease-out;
+}
+
+/* 点赞按钮 */
+.post-like-button {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  padding: 12px 24px;
+  background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+  color: #fff;
+  border: none;
+  border-radius: 50px;
+  font-size: 16px;
+  font-weight: 500;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  box-shadow: 0 4px 12px rgba(102, 126, 234, 0.3);
+  user-select: none;
+}
+
+.post-like-button:hover {
+  transform: translateY(-3px);
+  box-shadow: 0 6px 16px rgba(102, 126, 234, 0.4);
+}
+
+.post-like-button:active {
+  transform: ateY(-1px);
+}
+
+/* 点赞图标 */
+.post-like-icon {
+  font-size: 20px;
+  transition: all 0.3s ease;
+}
+
+/* 已点赞状态 */
+.post-like-button.liked {
+  background: linear-gradient(135deg, #f093fb 0%, #f5576c 100%);
+  box-shadow: 0 4px 12px rgba(245, 87, 108, 0.3);
+}
+
+.post-like-button.liked:hover {
+  box-shadow: 0 6px 16px rgba(245, 87, 108, 0.4);
+}
+
+.post-like-button.liked .post-like-icon {
+  animation: heartBeat 0.6s ease;
+}
+
+/* 点赞数 */
+.post-like-count {
+  font-size: 16px;
+  font-weight: bold;
+}
+
+/* 点赞文字 */
+.post-like-text {
+  font-size: 14px;
+}
+
+/* 心跳动画 */
+@keyframes heartBeat {
+  0%, 100% {
+    transform: scale(1);
+  }
+  10%, 30% {
+    transform: scale(0.9);
+  }
+  20%, 40%, 60%, 80% {
+    transform: scale(1.3);
+  }
+  50%, 70% {
+    transform: scale(1.1);
+  }
+}
+
+/* 点击动画 */
+@keyframes likeClick {
+  0% {
+    transform: scale(1);
+  }
+  50% {
+    transform: scale(1.2);
+  }
+  100% {
+    transform: scale(1);
+  }
+}
+
+.post-like-button.clicking {
+  animation: likeClick 0.3s ease;
+}
+
+/* 淡入动画 */
+@keyframes fadeInUp {
+  from {
+    opacity: 0;
+    transform: translateY(30px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+/* 响应式设计 */
+@media (max-width: 768px) {
+  .post-like-container {
+    padding: 15px;
+    margin: 20px 0;
+  }
+
+  .post-like-button {
+    padding: 10px 20px;
+    font-size: 14px;
+  }
+
+  .post-like-icon {
+    font-size: 18px;
+  }
+
+  .post-like-count {
+    font-size: 14px;
+  }
+
+  .post-like-text {
+    font-size: 12px;
+  }
+}
+
+/* 深色模式适配 */
+[data-theme="dark"] .post-like-container {
+  background: #1f1f1f;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.3);
+}
+
+/* 禁用状态 */
+.post-like-button:disabled {
+  opacity: 0.6;
+  cursor: not-allowed;
+}
+
+.post-like-button:disabled:hover {
+  transform: none;
+  box-shadow: 0 4px 12px rgba(102, 126, 234, 0.3);
+}
+
+/* 加载状态 */
+.post-like-button.loading {
+  pointer-events: none;
+  opacity: 0.8;
+}
+
+.post-like-button.loading .post-like-icon {
+  animation: spin 1s linear infinite;
+}
+
+@keyframes spin {
+  from {
+    transform: rotate(0deg);
+  }
+  to {
+    transform: rotate(360deg);
+  }
+}
