@@ -528,8 +528,270 @@ const PlanApp = (function() {
   /**
    * 显示历史记录
    */
-  function showHistory() {
-    PlanAuth.showToast('历史记录功能开发中...', 'info');
+  async function showHistory() {
+    // 创建历史记录模态框
+    const modal = document.createElement('div');
+    modal.className = 'plan-modal history-modal';
+    modal.innerHTML = `
+      <div class="plan-modal-overlay" onclick="PlanApp.closeHistory()"></div>
+      <div class="plan-modal-content history-modal-content">
+        <div class="plan-modal-header">
+          <h3><i class="fas fa-history"></i> 历史记录</h3>
+          <button class="plan-modal-close" onclick="PlanApp.closeHistory()">&times;</button>
+        </div>
+        <div class="plan-modal-body">
+          <div class="history-loading">
+            <i class="fas fa-spinner fa-spin"></i> 加载中...
+          </div>
+        </div>
+      </div>
+    `;
+    document.body.appendChild(modal);
+
+    // 加载历史数据
+    const result = await PlanAPI.getPlans({ limit: 30 });
+    const modalBody = modal.querySelector('.plan-modal-body');
+
+    if (result.success) {
+      const plans = result.data.plans || [];
+      if (plans.length === 0) {
+        modalBody.innerHTML = `
+          <div class="history-empty">
+            <i class="fas fa-inbox"></i>
+            <p>暂无历史记录</p>
+          </div>
+        `;
+      } else {
+        modalBody.innerHTML = `
+          <div class="history-list">
+            ${plans.map(plan => renderHistoryItem(plan)).join('')}
+          </div>
+        `;
+      }
+    } else {
+      modalBody.innerHTML = `
+        <div class="history-error">
+          <i class="fas fa-exclamation-circle"></i>
+          <p>加载失败: ${result.error?.message || '未知错误'}</p>
+        </div>
+      `;
+    }
+  }
+
+  /**
+   * 渲染历史记录项
+   */
+  function renderHistoryItem(plan) {
+    const date = new Date(plan.date);
+    const dateStr = date.toLocaleDateString('zh-CN', {
+      year: 'numeric',
+      month: 'long',
+      day: 'numeric',
+      weekday: 'short'
+    });
+
+    const total = plan.stats_total || 0;
+    const completed = plan.stats_completed || 0;
+    const failed = plan.stats_failed || 0;
+    const rate = total > 0 ? Math.round((completed / total) * 100) : 0;
+
+    // 判断状态
+    let statusClass = 'normal';
+    let statusIcon = 'fa-circle';
+    if (rate === 100) {
+      statusClass = 'perfect';
+      statusIcon = 'fa-check-circle';
+    } else if (rate >= 80) {
+      statusClass = 'good';
+      statusIcon = 'fa-smile';
+    } else if (rate >= 50) {
+      statusClass = 'normal';
+      statusIcon = 'fa-meh';
+    } else if (total > 0) {
+      statusClass = 'poor';
+      statusIcon = 'fa-frown';
+    }
+
+    // 判断是否是今天
+    const today = new Date().toISOString().split('T')[0];
+    const isToday = plan.date === today;
+
+    return `
+      <div class="history-item ${statusClass} ${isToday ? 'today' : ''}" onclick="PlanApp.viewPlanDetail('${plan.id}')">
+        <div class="history-date">
+          <span class="history-day">${date.getDate()}</span>
+          <span class="history-month">${date.toLocaleDateString('zh-CN', { month: 'short' })}</span>
+          ${isToday ? '<span class="history-today-badge">今天</span>' : ''}
+        </div>
+        <div class="history-info">
+          <div class="history-title">${plan.title || dateStr}</div>
+          <div class="history-stats">
+            <span class="history-stat">
+              <i class="fas fa-tasks"></i> ${total} 任务
+            </span>
+            <span class="history-stat completed">
+              <i class="fas fa-check"></i> ${completed} 完成
+            </span>
+            ${failed > 0 ? `
+              <span class="history-stat failed">
+              <i class="fas fa-times"></i> ${failed} 失败
+              </span>
+            ` : ''}
+          </div>
+        </div>
+        <div class="history-progress">
+          <div class="history-progress-ring" style="--progress: ${rate}">
+            <svg viewBox="0 0 36 36">
+              <path class="history-progress-bg"
+                d="M18 2.0845
+                  a 15.9155 15.9155 0 0 1 0 31.831
+                  a 15.9155 15.9155 0 0 1 0 -31.831"
+              />
+              <path class="history-progress-fill"
+                stroke-dasharray="${rate}, 100"
+                d="M18 2.0845
+                  a 15.9155 15.9155 0 0 1 0 31.831
+                  a 15.9155 15.9155 0 0 1 0 -31.831"
+              />
+            </svg>
+            <span class="history-progress-text">${rate}%</span>
+          </div>
+          <i class="fas ${statusIcon} history-status-icon"></i>
+        </div>
+      </div>
+    `;
+  }
+
+  /**
+   * 关闭历史记录
+   */
+  function closeHistory() {
+    const modal = document.querySelector('.history-modal');
+    if (modal) {
+      modal.remove();
+    }
+  }
+
+  /**
+   * 查看计划详情
+   */
+  async function viewPlanDetail(planId) {
+    // 关闭历史列表
+    closeHistory();
+
+    // 创建详情模态框
+    const modal = document.createElement('div');
+    modal.className = 'plan-modal detail-modal';
+    modal.innerHTML = `
+      <div class="plan-modal-overlay" onclick="PlanApp.closeDetail()"></div>
+      <div class="plan-modal-content detail-modal-content">
+        <div class="plan-modal-header">
+          <h3><i class="fas fa-calendar-day"></i> 计划详情</h3>
+          <button class="plan-modal-close" onclick="PlanApp.closeDetail()">&times;</button>
+        </div>
+        <div class="plan-modal-body">
+          <div class="history-loading">
+            <i class="fas fa-spinner fa-spin"></i> 加载中...
+          </div>
+        </div>
+      </div>
+    `;
+    document.body.appendChild(modal);
+
+    // 加载计划详情
+    const result = await PlanAPI.getPlan(planId);
+    const modalBody = modal.querySelector('.plan-modal-body');
+
+    if (result.success) {
+      const plan = result.data.plan;
+      const tasks = result.data.tasks || [];
+      modalBody.innerHTML = renderPlanDetail(plan, tasks);
+    } else {
+      modalBody.innerHTML = `
+        <div class="history-error">
+          <i class="fas fa-exclamation-circle"></i>
+          <p>加载失败: ${result.error?.message || '未知错误'}</p>
+        </div>
+      `;
+    }
+  }
+
+  /**
+   * 渲染计划详情
+   */
+  function renderPlanDetail(plan, tasks) {
+    const date = new Date(plan.date);
+    const dateStr = date.toLocaleDateString('zh-CN', {
+      year: 'numeric',
+      month: 'long',
+      day: 'numeric',
+      weekday: 'long'
+    });
+
+    const total = tasks.length;
+    const completed = tasks.filter(t => t.status === 'completed').length;
+    const failed = tasks.filter(t => t.status === 'failed').length;
+    const inProgress = tasks.filter(t => t.status === 'in_progress').length;
+    const pending = tasks.filter(t => t.status === 'pending').length;
+    const rate = total > 0 ? Math.round((completed / total) * 100) : 0;
+
+    return `
+      <div class="detail-header">
+        <div class="detail-date">${dateStr}</div>
+        <div class="detail-summary">
+          <div class="detail-stat">
+            <span class="detail-stat-value">${total}</span>
+            <span class="detail-stat-label">总任务</span>
+          </div>
+          <div class="detail-stat completed">
+            <span class="detail-stat-value">${completed}</span>
+            <span class="detail-stat-label">已完成</span>
+          </div>
+          <div class="detail-stat failed">
+            <span class="detail-stat-value">${failed}</span>
+            <span class="detail-stat-label">已失败</span>
+          </div>
+          <div class="detail-stat rate">
+            <span class="detail-stat-value">${rate}%</span>
+            <span class="detail-stat-label">完成率</span>
+          </div>
+        </div>
+      </div>
+      <div class="detail-tasks">
+        <h4><i class="fas fa-list"></i> 任务列表</h4>
+        ${tasks.length === 0 ? '<p class="detail-empty">该计划没有任务</p>' : ''}
+        ${tasks.map(task => {
+          const status = STATUS_CONFIG[task.status];
+          const priority = PRIORITY_CONFIG[task.priority] || PRIORITY_CONFIG[3];
+          return `
+            <div class="detail-task-item ${task.status}">
+              <div class="detail-task-status" style="color: ${status.color}">
+                <i class="fas ${status.icon}"></i>
+              </div>
+              <div class="detail-task-content">
+                <span class="detail-task-text">${escapeHtml(task.content)}</span>
+                <span class="detail-task-priority" style="background: ${priority.color}">P${task.priority}</span>
+              </div>
+            </div>
+          `;
+        }).join('')}
+      </div>
+      <div class="detail-actions">
+        <button class="detail-back-btn" onclick="PlanApp.closeDetail(); PlanApp.showHistory();">
+          <i class="fas fa-arrow-left"></i> 返回列表
+        </button>
+      </div>
+    `;
+  }
+
+  /**
+   * 关闭详情模态框
+   */
+  function closeDetail() {
+    const modal = document.querySelector('.detail-modal');
+    if (modal) {
+      modal.remove();
+    }
   }
 
   /**
@@ -577,6 +839,9 @@ const PlanApp = (function() {
     startTask,
     deleteTask,
     showHistory,
+    closeHistory,
+    viewPlanDetail,
+    closeDetail,
     logout
   };
 })();

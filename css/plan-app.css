@@ -934,3 +934,428 @@
     opacity: 1;
   }
 }
+
+/* ==================== 历史记录模态框 ==================== */
+.history-modal-content {
+  max-width: 600px;
+  max-height: 80vh;
+  overflow: hidden;
+  display: flex;
+  flex-direction: column;
+}
+
+.history-modal-content .plan-modal-body {
+  overflow-y: auto;
+  flex: 1;
+  padding: 16px 24px;
+}
+
+/* 历史记录列表 */
+.history-list {
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+}
+
+.history-item {
+  display: flex;
+  align-items: center;
+  padding: 16px;
+  background: rgba(0, 0, 0, 0.02);
+  border-radius: 12px;
+  cursor: pointer;
+  transition: all 0.3s;
+  border-left: 4px solid var(--plan-info);
+}
+
+.history-item:hover {
+  background: rgba(64, 158, 255, 0.08);
+  transform: translateX(4px);
+}
+
+.history-item.today {
+  background: rgba(64, 158, 255, 0.1);
+  border-left-color: var(--plan-primary);
+}
+
+.history-item.perfect {
+  border-left-color: var(--plan-success);
+}
+
+.history-item.good {
+  border-left-color: #85ce61;
+}
+
+.history-item.normal {
+  border-left-color: var(--plan-warning);
+}
+
+.history-item.poor {
+  border-left-color: var(--plan-danger);
+}
+
+/* 日期显示 */
+.history-date {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  min-width: 60px;
+  margin-right: 16px;
+  position: relative;
+}
+
+.history-day {
+  font-size: 28px;
+  font-weight: bold;
+  color: var(--plan-text);
+  line-height: 1;
+}
+
+.history-month {
+  font-size: 12px;
+  color: var(--plan-text-secondary);
+  margin-top: 4px;
+}
+
+.history-today-badge {
+  position: absolute;
+  top: -8px;
+  right: -8px;
+  background: var(--plan-primary);
+  color: white;
+  font-size: 10px;
+  padding: 2px 6px;
+  border-radius: 10px;
+}
+
+/* 历史信息 */
+.history-info {
+  flex: 1;
+  min-width: 0;
+}
+
+.history-title {
+  font-size: 15px;
+  font-weight: 500;
+  color: var(--plan-text);
+  margin-bottom: 6px;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+.history-stats {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 12px;
+}
+
+.history-stat {
+  font-size: 12px;
+  color: var(--plan-text-secondary);
+  display: flex;
+  align-items: center;
+  gap: 4px;
+}
+
+.history-stat.completed {
+  color: var(--plan-success);
+}
+
+.history-stat.failed {
+  color: var(--plan-danger);
+}
+
+/* 进度环 */
+.history-progress {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  margin-left: 16px;
+}
+
+.history-progress-ring {
+  width: 48px;
+  height: 48px;
+  position: relative;
+}
+
+.history-progress-ring svg {
+  width: 100%;
+  height: 100%;
+  transform: rotate(-90deg);
+}
+
+.history-progress-bg {
+  fill: none;
+  stroke: var(--plan-border);
+  stroke-width: 3;
+}
+
+.history-progress-fill {
+  fill: none;
+  stroke: var(--plan-primary);
+  stroke-width: 3;
+  stroke-linecap: round;
+  transition: stroke-dasharray 0.5s ease;
+}
+
+.history-item.perfect .history-progress-fill {
+  stroke: var(--plan-success);
+}
+
+.history-item.good .history-progress-fill {
+  stroke: #85ce61;
+}
+
+.history-item.normal .history-progress-fill {
+  stroke: var(--plan-warning);
+}
+
+.history-item.poor .history-progress-fill {
+  stroke: var(--plan-danger);
+}
+
+.history-progress-text {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  font-size: 11px;
+  font-weight: bold;
+  color: var(--plan-text);
+}
+
+.history-status-icon {
+  font-size: 16px;
+  color: var(--plan-info);
+}
+
+.history-item.perfect .history-status-icon {
+  color: var(--plan-success);
+}
+
+.history-item.good .history-status-icon {
+  color: #85ce61;
+}
+
+.history-item.normal .history-status-icon {
+  color: var(--plan-warning);
+}
+
+.history-item.poor .history-status-icon {
+  color: var(--plan-danger);
+}
+
+/* 空状态和加载状态 */
+.history-empty,
+.history-loading,
+.history-error {
+  text-align: center;
+  padding: 40px 20px;
+  color: var(--plan-text-secondary);
+}
+
+.history-empty i,
+.history-loading i,
+.history-error i {
+  font-size: 48px;
+  margin-bottom: 16px;
+  display: block;
+}
+
+.history-error {
+  color: var(--plan-danger);
+}
+
+/* ==================== 计划详情模态框 ==================== */
+.detail-modal-content {
+  max-width: 550px;
+  max-height: 80vh;
+  overflow: hidden;
+  display: flex;
+  flex-direction: column;
+}
+
+.detail-modal-content .plan-modal-body {
+  overflow-y: auto;
+  flex: 1;
+  padding: 20px 24px;
+}
+
+.detail-header {
+  margin-bottom: 24px;
+}
+
+.detail-date {
+  font-size: 18px;
+  font-weight: 600;
+  color: var(--plan-text);
+  margin-bottom: 16px;
+  text-align: center;
+}
+
+.detail-summary {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 12px;
+}
+
+.detail-stat {
+  text-align: center;
+  padding: 12px 8px;
+  background: rgba(64, 158, 255, 0.05);
+  border-radius: 10px;
+}
+
+.detail-stat-value {
+  display: block;
+  font-size: 24px;
+  font-weight: bold;
+  color: var(--plan-primary);
+}
+
+.detail-stat.completed .detail-stat-value {
+  color: var(--plan-success);
+}
+
+.detail-stat.failed .detail-stat-value {
+  color: var(--plan-danger);
+}
+
+.detail-stat.rate .detail-stat-value {
+  color: var(--plan-warning);
+}
+
+.detail-stat-label {
+  font-size: 12px;
+  color: var(--plan-text-secondary);
+  margin-top: 4px;
+}
+
+/* 任务列表 */
+.detail-tasks {
+  margin-bottom: 20px;
+}
+
+.detail-tasks h4 {
+  font-size: 14px;
+  color: var(--plan-text-secondary);
+  margin: 0 0 12px 0;
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+
+.detail-empty {
+  text-align: center;
+  color: var(--plan-text-secondary);
+  padding: 20px;
+}
+
+.detail-task-item {
+  display: flex;
+  align-items: center;
+  padding: 12px;
+  margin-bottom: 8px;
+  background: rgba(0, 0, 0, 0.02);
+  border-radius: 8px;
+  border-left: 3px solid var(--plan-info);
+}
+
+.detail-task-item.completed {
+  border-left-color: var(--plan-success);
+  opacity: 0.8;
+}
+
+.detail-task-item.failed {
+  border-left-color: var(--plan-danger);
+  opacity: 0.7;
+}
+
+.detail-task-item.in_progress {
+  border-left-color: var(--plan-warning);
+}
+
+.detail-task-status {
+  margin-right: 12px;
+  font-size: 16px;
+}
+
+.detail-task-content {
+  flex: 1;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 12px;
+}
+
+.detail-task-text {
+  font-size: 14px;
+  color: var(--plan-text);
+}
+
+.detail-task-item.completed .detail-task-text,
+.detail-task-item.failed .detail-task-text {
+  text-decoration: line-through;
+  color: var(--plan-text-secondary);
+}
+
+.detail-task-priority {
+  font-size: 10px;
+  padding: 2px 8px;
+  border-radius: 10px;
+  color: white;
+  flex-shrink: 0;
+}
+
+/* 详情操作按钮 */
+.detail-actions {
+  padding-top: 16px;
+  border-top: 1px solid var(--plan-border);
+}
+
+.detail-back-btn {
+  width: 100%;
+  padding: 12px;
+  background: transparent;
+  border: 1px solid var(--plan-border);
+  border-radius: 8px;
+  color: var(--plan-text);
+  cursor: pointer;
+  font-size: 14px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+  transition: all 0.3s;
+}
+
+.detail-back-btn:hover {
+  border-color: var(--plan-primary);
+  color: var(--plan-primary);
+}
+
+/* 响应式 - 历史记录 */
+@media (max-width: 768px) {
+  .history-modal-content,
+  .detail-modal-content {
+    width: 95%;
+    max-height: 90vh;
+  }
+
+  .history-item {
+    flex-wrap: wrap;
+  }
+
+  .history-progress {
+    margin-left: 0;
+    margin-top: 12px;
+    width: 100%;
+    justify-content: flex-end;
+  }
+
+  .detail-summary {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
