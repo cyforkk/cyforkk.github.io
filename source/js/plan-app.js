@@ -327,6 +327,7 @@ const PlanApp = (function() {
     const priority = PRIORITY_CONFIG[task.priority] || PRIORITY_CONFIG[3];
     const isCompleted = task.status === 'completed';
     const isFailed = task.status === 'failed';
+    const durationText = formatDuration(task.duration);
 
     return `
       <div class="task-item ${task.status}" data-id="${task._id}">
@@ -347,6 +348,7 @@ const PlanApp = (function() {
             <span class="task-priority" style="background: ${priority.color}">
               P${task.priority}
             </span>
+            ${durationText ? `<span class="task-duration"><i class="fas fa-clock"></i> ${durationText}</span>` : ''}
           </div>
         </div>
         <div class="task-actions">
@@ -362,6 +364,26 @@ const PlanApp = (function() {
         </div>
       </div>
     `;
+  }
+
+  /**
+   * 格式化耗时
+   */
+  function formatDuration(ms) {
+    if (!ms || ms <= 0) return '';
+
+    const seconds = Math.floor(ms / 1000);
+    const minutes = Math.floor(seconds / 60);
+    const hours = Math.floor(minutes / 60);
+
+    if (hours > 0) {
+      const remainMinutes = minutes % 60;
+      return `${hours}小时${remainMinutes > 0 ? remainMinutes + '分钟' : ''}`;
+    } else if (minutes > 0) {
+      return `${minutes}分钟`;
+    } else {
+      return `${seconds}秒`;
+    }
   }
 
   /**
