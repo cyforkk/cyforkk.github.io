@@ -126,14 +126,6 @@ const PlanApp = (function() {
             <i class="fas fa-clock"></i>
             <span>自动过期提醒</span>
           </div>
-          <div class="feature-item">
-            <i class="fas fa-chart-line"></i>
-            <span>完成率统计</span>
-          </div>
-          <div class="feature-item">
-            <i class="fas fa-copy"></i>
-            <span>模板复刻</span>
-          </div>
         </div>
         <button class="plan-start-btn" onclick="PlanAuth.showModal()">
           <i class="fab fa-github"></i> GitHub 登录开始使用
