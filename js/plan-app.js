@@ -126,14 +126,6 @@ const PlanApp = (function() {
             <i class="fas fa-clock"></i>
             <span>自动过期提醒</span>
           </div>
-          <div class="feature-item">
-            <i class="fas fa-chart-line"></i>
-            <span>完成率统计</span>
-          </div>
-          <div class="feature-item">
-            <i class="fas fa-copy"></i>
-            <span>模板复刻</span>
-          </div>
         </div>
         <button class="plan-start-btn" onclick="PlanAuth.showModal()">
           <i class="fab fa-github"></i> GitHub 登录开始使用
@@ -335,6 +327,7 @@ const PlanApp = (function() {
     const priority = PRIORITY_CONFIG[task.priority] || PRIORITY_CONFIG[3];
     const isCompleted = task.status === 'completed';
     const isFailed = task.status === 'failed';
+    const durationText = formatDuration(task.duration);
 
     return `
       <div class="task-item ${task.status}" data-id="${task._id}">
@@ -355,13 +348,11 @@ const PlanApp = (function() {
             <span class="task-priority" style="background: ${priority.color}">
               P${task.priority}
             </span>
+            ${durationText ? `<span class="task-duration"><i class="fas fa-clock"></i> ${durationText}</span>` : ''}
           </div>
         </div>
         <div class="task-actions">
           ${!isCompleted && !isFailed ? `
-            <button class="task-action-btn edit" onclick="PlanApp.showEditTask('${task._id}')" title="编辑">
-              <i class="fas fa-edit"></i>
-            </button>
             <button class="task-action-btn start" onclick="PlanApp.startTask('${task._id}')"
                     title="开始" ${task.status === 'in_progress' ? 'style="display:none"' : ''}>
               <i class="fas fa-play"></i>
@@ -373,6 +364,26 @@ const PlanApp = (function() {
         </div>
       </div>
     `;
+  }
+
+  /**
+   * 格式化耗时
+   */
+  function formatDuration(ms) {
+    if (!ms || ms <= 0) return '';
+
+    const seconds = Math.floor(ms / 1000);
+    const minutes = Math.floor(seconds / 60);
+    const hours = Math.floor(minutes / 60);
+
+    if (hours > 0) {
+      const remainMinutes = minutes % 60;
+      return `${hours}小时${remainMinutes > 0 ? remainMinutes + '分钟' : ''}`;
+    } else if (minutes > 0) {
+      return `${minutes}分钟`;
+    } else {
+      return `${seconds}秒`;
+    }
   }
 
   /**
@@ -529,142 +540,6 @@ const PlanApp = (function() {
   }
 
   /**
-   * 显示编辑任务模态框
-   */
-  function showEditTask(taskId) {
-    const task = currentTasks.find(t => t._id === taskId);
-    if (!task) {
-      PlanAuth.showToast('任务不存在', 'error');
-      return;
-    }
-
-    const modal = document.createElement('div');
-    modal.className = 'plan-modal edit-task-modal';
-    modal.innerHTML = `
-      <div class="plan-modal-overlay" onclick="PlanApp.closeEditTask()"></div>
-      <div class="plan-modal-content edit-task-modal-content">
-        <div class="plan-modal-header">
-          <h3><i class="fas fa-edit"></i> 编辑任务</h3>
-          <button class="plan-modal-close" onclick="PlanApp.closeEditTask()">&times;</button>
-        </div>
-        <div class="plan-modal-body">
-          <div class="edit-task-form">
-            <div class="form-group">
-              <label for="edit-task-content">任务内容</label>
-              <input type="text" id="edit-task-content" value="${escapeHtml(task.content)}"
-                     placeholder="输入任务内容..." maxlength="200">
-            </div>
-            <div class="form-group">
-              <label for="edit-task-priority">优先级</label>
-              <select id="edit-task-priority">
-                <option value="5" ${task.priority === 5 ? 'selected' : ''}>P5 - 最高</option>
-                <option value="4" ${task.priority === 4 ? 'selected' : ''}>P4 - 较高</option>
-                <option value="3" ${task.priority === 3 ? 'selected' : ''}>P3 - 普通</option>
-                <option value="2" ${task.priority === 2 ? 'selected' : ''}>P2 - 较低</option>
-                <option value="1" ${task.priority === 1 ? 'selected' : ''}>P1 - 最低</option>
-              </select>
-            </div>
-            <div class="form-group">
-              <label>当前状态</label>
-              <div class="edit-task-status">
-                <span class="status-badge ${task.status}">${STATUS_CONFIG[task.status].label}</span>
-              </div>
-            </div>
-            <div class="edit-task-actions">
-              <button class="edit-cancel-btn" onclick="PlanApp.closeEditTask()">
-                <i class="fas fa-times"></i> 取消
-              </button>
-              <button class="edit-save-btn" onclick="PlanApp.saveEditTask('${taskId}')">
-                <i class="fas fa-check"></i> 保存
-              </button>
-            </div>
-          </div>
-        </div>
-      </div>
-    `;
-    document.body.appendChild(modal);
-
-    // 聚焦到输入框
-    setTimeout(() => {
-      const input = document.getElementById('edit-task-content');
-      if (input) {
-        input.focus();
-        input.select();
-      }
-    }, 100);
-
-    // 绑定回车键保存
-    const contentInput = modal.querySelector('#edit-task-content');
-    contentInput.addEventListener('keypress', (e) => {
-      if (e.key === 'Enter') {
-        saveEditTask(taskId);
-      }
-    });
-  }
-
-  /**
-   * 关闭编辑任务模态框
-   */
-  function closeEditTask() {
-    const modal = document.querySelector('.edit-task-modal');
-    if (modal) {
-      modal.remove();
-    }
-  }
-
-  /**
-   * 保存编辑的任务
-   */
-  async function saveEditTask(taskId) {
-    const contentInput = document.getElementById('edit-task-content');
-    const prioritySelect = document.getElementById('edit-task-priority');
-
-    const content = contentInput.value.trim();
-    const priority = parseInt(prioritySelect.value);
-
-    if (!content) {
-      PlanAuth.showToast('任务内容不能为空', 'warning');
-      contentInput.focus();
-      return;
-    }
-
-    // 检查是否有变化
-    const task = currentTasks.find(t => t._id === taskId);
-    if (task && task.content === content && task.priority === priority) {
-      closeEditTask();
-      return;
-    }
-
-    // 禁用保存按钮
-    const saveBtn = document.querySelector('.edit-save-btn');
-    if (saveBtn) {
-      saveBtn.disabled = true;
-      saveBtn.innerHTML = '<i class="fas fa-spinner fa-spin"></i> 保存中...';
-    }
-
-    const result = await PlanAPI.updateTask(taskId, { content, priority });
-
-    if (result.success) {
-      // 更新本地数据
-      const taskIndex = currentTasks.findIndex(t => t._id === taskId);
-      if (taskIndex !== -1) {
-        currentTasks[taskIndex].content = content;
-        currentTasks[taskIndex].priority = priority;
-      }
-      renderTasks();
-      closeEditTask();
-      PlanAuth.showToast('任务已更新', 'success');
-    } else {
-      PlanAuth.showToast(result.error?.message || '更新失败', 'error');
-      // 恢复按钮
-      if (saveBtn) {
-        saveBtn.disabled = false;
-        saveBtn.innerHTML = '<i class="fas fa-check"></i> 保存';
-      }
-    }
-  }
-
-  /**
    * 显示历史记录
    */
   async function showHistory() {
@@ -729,9 +604,10 @@ const PlanApp = (function() {
       weekday: 'short'
     });
 
-    const total = plan.stats_total || 0;
-    const completed = plan.stats_completed || 0;
-    const failed = plan.stats_failed || 0;
+    const stats = plan.taskStats || {};
+    const total = stats.total || 0;
+    const completed = stats.completed || 0;
+    const failed = stats.failed || 0;
     const rate = total > 0 ? Math.round((completed / total) * 100) : 0;
 
     // 判断状态
@@ -977,9 +853,6 @@ const PlanApp = (function() {
     toggleTask,
     startTask,
     deleteTask,
-    showEditTask,
-    closeEditTask,
-    saveEditTask,
     showHistory,
     closeHistory,
     viewPlanDetail,
