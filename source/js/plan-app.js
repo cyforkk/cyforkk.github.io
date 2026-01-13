@@ -604,9 +604,10 @@ const PlanApp = (function() {
       weekday: 'short'
     });
 
-    const total = plan.stats_total || 0;
-    const completed = plan.stats_completed || 0;
-    const failed = plan.stats_failed || 0;
+    const stats = plan.taskStats || {};
+    const total = stats.total || 0;
+    const completed = stats.completed || 0;
+    const failed = stats.failed || 0;
     const rate = total > 0 ? Math.round((completed / total) * 100) : 0;
 
     // 判断状态
