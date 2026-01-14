@@ -92,7 +92,7 @@ menu:
 
 code_blocks:
   # 代码块主题: darker / pale night / light / ocean / false
-  theme: false
+  theme: darker
   # 是否使用 Mac 风格
   macStyle: false
   # 代码块高度限制（单位: px）
