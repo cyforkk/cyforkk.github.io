@@ -527,6 +527,59 @@ img.loading {
   background: linear-gradient(135deg, #4a5568 0%, #718096 100%);
 }
 
+/* ==================== 代码块滚动条美化 ==================== */
+#article-container figure.highlight {
+  overflow: hidden;
+}
+
+#article-container figure.highlight table {
+  overflow-x: auto;
+}
+
+#article-container figure.highlight .code-container,
+#article-container figure.highlight pre,
+#article-container figure.highlight .table-container {
+  overflow-x: auto;
+  scrollbar-width: thin;
+  scrollbar-color: rgba(102, 126, 234, 0.5) transparent;
+}
+
+/* Webkit 滚动条样式 */
+#article-container figure.highlight pre::-webkit-scrollbar,
+#article-container figure.highlight .code-container::-webkit-scrollbar,
+#article-container figure.highlight .table-container::-webkit-scrollbar {
+  height: 6px;
+  width: 6px;
+}
+
+#article-container figure.highlight pre::-webkit-scrollbar-track,
+#article-container figure.highlight .code-container::-webkit-scrollbar-track,
+#article-container figure.highlight .table-container::-webkit-scrollbar-track {
+  background: transparent;
+  border-radius: 3px;
+}
+
+#article-container figure.highlight pre::-webkit-scrollbar-thumb,
+#article-container figure.highlight .code-container::-webkit-scrollbar-thumb,
+#article-container figure.highlight .table-container::-webkit-scrollbar-thumb {
+  background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+  border-radius: 3px;
+  transition: background 0.3s ease;
+}
+
+#article-container figure.highlight pre::-webkit-scrollbar-thumb:hover,
+#article-container figure.highlight .code-container::-webkit-scrollbar-thumb:hover,
+#article-container figure.highlight .table-container::-webkit-scrollbar-thumb:hover {
+  background: linear-gradient(135deg, #764ba2 0%, #f093fb 100%);
+}
+
+/* 暗黑模式滚动条 */
+[data-theme="dark"] #article-container figure.highlight pre::-webkit-scrollbar-thumb,
+[data-theme="dark"] #article-container figure.highlight .code-container::-webkit-scrollbar-thumb,
+[data-theme="dark"] #article-container figure.highlight .table-container::-webkit-scrollbar-thumb {
+  background: linear-gradient(135deg, #667eea 0%, #9b59b6 100%);
+}
+
 /* ==================== 代码块行号美化 ==================== */
 #article-container figure.highlight .gutter {
   background: rgba(0, 0, 0, 0.05);
